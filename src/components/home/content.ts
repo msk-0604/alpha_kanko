@@ -17,6 +17,28 @@ export const businessItems = [
   "修繕・メンテナンス",
 ];
 
+// 既存セクション互換のため残す
+export const strengthItems = [
+  "地域密着の対応力",
+  "確かな施工品質",
+  "法人・公共工事対応",
+  "安全管理の徹底",
+  "長年の実績",
+];
+
+// 既存セクション互換のため残す
+export const workCategories = [
+  "公共施設",
+  "商業施設",
+  "マンション",
+  "工場",
+  "戸建住宅",
+  "店舗",
+];
+
+// 既存セクション互換のため残す
+export const qualityItems = ["現場管理", "工程管理", "安全教育", "法令遵守"];
+
 export const companyHighlights = [
   "創業 平成3年、地域密着で継続対応",
   "代表 山口 豊樹による現場品質重視の運営",
