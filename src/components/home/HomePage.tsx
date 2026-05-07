@@ -17,6 +17,12 @@ import { AccessSection } from "./AccessSection";
 import { CTASection } from "./CTASection";
 import { Footer } from "./Footer";
 import { MobileFixedCTA } from "./MobileFixedCTA";
+import { TroubleWorksSection } from "./TroubleWorksSection";
+import { SymptomSection } from "./SymptomSection";
+import { EmergencyCTASection } from "./EmergencyCTASection";
+import { ServiceListSection } from "./ServiceListSection";
+import { FlowSection } from "./FlowSection";
+import { LocalTrustSection } from "./LocalTrustSection";
 import styles from "./home.module.css";
 
 export function HomePage() {
@@ -89,8 +95,14 @@ export function HomePage() {
       <main>
         <Hero />
         <NewsSection />
+        <TroubleWorksSection />
+        <SymptomSection />
+        <EmergencyCTASection />
         <BusinessSection />
+        <ServiceListSection />
         <StrengthSection />
+        <FlowSection />
+        <LocalTrustSection />
         <CaseStudiesSection />
         <AreaSection />
         <CustomerVoicesSection />

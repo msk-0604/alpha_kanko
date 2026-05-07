@@ -7,15 +7,15 @@ export function Hero() {
       <div className={styles.container}>
         <div className={styles.heroContent}>
           <span className={styles.heroBadge} data-animate="hero-badge">
-            SHIGA / OTSU
+            地域密着 / 迅速対応
           </span>
           <h1 data-animate="hero-title">
-            <span>水まわりから街のインフラまで、</span>
-            <span>確かな技術で支える。</span>
+            <span>水まわりのトラブルを迅速対応</span>
+            <span>滋賀県大津市の水まわりのホームドクター</span>
           </h1>
           <p data-animate="hero-description">
-            給排水衛生設備工事・配管工事・水道施設工事まで、
-            法人・官公庁・施設管理者様の現場に迅速かつ丁寧に対応します。
+            水漏れ・詰まり・給排水設備工事まで、
+            地域密着で迅速・丁寧に対応いたします。
           </p>
           <div className={styles.heroActions} data-animate="hero-actions">
             <a href="tel:0775793507" className={styles.primaryButton} data-animate="cta-btn">

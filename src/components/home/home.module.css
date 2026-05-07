@@ -325,6 +325,120 @@
   gap: 1rem;
 }
 
+.troubleGrid,
+.serviceGrid,
+.flowGrid,
+.localTrustGrid {
+  display: grid;
+  gap: 1rem;
+}
+
+.troubleCard {
+  background: #fff;
+  border: 1px solid #d8e2ec;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 8px 20px rgba(15, 39, 64, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.troubleCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(15, 39, 64, 0.09);
+}
+
+.troubleCard h3 {
+  margin: 0 0 0.5rem;
+  color: #0f2740;
+}
+
+.troubleSummary {
+  margin: 0 0 0.6rem;
+  color: #3b556f;
+  font-size: 0.92rem;
+}
+
+.troubleCard ul {
+  margin: 0;
+  padding-left: 1rem;
+  color: #334155;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.troubleOther {
+  margin-top: 0.7rem !important;
+  font-size: 0.88rem;
+  color: #173a60;
+  font-weight: 600;
+}
+
+.symptomAccordion {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.symptomItem {
+  background: #fff;
+  border: 1px solid #d8e2ec;
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+}
+
+.symptomItem summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #123a63;
+}
+
+.symptomItem ul {
+  margin: 0.75rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.3rem;
+  color: #334155;
+}
+
+.serviceItem {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #d8e2ec;
+  border-radius: 999px;
+  padding: 0.55rem 0.9rem;
+  color: #123a63;
+  font-weight: 600;
+}
+
+.flowCard {
+  background: #fff;
+  border: 1px solid #d8e2ec;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.flowCard h3 {
+  margin: 0 0 0.5rem;
+  color: #0f2740;
+}
+
+.flowCard p {
+  margin: 0;
+  color: #334155;
+}
+
+.localTrustCard {
+  border: 1px solid #d8e2ec;
+  border-radius: 10px;
+  background: #fff;
+  padding: 1rem;
+}
+
+.localTrustCard h3 {
+  margin: 0;
+  color: #123a63;
+  font-size: 1rem;
+}
+
 .businessCard,
 .strengthCard {
   background: #fff;
@@ -1027,8 +1141,21 @@
   }
 
   .businessGrid,
-  .strengthGrid {
+  .strengthGrid,
+  .troubleGrid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .serviceGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .flowGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .localTrustGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .caseStudyScroller {
@@ -1095,6 +1222,10 @@
   .heroActions a,
   .ctaActions a {
     width: 100%;
+  }
+
+  .areaListWrap {
+    grid-template-columns: 1fr;
   }
 }
 

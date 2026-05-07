@@ -15,15 +15,137 @@ export type CaseStudy = {
   after: string;
   images: string[];
 };
+export type TroubleCard = {
+  title: string;
+  icon: string;
+  summary: string;
+  troubles: string[];
+  others?: string[];
+};
+export type SymptomGroup = { title: string; items: string[] };
 
 export const navItems: NavItem[] = [
   { label: "トップ", href: "#top" },
   { label: "お知らせ", href: "#news" },
+  { label: "主な工事内容", href: "#troubles" },
+  { label: "症状一覧", href: "#symptoms" },
   { label: "事業内容", href: "#business" },
   { label: "選ばれる理由", href: "#strengths" },
   { label: "施工事例", href: "#case-studies" },
   { label: "会社情報", href: "#company-info" },
   { label: "アクセス", href: "#access" },
+];
+
+export const troubleCards: TroubleCard[] = [
+  {
+    title: "トイレ",
+    icon: "🚽",
+    summary: "水漏れ・詰まり・設備交換を迅速対応します。",
+    troubles: ["タンク・便器・床・給水管の水漏れ", "異物による詰まり"],
+    others: ["ウォシュレット取り付け"],
+  },
+  {
+    title: "お風呂",
+    icon: "🛁",
+    summary: "蛇口や排水の不調を丁寧に点検・修理します。",
+    troubles: ["蛇口・シャワーヘッドの水漏れ", "排水溝の詰まり"],
+  },
+  {
+    title: "キッチン",
+    icon: "🍳",
+    summary: "水漏れから排水詰まりまで生活動線を止めずに対応します。",
+    troubles: ["蛇口・排水管の水漏れ", "水道の出が悪い", "油脂や料理カスによる詰まり"],
+  },
+  {
+    title: "洗面室",
+    icon: "🧴",
+    summary: "見えにくい漏水や異臭の原因も確認して解決します。",
+    troubles: ["蛇口からの水漏れ", "洗面台下の湿り", "異臭"],
+    others: ["洗濯専用蛇口への交換"],
+  },
+  {
+    title: "排水管",
+    icon: "🧰",
+    summary: "詰まり・漏れ・異臭を総合的に診断します。",
+    troubles: ["詰まり", "水漏れ", "異臭", "床のシミ"],
+  },
+  {
+    title: "ガス給湯器",
+    icon: "♨️",
+    summary: "お湯が出ないトラブルや交換相談にも対応します。",
+    troubles: ["お湯が出ない", "温度が上がらない", "水漏れ"],
+    others: ["給湯器修理", "全メーカー対応"],
+  },
+  {
+    title: "水栓柱",
+    icon: "🚿",
+    summary: "屋外設備の破損や漏れも現地で迅速に対応します。",
+    troubles: ["凍結による破損", "蛇口の水漏れ"],
+  },
+  {
+    title: "その他",
+    icon: "🔩",
+    summary: "水まわりで気になる症状はまずご相談ください。",
+    troubles: ["まずは症状をヒアリング", "現地確認後に最適な対応をご提案"],
+  },
+];
+
+export const symptomGroups: SymptomGroup[] = [
+  {
+    title: "水漏れ",
+    items: [
+      "タンクから水が漏れている",
+      "パイプ接続部分から水漏れ",
+      "洗面台下が湿っている",
+      "蛇口を閉めてもボタボタ垂れる",
+      "キッチン床から水が染み出る",
+    ],
+  },
+  {
+    title: "詰まり",
+    items: [
+      "水に溶けないものを流した",
+      "水が流れない",
+      "タンク内に水がたまらない",
+      "ゴボゴボ音がする",
+      "排水口から異臭",
+    ],
+  },
+  {
+    title: "修理",
+    items: ["蛇口がグラグラする", "赤い錆び水", "水圧が弱い", "異臭がする"],
+  },
+];
+
+export const serviceItems = [
+  "水道衛生工事",
+  "給排水設備工事",
+  "緊急メンテナンス",
+  "リフォーム",
+  "詰まり修理",
+  "水漏れ修理",
+  "排水管洗浄",
+  "漏水調査",
+  "給水管修理",
+  "給湯器交換",
+  "IH",
+  "エコ給湯",
+];
+
+export const flowSteps = [
+  { title: "STEP1 お電話にてご依頼", description: "症状を伺い、訪問時間の目安をご案内します。" },
+  { title: "STEP2 作業", description: "現地確認後、必要な作業内容を説明し迅速に対応します。" },
+  { title: "STEP3 決済・作業終了", description: "完了確認とご説明を行い、安心してご利用いただける状態でお渡しします。" },
+];
+
+export const localTrustPoints = [
+  "適正価格",
+  "良心的対応",
+  "マナー徹底",
+  "笑顔",
+  "挨拶",
+  "身だしなみ",
+  "地域で一番親切・丁寧な水道屋を目指す",
 ];
 
 export const businessItems: BusinessItem[] = [
@@ -219,9 +341,11 @@ export const instagramUrl = "https://www.instagram.com/";
 
 export const companyProfile = [
   { label: "会社名", value: "株式会社アルファ管工" },
+  { label: "代表者", value: "山口 豊樹" },
   { label: "所在地", value: "滋賀県大津市坂本6丁目8-8" },
   { label: "TEL", value: "077-579-3507" },
   { label: "E-mail", value: "honsha@alpha-kanko.co.jp" },
-  { label: "事業内容", value: "配管工事、水道設備工事、給排水設備工事、修繕対応" },
-  { label: "対応エリア", value: "滋賀県全域、京都府南部、大阪府北部、関西近郊エリア（要相談）" },
+  { label: "創業", value: "平成3年" },
+  { label: "事業内容", value: "一般住宅の水道、排水等の配管工事及び水まわりリフォーム工事" },
+  { label: "指定番号", value: "大津市指定給水装置工事事業者（第192号） / 大津市指定排水設備工事事業者（第192号）" },
 ];
