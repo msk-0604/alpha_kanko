@@ -43,13 +43,13 @@ export function Footer() {
                 <a href="#company-info">会社案内</a>
               </li>
               <li>
-                <a href="#business">事業案内</a>
+                <a href="#business">事業内容</a>
               </li>
               <li>
                 <a href="#case-studies">施工事例</a>
               </li>
               <li>
-                <a href="#voices">お客様の声</a>
+                <a href="#news">お知らせ</a>
               </li>
             </ul>
           </section>

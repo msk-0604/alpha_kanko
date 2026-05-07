@@ -1,15 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItems } from "./content";
 import styles from "./home.module.css";
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeHash, setActiveHash] = useState("#top");
+
+  useEffect(() => {
+    const updateState = () => {
+      setIsScrolled(window.scrollY > 8);
+      const sections = navItems
+        .map((item) => document.querySelector(item.href) as HTMLElement | null)
+        .filter((section): section is HTMLElement => Boolean(section));
+
+      const current = sections.find((section) => {
+        const rect = section.getBoundingClientRect();
+        return rect.top <= 140 && rect.bottom >= 140;
+      });
+      if (current?.id) {
+        setActiveHash(`#${current.id}`);
+      }
+    };
+
+    updateState();
+    window.addEventListener("scroll", updateState, { passive: true });
+    window.addEventListener("hashchange", updateState);
+
+    return () => {
+      window.removeEventListener("scroll", updateState);
+      window.removeEventListener("hashchange", updateState);
+    };
+  }, []);
 
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
       <div className={styles.container}>
         <div className={styles.headerInner}>
           <Link href="/" className={styles.logo}>
@@ -17,7 +45,11 @@ export function Header() {
           </Link>
           <nav className={styles.desktopNav}>
             {navItems.map((item) => (
-              <a key={item.href} href={item.href}>
+              <a
+                key={item.href}
+                href={item.href}
+                className={activeHash === item.href ? styles.navActive : undefined}
+              >
                 {item.label}
               </a>
             ))}
@@ -43,7 +75,12 @@ export function Header() {
             TEL: 077-579-3507
           </a>
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
+            <a
+              key={item.href}
+              href={item.href}
+              className={activeHash === item.href ? styles.navActive : undefined}
+              onClick={() => setIsOpen(false)}
+            >
               {item.label}
             </a>
           ))}

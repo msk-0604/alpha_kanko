@@ -1,0 +1,16 @@
+{
+  "name": "株式会社アルファ管工",
+  "short_name": "アルファ管工",
+  "description": "滋賀県大津市の給排水・配管・水道設備工事会社",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f8fb",
+  "theme_color": "#0f2740",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

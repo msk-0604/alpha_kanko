@@ -22,6 +22,12 @@ body {
   font-family: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN",
     "Yu Gothic", sans-serif;
   line-height: 1.7;
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
+  scroll-behavior: smooth;
 }
 
 a {

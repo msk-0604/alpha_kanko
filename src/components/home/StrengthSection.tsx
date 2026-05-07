@@ -9,6 +9,9 @@ export function StrengthSection() {
         <div className={styles.strengthGrid}>
           {strengths.map((item) => (
             <article key={item} className={styles.strengthCard} data-animate="fade-card">
+              <p className={styles.cardIcon} aria-hidden="true">
+                ✓
+              </p>
               <h3>{item}</h3>
               <p>現場ごとの条件に合わせ、品質・安全・納期のバランスを重視して対応します。</p>
             </article>

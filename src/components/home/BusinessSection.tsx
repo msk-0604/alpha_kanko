@@ -11,9 +11,12 @@ export function BusinessSection() {
         </p>
         <div className={styles.businessGrid}>
           {businessItems.map((item) => (
-            <article key={item} className={styles.businessCard} data-animate="business-card">
-              <h3>{item}</h3>
-              <p>現地調査から施工、報告まで一貫対応し、運用面まで見据えたご提案を行います。</p>
+            <article key={item.title} className={styles.businessCard} data-animate="business-card">
+              <p className={styles.cardIcon} aria-hidden="true">
+                {item.icon}
+              </p>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
             </article>
           ))}
         </div>

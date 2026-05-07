@@ -12,6 +12,9 @@ export function CustomerVoicesSection() {
         <div className={styles.voiceGrid}>
           {customerVoices.map((v) => (
             <article key={v.title} className={styles.voiceCard} data-animate="fade-card">
+              <p className={styles.voiceQuote} aria-hidden="true">
+                &ldquo;
+              </p>
               <h3>{v.title}</h3>
               <p>{v.comment}</p>
               <strong>{v.name}</strong>

@@ -12,24 +12,34 @@ export function CaseStudiesSection() {
         </p>
         <div className={styles.caseStudyScroller}>
           {caseStudies.map((item) => (
-            <article key={item.title} className={styles.caseCard} data-animate="fade-card">
+            <article key={item.id} className={styles.caseCard} data-animate="fade-card">
               <div className={styles.caseImageWrap}>
-                <Image src={item.image} alt={item.title} fill sizes="(max-width: 768px) 85vw, 33vw" loading="lazy" />
+                {item.images.length > 0 ? (
+                  <Image
+                    src={item.images[0]}
+                    alt={item.title}
+                    fill
+                    sizes="(max-width: 768px) 85vw, 33vw"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className={styles.caseImageFallback}>施工写真準備中</div>
+                )}
               </div>
               <div className={styles.caseBody}>
                 <h3>{item.title}</h3>
-                <p>{item.description}</p>
+                <p>{item.summary}</p>
                 <p className={styles.caseDetail}>課題：{item.challenge}</p>
-                <p className={styles.caseDetail}>対応内容：{item.solution}</p>
+                <p className={styles.caseDetail}>工事概要：{item.solution}</p>
                 <div className={styles.caseMeta}>
                   <span>対応エリア：{item.area}</span>
-                  <span>工事内容：{item.category}</span>
-                  <span>作業時間：{item.duration}</span>
+                  <span>対応内容：{item.category}</span>
+                  <span>工期：{item.duration}</span>
                   <span>費用目安：{item.cost}</span>
                 </div>
                 <div className={styles.beforeAfterRow}>
-                  <span>Before</span>
-                  <span>After</span>
+                  <span>Before：{item.before}</span>
+                  <span>After：{item.after}</span>
                 </div>
               </div>
             </article>

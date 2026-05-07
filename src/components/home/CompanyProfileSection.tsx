@@ -10,7 +10,13 @@ export function CompanyProfileSection() {
           {companyProfile.map((row) => (
             <div key={row.label} className={styles.profileRow}>
               <p>{row.label}</p>
-              <p>{row.value}</p>
+              <p>
+                {row.label === "TEL"
+                  ? <a href="tel:0775793507">{row.value}</a>
+                  : row.label === "E-mail"
+                    ? <a href="mailto:honsha@alpha-kanko.co.jp">{row.value}</a>
+                    : row.value}
+              </p>
             </div>
           ))}
         </div>
