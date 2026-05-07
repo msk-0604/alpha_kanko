@@ -41,7 +41,8 @@ export function Header() {
       <div className={styles.container}>
         <div className={styles.headerInner}>
           <Link href="/" className={styles.logo}>
-            株式会社アルファ管工
+            <span className={styles.logoMain}>株式会社アルファ管工</span>
+            <span className={styles.logoSub}>滋賀県大津市 / 水まわりのホームドクター</span>
           </Link>
           <nav className={styles.desktopNav}>
             {navItems.map((item) => (
