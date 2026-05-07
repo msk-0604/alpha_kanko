@@ -23,7 +23,7 @@ export function Header() {
             ))}
           </nav>
           <a href="tel:0775793507" className={styles.headerCta} aria-label="電話する">
-            <span>📞</span>077-579-3507
+            077-579-3507
           </a>
           <button
             className={styles.hamburger}

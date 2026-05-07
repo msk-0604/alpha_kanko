@@ -17,6 +17,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className={styles.footerInstagram}
               aria-label="Instagramへ移動"
+              title="Instagram"
             >
               <span className={styles.instagramBadge} aria-hidden="true">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
@@ -25,7 +26,6 @@ export function Footer() {
                   <circle cx="17.5" cy="6.5" r="1.2" fill="white" />
                 </svg>
               </span>
-              Instagram
             </a>
           </div>
           <div>
@@ -46,10 +46,10 @@ export function Footer() {
                 <a href="#business">事業案内</a>
               </li>
               <li>
-                <a href="#disclosure">情報公開</a>
+                <a href="#case-studies">施工事例</a>
               </li>
               <li>
-                <a href="#csr">CSR</a>
+                <a href="#access">アクセス</a>
               </li>
             </ul>
           </div>

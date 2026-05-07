@@ -2,8 +2,6 @@ export const navItems = [
   { label: "トップ", href: "#top" },
   { label: "会社案内", href: "#company-info" },
   { label: "事業案内", href: "#business" },
-  { label: "情報公開", href: "#disclosure" },
-  { label: "CSR", href: "#csr" },
   { label: "アクセス", href: "#access" },
   { label: "施工事例", href: "#case-studies" },
 ];

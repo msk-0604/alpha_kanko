@@ -10,8 +10,6 @@ import { GoogleReviewSection } from "./GoogleReviewSection";
 import { GreetingSection } from "./GreetingSection";
 import { CompanyInfoSection } from "./CompanyInfoSection";
 import { BusinessSection } from "./BusinessSection";
-import { DisclosureSection } from "./DisclosureSection";
-import { CsrSection } from "./CsrSection";
 import { SupportSection } from "./SupportSection";
 import { NewsSection } from "./NewsSection";
 import { AccessSection } from "./AccessSection";
@@ -56,15 +54,13 @@ export function HomePage() {
       <Header />
       <main>
         <Hero />
+        <NewsSection />
         <CaseStudiesSection />
         <GoogleReviewSection />
         <GreetingSection />
         <CompanyInfoSection />
         <BusinessSection />
-        <DisclosureSection />
-        <CsrSection />
         <SupportSection />
-        <NewsSection />
         <AccessSection />
         <CTASection />
       </main>
