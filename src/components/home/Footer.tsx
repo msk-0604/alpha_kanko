@@ -6,7 +6,7 @@ export function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.footerGrid}>
-          <div>
+          <section>
             <h3>株式会社アルファ管工</h3>
             <p>滋賀県大津市坂本6丁目8-8</p>
             <p>TEL: 077-579-3507</p>
@@ -27,16 +27,16 @@ export function Footer() {
                 </svg>
               </span>
             </a>
-          </div>
-          <div>
+          </section>
+          <section>
             <h3>対応エリア</h3>
             <ul>
               {areaList.map((area) => (
                 <li key={area}>{area}</li>
               ))}
             </ul>
-          </div>
-          <div>
+          </section>
+          <section>
             <h3>関連ページ</h3>
             <ul>
               <li>
@@ -52,7 +52,17 @@ export function Footer() {
                 <a href="#access">アクセス</a>
               </li>
             </ul>
-          </div>
+          </section>
+          <section className={styles.footerCtaColumn}>
+            <h3>お問い合わせ</h3>
+            <p>設備工事・修繕のご相談はお気軽にご連絡ください。</p>
+            <a href="tel:0775793507" className={styles.footerCallButton}>
+              077-579-3507
+            </a>
+            <a href="/contact" className={styles.footerContactButton}>
+              お問い合わせフォーム
+            </a>
+          </section>
         </div>
         <small>© Alpha Kanko Co., Ltd.</small>
       </div>

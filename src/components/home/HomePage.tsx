@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { CaseStudiesSection } from "./CaseStudiesSection";
-import { GoogleReviewSection } from "./GoogleReviewSection";
 import { GreetingSection } from "./GreetingSection";
 import { CompanyInfoSection } from "./CompanyInfoSection";
 import { BusinessSection } from "./BusinessSection";
@@ -56,7 +55,6 @@ export function HomePage() {
         <Hero />
         <NewsSection />
         <CaseStudiesSection />
-        <GoogleReviewSection />
         <GreetingSection />
         <CompanyInfoSection />
         <BusinessSection />

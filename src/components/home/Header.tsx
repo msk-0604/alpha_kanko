@@ -39,6 +39,9 @@ export function Header() {
       </div>
       {isOpen && (
         <div className={styles.mobileMenu}>
+          <a href="tel:0775793507" className={styles.mobileMenuPhone}>
+            TEL: 077-579-3507
+          </a>
           {navItems.map((item) => (
             <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
               {item.label}
