@@ -693,18 +693,28 @@
 }
 
 .footerInstagram {
-  margin-top: 0.55rem;
+  margin-top: 0.7rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.34rem;
-  min-height: 34px;
-  padding: 0.3rem 0.62rem;
-  border: 1px solid #c0cfdf;
+  gap: 0.5rem;
+  min-height: 40px;
+  padding: 0.38rem 0.82rem;
+  border: 1px solid #b9cbe0;
   border-radius: 999px;
-  color: #0f3b66;
+  color: #173b62;
   font-weight: 700;
-  font-size: 0.84rem;
-  background: #f4f8fc;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, #fdf2ff, #f4f8fc 48%, #eef6ff);
+}
+
+.footerInstagram svg {
+  width: 18px;
+  height: 18px;
+}
+
+.footerInstagram:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(25, 53, 86, 0.13);
 }
 
 .footer small {

@@ -5,7 +5,7 @@ export const navItems = [
   { label: "情報公開", href: "#disclosure" },
   { label: "CSR", href: "#csr" },
   { label: "アクセス", href: "#access" },
-  { label: "お問い合わせ", href: "#contact" },
+  { label: "施工事例", href: "#case-studies" },
 ];
 
 export const businessItems = [
