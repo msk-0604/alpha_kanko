@@ -1,4 +1,4 @@
-import { areaList } from "./content";
+import { areaList, instagramUrl } from "./content";
 import styles from "./home.module.css";
 
 export function Footer() {
@@ -11,6 +11,22 @@ export function Footer() {
             <p>滋賀県大津市坂本6丁目8-8</p>
             <p>TEL: 077-579-3507</p>
             <p>E-mail: honsha@alpha-kanko.co.jp</p>
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerInstagram}
+              aria-label="Instagramへ移動"
+            >
+              <span aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+                </svg>
+              </span>
+              Instagram
+            </a>
           </div>
           <div>
             <h3>対応エリア</h3>
