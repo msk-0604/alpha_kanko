@@ -10,9 +10,10 @@ const notoSansJp = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "株式会社アルファ管工｜給排水設備・配管工事・水道工事",
+  metadataBase: new URL("https://www.alpha-kanko.com"),
+  title: "大津市の水道工事・設備工事ならAlpha Kanko（株式会社アルファ管工）",
   description:
-    "給排水衛生設備工事、配管工事、水道施設工事、修繕・メンテナンスまで対応。地域密着の確かな技術で水まわりとインフラを支えます。",
+    "大津市の水道工事・設備工事なら株式会社アルファ管工。給排水設備、配管工事、修繕・メンテナンスまで地域密着で対応します。",
   keywords: [
     "管工事",
     "水道工事",
@@ -22,6 +23,24 @@ export const metadata: Metadata = {
     "水道施設工事",
     "設備工事",
   ],
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "ja_JP",
+    url: "/",
+    siteName: "株式会社アルファ管工",
+    title: "大津市の水道工事・設備工事ならAlpha Kanko（株式会社アルファ管工）",
+    description:
+      "大津市の水道工事・設備工事なら株式会社アルファ管工。給排水設備、配管工事、修繕・メンテナンスまで地域密着で対応します。",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "大津市の水道工事・設備工事ならAlpha Kanko（株式会社アルファ管工）",
+    description:
+      "大津市の水道工事・設備工事なら株式会社アルファ管工。給排水設備、配管工事、修繕・メンテナンスまで地域密着で対応します。",
+  },
 };
 
 export default function RootLayout({

@@ -84,3 +84,67 @@ export const trustFacts = [
   { label: "指定排水設備工事事業者", value: "大津市 第192号" },
   { label: "主対応", value: "法人・公共・一般住宅" },
 ];
+
+export const caseStudies = [
+  {
+    title: "大津市｜トイレ交換工事",
+    area: "滋賀県大津市",
+    category: "トイレ設備更新",
+    duration: "約3時間",
+    cost: "¥80,000〜",
+    description:
+      "老朽化した便器と止水栓を更新。施工後の水量調整まで実施し、漏水リスクを低減しました。",
+    image: "/images/works/work-1.svg",
+  },
+  {
+    title: "草津市｜給湯配管修繕",
+    area: "滋賀県草津市",
+    category: "給湯配管修繕",
+    duration: "約4時間",
+    cost: "¥65,000〜",
+    description:
+      "配管接続部からの漏水を現地調査で特定。配管交換と保温処理を行い安定運用を実現しました。",
+    image: "/images/works/work-2.svg",
+  },
+  {
+    title: "京都市山科区｜排水管高圧洗浄",
+    area: "京都府京都市",
+    category: "排水詰まり改善",
+    duration: "約2時間",
+    cost: "¥35,000〜",
+    description:
+      "定期メンテナンスとして排水管を高圧洗浄。異臭・流れ不良を改善し、再発防止をご提案しました。",
+    image: "/images/works/work-3.svg",
+  },
+];
+
+export const googleReviews = [
+  {
+    name: "T. Nakamura",
+    rating: 5,
+    comment:
+      "見積もり説明が明確で、作業も丁寧でした。担当者の対応が誠実で安心して任せられました。",
+  },
+  {
+    name: "M. Sato",
+    rating: 5,
+    comment:
+      "急な水漏れにも当日対応。原因と対策を分かりやすく説明してくれ、費用感も納得できました。",
+  },
+  {
+    name: "K. Yamamoto",
+    rating: 4,
+    comment:
+      "施設設備の修繕を依頼。報告連絡が丁寧で、工期通りに完了。次回もお願いしたいです。",
+  },
+];
+
+export const greeting = {
+  name: "山口 豊樹",
+  title: "代表取締役",
+  message:
+    "私たちは、地域の暮らしを支える水まわり設備を守ることを使命としています。小さな修繕から設備更新まで、安心して相談できる会社であることを大切に、丁寧で誠実な施工を徹底してまいります。",
+  image: "/images/works/work-2.svg",
+};
+
+export const instagramUrl = "https://www.instagram.com/";
