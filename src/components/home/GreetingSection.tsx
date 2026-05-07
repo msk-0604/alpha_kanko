@@ -13,7 +13,8 @@ export function GreetingSection() {
           </div>
           <div className={styles.greetingBody}>
             <p className={styles.greetingName}>
-              {greeting.title} {greeting.name}
+              <span className={styles.greetingTitle}>{greeting.title}</span>
+              {greeting.name}
             </p>
             <p>{greeting.message}</p>
           </div>

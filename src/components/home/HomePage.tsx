@@ -6,10 +6,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Header } from "./Header";
 import { Hero } from "./Hero";
 import { CaseStudiesSection } from "./CaseStudiesSection";
+import { CustomerVoicesSection } from "./CustomerVoicesSection";
+import { StrengthSection } from "./StrengthSection";
+import { AreaSection } from "./AreaSection";
 import { GreetingSection } from "./GreetingSection";
-import { CompanyInfoSection } from "./CompanyInfoSection";
 import { BusinessSection } from "./BusinessSection";
-import { SupportSection } from "./SupportSection";
+import { CompanyProfileSection } from "./CompanyProfileSection";
 import { NewsSection } from "./NewsSection";
 import { AccessSection } from "./AccessSection";
 import { CTASection } from "./CTASection";
@@ -54,11 +56,13 @@ export function HomePage() {
       <main>
         <Hero />
         <NewsSection />
-        <CaseStudiesSection />
-        <GreetingSection />
-        <CompanyInfoSection />
         <BusinessSection />
-        <SupportSection />
+        <StrengthSection />
+        <CaseStudiesSection />
+        <AreaSection />
+        <CustomerVoicesSection />
+        <GreetingSection />
+        <CompanyProfileSection />
         <AccessSection />
         <CTASection />
       </main>

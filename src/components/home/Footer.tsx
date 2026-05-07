@@ -49,7 +49,7 @@ export function Footer() {
                 <a href="#case-studies">施工事例</a>
               </li>
               <li>
-                <a href="#access">アクセス</a>
+                <a href="#voices">お客様の声</a>
               </li>
             </ul>
           </section>

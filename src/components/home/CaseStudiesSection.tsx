@@ -19,12 +19,18 @@ export function CaseStudiesSection() {
               <div className={styles.caseBody}>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
-                <ul>
-                  <li>地域：{item.area}</li>
-                  <li>工事内容：{item.category}</li>
-                  <li>作業時間：{item.duration}</li>
-                  <li>費用目安：{item.cost}</li>
-                </ul>
+                <p className={styles.caseDetail}>課題：{item.challenge}</p>
+                <p className={styles.caseDetail}>対応内容：{item.solution}</p>
+                <div className={styles.caseMeta}>
+                  <span>対応エリア：{item.area}</span>
+                  <span>工事内容：{item.category}</span>
+                  <span>作業時間：{item.duration}</span>
+                  <span>費用目安：{item.cost}</span>
+                </div>
+                <div className={styles.beforeAfterRow}>
+                  <span>Before</span>
+                  <span>After</span>
+                </div>
               </div>
             </article>
           ))}

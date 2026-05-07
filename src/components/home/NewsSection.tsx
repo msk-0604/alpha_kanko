@@ -5,10 +5,7 @@ export function NewsSection() {
   return (
     <section className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={styles.container}>
-        <h2>お知らせ</h2>
-        <a href="/news" className={styles.sectionLink}>
-          一覧へ
-        </a>
+        <h2>お知らせ / 重要なお知らせ</h2>
         <div className={styles.newsList}>
           {newsItems.map((item) => (
             <article key={item.title} className={styles.newsItem} data-animate="strength-card">

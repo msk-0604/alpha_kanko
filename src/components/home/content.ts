@@ -7,12 +7,12 @@ export const navItems = [
 ];
 
 export const businessItems = [
-  "給排水衛生設備工事",
   "配管工事",
-  "水道施設工事",
-  "空調・換気設備工事",
-  "消防設備工事",
+  "水道設備工事",
+  "給排水設備工事",
   "修繕・メンテナンス",
+  "法人・施設管理対応",
+  "官公庁・公共施設対応",
 ];
 
 // 既存セクション互換のため残す
@@ -44,6 +44,15 @@ export const companyHighlights = [
   "一般住宅から法人・公共案件まで一貫対応",
 ];
 
+export const strengths = [
+  "地域密着の迅速対応",
+  "法人・官公庁対応",
+  "丁寧な現地調査",
+  "修繕から設備工事まで対応",
+  "施設管理者様からの相談対応",
+  "安心して任せられる施工体制",
+];
+
 export const disclosureItems = [
   "大津市指定給水装置工事事業者（第192号）",
   "大津市指定排水設備工事事業者（第192号）",
@@ -64,9 +73,9 @@ export const supportItems = [
 ];
 
 export const newsItems = [
-  { date: "2026.05.01", title: "コーポレートサイトをリニューアルしました" },
-  { date: "2026.04.18", title: "大型連休期間中の問い合わせ対応について" },
-  { date: "2026.03.27", title: "施工実績ページを更新しました" },
+  { date: "2026.05.01", title: "ホームページを公開しました" },
+  { date: "2026.04.20", title: "水道設備工事・修繕対応のご相談を承っております" },
+  { date: "2026.04.10", title: "滋賀県内の法人・施設管理者様向け対応について" },
 ];
 
 export const areaList = [
@@ -92,6 +101,8 @@ export const caseStudies = [
     cost: "¥80,000〜",
     description:
       "老朽化した便器と止水栓を更新。施工後の水量調整まで実施し、漏水リスクを低減しました。",
+    challenge: "老朽化による水漏れと衛生面の不安",
+    solution: "設備交換と接続部再施工で安全運用を確保",
     image: "/images/works/work-1.svg",
   },
   {
@@ -102,6 +113,8 @@ export const caseStudies = [
     cost: "¥65,000〜",
     description:
       "配管接続部からの漏水を現地調査で特定。配管交換と保温処理を行い安定運用を実現しました。",
+    challenge: "配管接続部の漏水再発",
+    solution: "劣化部材交換と配管ルート見直しを実施",
     image: "/images/works/work-2.svg",
   },
   {
@@ -112,28 +125,30 @@ export const caseStudies = [
     cost: "¥35,000〜",
     description:
       "定期メンテナンスとして排水管を高圧洗浄。異臭・流れ不良を改善し、再発防止をご提案しました。",
+    challenge: "流れ不良・異臭の発生",
+    solution: "高圧洗浄と点検で原因除去、維持管理提案",
     image: "/images/works/work-3.svg",
   },
 ];
 
-export const googleReviews = [
+export const customerVoices = [
   {
-    name: "T. Nakamura",
-    rating: 5,
+    title: "説明が分かりやすく安心できた",
+    name: "お客様（滋賀県・匿名）",
     comment:
-      "見積もり説明が明確で、作業も丁寧でした。担当者の対応が誠実で安心して任せられました。",
+      "原因と対策を丁寧に説明してくれて、納得した上で依頼できました。作業後の確認もきちんとしてくれて安心でした。",
   },
   {
-    name: "M. Sato",
-    rating: 5,
+    title: "時間どおりに来て、作業が丁寧",
+    name: "お客様（大津市・匿名）",
     comment:
-      "急な水漏れにも当日対応。原因と対策を分かりやすく説明してくれ、費用感も納得できました。",
+      "約束の時間に来てくれて、作業も静かで丁寧。周りの片付けまできれいにしてくれました。",
   },
   {
-    name: "K. Yamamoto",
-    rating: 4,
+    title: "法人案件でも連絡がスムーズ",
+    name: "施設管理者（匿名）",
     comment:
-      "施設設備の修繕を依頼。報告連絡が丁寧で、工期通りに完了。次回もお願いしたいです。",
+      "報告連絡がスムーズで、見積もりや工程の共有も分かりやすい。安心して継続依頼できます。",
   },
 ];
 
@@ -142,7 +157,16 @@ export const greeting = {
   title: "代表取締役",
   message:
     "私たちは、地域の暮らしを支える水まわり設備を守ることを使命としています。小さな修繕から設備更新まで、安心して相談できる会社であることを大切に、丁寧で誠実な施工を徹底してまいります。",
-  image: "/images/works/work-2.svg",
+  image: "/images/people/ceo.svg",
 };
 
 export const instagramUrl = "https://www.instagram.com/";
+
+export const companyProfile = [
+  { label: "会社名", value: "株式会社アルファ管工" },
+  { label: "所在地", value: "滋賀県大津市坂本6丁目8-8" },
+  { label: "TEL", value: "077-579-3507" },
+  { label: "E-mail", value: "honsha@alpha-kanko.co.jp" },
+  { label: "事業内容", value: "配管工事、水道設備工事、給排水設備工事、修繕対応" },
+  { label: "対応エリア", value: "滋賀県全域、京都府南部、大阪府北部、関西近郊エリア（要相談）" },
+];
