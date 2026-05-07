@@ -1,0 +1,127 @@
+.page {
+  padding-bottom: 2rem;
+}
+
+.container {
+  width: min(760px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 6rem 0 2.5rem;
+  background: linear-gradient(160deg, #0f2740, #173b61);
+  color: #e8f1f9;
+}
+
+.hero h1 {
+  margin: 0 0 0.8rem;
+  line-height: 1.3;
+}
+
+.hero p {
+  margin: 0;
+}
+
+.hero a {
+  text-decoration: underline;
+}
+
+.lead {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  font-weight: 700;
+}
+
+.formSection {
+  padding: 2rem 0 1rem;
+}
+
+.form {
+  border: 1px solid #d8e2ec;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(15, 39, 64, 0.08);
+  padding: 1.1rem;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.form label {
+  display: grid;
+  gap: 0.42rem;
+  color: #102d4d;
+  font-weight: 600;
+}
+
+.form input,
+.form select,
+.form textarea {
+  width: 100%;
+  border: 1px solid #c9d6e4;
+  border-radius: 10px;
+  padding: 0.66rem 0.75rem;
+  font: inherit;
+  color: #1f2937;
+}
+
+.form textarea {
+  resize: vertical;
+}
+
+.form input:focus-visible,
+.form select:focus-visible,
+.form textarea:focus-visible {
+  outline: 2px solid #1e5c99;
+  outline-offset: 1px;
+}
+
+.privacy {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.55rem !important;
+  font-weight: 500 !important;
+}
+
+.privacy input {
+  width: 18px;
+  height: 18px;
+}
+
+.form button {
+  min-height: 46px;
+  border: none;
+  border-radius: 12px;
+  background: #123a63;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.form button:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.okMessage,
+.errorMessage {
+  margin: 0;
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+}
+
+.okMessage {
+  background: #edf8f0;
+  color: #1f5132;
+}
+
+.errorMessage {
+  background: #fbecec;
+  color: #812f2f;
+}
+
+@media (min-width: 768px) {
+  .form {
+    padding: 1.35rem;
+  }
+}

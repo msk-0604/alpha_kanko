@@ -167,7 +167,7 @@
   overflow: hidden;
   background:
     linear-gradient(rgba(10, 36, 63, 0.72), rgba(10, 36, 63, 0.72)),
-    url("/images/hero-construction.jpg");
+    url("/images/hero-construction.png");
   background-size: cover;
   background-position: center;
 }
@@ -331,6 +331,17 @@
 .localTrustGrid {
   display: grid;
   gap: 1rem;
+}
+
+.troubleHeroImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 8;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #d8e2ec;
+  box-shadow: 0 10px 24px rgba(15, 39, 64, 0.08);
+  margin-bottom: 1.1rem;
 }
 
 .troubleCard {

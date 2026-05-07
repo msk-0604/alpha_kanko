@@ -38,14 +38,14 @@ export const metadata: Metadata = {
     title: "株式会社アルファ管工｜滋賀県大津市の給排水・配管・水道設備工事",
     description:
       "滋賀県大津市の株式会社アルファ管工。給排水衛生設備工事、配管工事、水道施設工事、修繕・メンテナンスまで対応。法人・公共施設・一般住宅のご相談を承ります。",
-    images: [{ url: "/ogp.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/ogp.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "株式会社アルファ管工｜滋賀県大津市の給排水・配管・水道設備工事",
     description:
       "滋賀県大津市の株式会社アルファ管工。給排水衛生設備工事、配管工事、水道施設工事、修繕・メンテナンスまで対応。法人・公共施設・一般住宅のご相談を承ります。",
-    images: ["/ogp.jpg"],
+    images: ["/ogp.png"],
   },
   icons: {
     icon: "/favicon.svg",
