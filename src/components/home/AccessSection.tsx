@@ -1,7 +1,8 @@
 import styles from "./home.module.css";
 
 export function AccessSection() {
-  const mapEmbedUrl = "";
+  const mapEmbedUrl =
+    "https://www.google.com/maps?q=%E3%80%92520-0113%20%E6%BB%8B%E8%B3%80%E7%9C%8C%E5%A4%A7%E6%B4%A5%E5%B8%82%E5%9D%82%E6%9C%AC6%E4%B8%81%E7%9B%AE8-8&output=embed";
 
   return (
     <section className={styles.section} id="access">

@@ -117,9 +117,9 @@ export function Footer() {
 
         <div className="mt-12 grid gap-4 md:grid-cols-2">
           <a
-            href="/recruit"
+            href="/contact"
             className="group relative block overflow-hidden rounded border border-white/20 min-h-[140px]"
-            aria-label="採用情報へ"
+            aria-label="採用情報について問い合わせる"
           >
             <Image
               src="/images/hero-construction.png"

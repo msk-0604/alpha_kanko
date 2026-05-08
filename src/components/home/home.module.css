@@ -115,6 +115,7 @@
   font-size: 0.84rem;
   font-weight: 600;
   white-space: nowrap;
+  min-width: 0;
 }
 
 .desktopNav a {
@@ -1438,6 +1439,8 @@
     flex: 1;
     justify-content: center;
     align-items: center;
+    gap: 0.9rem;
+    font-size: 0.78rem;
   }
 
   .headerCta {
@@ -1449,9 +1452,25 @@
     color: #102d4d;
     border: none;
     background: transparent;
-    font-size: 1rem;
+    font-size: 0.93rem;
     font-weight: 800;
     white-space: nowrap;
+  }
+
+  .logo {
+    min-width: 280px;
+    width: 280px;
+  }
+
+  .logoMain {
+    font-size: 1rem;
+    line-height: 1.15;
+  }
+
+  .logoSub {
+    font-size: 0.64rem;
+    line-height: 1.2;
+    letter-spacing: 0;
   }
 
   .hamburger,
@@ -1596,21 +1615,21 @@
 @media (min-width: 1024px) {
   .logo {
     gap: 0.12rem;
-    min-width: max-content;
-    width: max-content;
+    min-width: 330px;
+    width: 330px;
   }
 
   .logoMain {
-    font-size: 1.18rem;
+    font-size: 1.08rem;
   }
 
   .logoSub {
-    font-size: 0.72rem;
+    font-size: 0.67rem;
   }
 
   .desktopNav {
-    gap: 1.18rem;
-    font-size: 0.88rem;
+    gap: 1rem;
+    font-size: 0.82rem;
   }
 }
 
