@@ -16,7 +16,6 @@ import { NewsSection } from "./NewsSection";
 import { AccessSection } from "./AccessSection";
 import { CTASection } from "./CTASection";
 import { Footer } from "./Footer";
-import { MobileFixedCTA } from "./MobileFixedCTA";
 import { TroubleWorksSection } from "./TroubleWorksSection";
 import { SymptomSection } from "./SymptomSection";
 import { EmergencyCTASection } from "./EmergencyCTASection";
@@ -64,7 +63,7 @@ export function HomePage() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-animate="hero-title"] span, [data-animate="hero-description"] .heroLine, [data-animate="hero-actions"] a',
+        '[data-animate="hero-title"] span, [data-animate="hero-description"] .heroLine',
         { opacity: 0, y: 14 },
         { opacity: 1, y: 0, duration: 0.85, stagger: 0.06, ease: "power3.out" },
       );
@@ -150,7 +149,6 @@ export function HomePage() {
         <CTASection />
       </main>
       <Footer />
-      <MobileFixedCTA />
     </div>
   );
 }

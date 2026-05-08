@@ -2,7 +2,7 @@
   color: var(--foreground);
   background: #fff;
   overflow-x: clip;
-  padding-bottom: 72px;
+  padding-bottom: 0;
 }
 
 .opening {

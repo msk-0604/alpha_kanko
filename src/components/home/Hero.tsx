@@ -29,14 +29,6 @@ export function Hero() {
                 給排水設備工事・水漏れ修理・水まわりのトラブルに対応しています。
               </span>
             </p>
-            <div className={styles.heroActions} data-animate="hero-actions">
-              <a href="tel:0775793507" className={styles.primaryButton} data-animate="cta-btn">
-                電話する
-              </a>
-              <a href="/contact" className={styles.secondaryButton} data-animate="cta-btn">
-                お問い合わせ
-              </a>
-            </div>
           </div>
         </div>
       </div>
