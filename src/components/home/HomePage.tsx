@@ -23,6 +23,7 @@ import { EmergencyCTASection } from "./EmergencyCTASection";
 import { ServiceListSection } from "./ServiceListSection";
 import { FlowSection } from "./FlowSection";
 import { LocalTrustSection } from "./LocalTrustSection";
+import { CompanyAtmosphereSection } from "./CompanyAtmosphereSection";
 import styles from "./home.module.css";
 
 export function HomePage() {
@@ -63,26 +64,62 @@ export function HomePage() {
 
     const ctx = gsap.context(() => {
       gsap.fromTo(
-        '[data-animate="hero-badge"], [data-animate="hero-title"] span, [data-animate="hero-description"], [data-animate="hero-actions"] a',
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.08, ease: "power2.out" },
+        '[data-animate="hero-title"] span, [data-animate="hero-description"] .heroLine, [data-animate="hero-actions"] a',
+        { opacity: 0, y: 14 },
+        { opacity: 1, y: 0, duration: 0.85, stagger: 0.06, ease: "power3.out" },
       );
 
-      gsap.fromTo(
-        '[data-animate="fade-card"], [data-animate="business-card"], [data-animate="strength-card"], [data-animate="work-card"]',
-        { opacity: 0, y: 20 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.65,
-          stagger: 0.06,
-          ease: "power2.out",
+      const heroMedia = document.getElementById("hero-parallax");
+      if (heroMedia) {
+        gsap.to(heroMedia, {
+          y: 56,
+          ease: "none",
           scrollTrigger: {
-            trigger: "main",
-            start: "top 75%",
+            trigger: "#top",
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.1,
           },
-        },
-      );
+        });
+      }
+
+      gsap.utils.toArray<HTMLElement>("[data-animate='fade-card']").forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 28 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.75,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 88%",
+              toggleActions: "play none none none",
+            },
+          },
+        );
+      });
+
+      gsap.utils
+        .toArray<HTMLElement>("[data-animate='business-card'], [data-animate='strength-card'], [data-animate='work-card']")
+        .forEach((el) => {
+          gsap.fromTo(
+            el,
+            { opacity: 0, y: 20 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.65,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: el,
+                start: "top 90%",
+                toggleActions: "play none none none",
+              },
+            },
+          );
+        });
     });
 
     return () => ctx.revert();
@@ -95,6 +132,7 @@ export function HomePage() {
       <main>
         <Hero />
         <NewsSection />
+        <CompanyAtmosphereSection />
         <TroubleWorksSection />
         <SymptomSection />
         <EmergencyCTASection />

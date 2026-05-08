@@ -40,7 +40,10 @@ export function Footer() {
             <h3>関連ページ</h3>
             <ul>
               <li>
-                <a href="#company-info">会社案内</a>
+                <a href="#company-atmosphere">会社紹介</a>
+              </li>
+              <li>
+                <a href="#company-info">会社概要</a>
               </li>
               <li>
                 <a href="#business">事業内容</a>

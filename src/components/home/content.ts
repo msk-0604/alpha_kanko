@@ -27,6 +27,7 @@ export type SymptomGroup = { title: string; items: string[] };
 export const navItems: NavItem[] = [
   { label: "トップ", href: "#top" },
   { label: "お知らせ", href: "#news" },
+  { label: "会社紹介", href: "#company-atmosphere" },
   { label: "主な工事内容", href: "#troubles" },
   { label: "症状一覧", href: "#symptoms" },
   { label: "事業内容", href: "#business" },
@@ -228,6 +229,12 @@ export const disclosureItems = [
   "法令順守と施工記録を徹底",
 ];
 
+export const companyAtmospherePhotos = [
+  { src: "/images/hero-construction.png", alt: "株式会社アルファ管工の拠点" },
+  { src: "/images/trouble-under-sink.png", alt: "水まわりの現場確認" },
+  { src: "/images/works/work-1.svg", alt: "施工の様子（イメージ）" },
+];
+
 export const csrItems = [
   { date: "2026.04.22", title: "地域防災訓練への設備協力を実施しました" },
   { date: "2026.03.08", title: "地元清掃活動と排水経路点検を実施しました" },
@@ -274,7 +281,7 @@ export const caseStudies: CaseStudy[] = [
     solution: "設備交換と接続部再施工で安全運用を確保",
     before: "老朽化した既存設備で漏水リスクが高い状態",
     after: "衛生性とメンテナンス性を改善し、安定運用を実現",
-    images: ["/images/works/work-1.svg"],
+    images: ["/images/works/work-1.svg", "/images/works/work-2.svg"],
   },
   {
     id: "c2",
@@ -289,7 +296,7 @@ export const caseStudies: CaseStudy[] = [
     solution: "劣化部材交換と配管ルート見直しを実施",
     before: "給湯配管接続部で漏水が再発",
     after: "配管更新と保温処理で再発リスクを低減",
-    images: ["/images/works/work-2.svg"],
+    images: ["/images/works/work-2.svg", "/images/works/work-3.svg"],
   },
   {
     id: "c3",
@@ -304,7 +311,7 @@ export const caseStudies: CaseStudy[] = [
     solution: "高圧洗浄と点検で原因除去、維持管理提案",
     before: "排水不良と異臭で利用者満足度が低下",
     after: "流れ改善と定期点検提案により安定稼働を確保",
-    images: ["/images/works/work-3.svg"],
+    images: ["/images/works/work-3.svg", "/images/works/work-1.svg"],
   },
 ];
 
