@@ -74,12 +74,17 @@
 }
 
 .logo {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0.12rem;
   color: #111827;
   white-space: normal;
-  min-width: 300px;
+  min-width: max-content;
+  width: max-content;
+  max-width: none;
   flex: 0 0 auto;
+  writing-mode: horizontal-tb;
 }
 
 .logoMain {
@@ -88,6 +93,8 @@
   letter-spacing: 0.01em;
   line-height: 1.18;
   white-space: nowrap;
+  display: block;
+  writing-mode: horizontal-tb;
 }
 
 .logoSub {
@@ -97,6 +104,8 @@
   line-height: 1.2;
   letter-spacing: 0.01em;
   white-space: nowrap;
+  display: block;
+  writing-mode: horizontal-tb;
 }
 
 .desktopNav {
@@ -1554,6 +1563,8 @@
 @media (max-width: 767px) {
   .logo {
     min-width: 0;
+    width: auto;
+    max-width: 100%;
     flex: 1 1 auto;
   }
 
@@ -1585,7 +1596,8 @@
 @media (min-width: 1024px) {
   .logo {
     gap: 0.12rem;
-    min-width: 360px;
+    min-width: max-content;
+    width: max-content;
   }
 
   .logoMain {
