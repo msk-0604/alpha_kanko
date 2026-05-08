@@ -1579,6 +1579,26 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1150px) {
+  .desktopNav {
+    display: none;
+  }
+
+  .hamburger {
+    display: grid;
+  }
+
+  .mobileMenu {
+    display: grid;
+  }
+
+  .logo {
+    min-width: 0;
+    width: auto;
+    max-width: 62%;
+  }
+}
+
 @media (max-width: 767px) {
   .logo {
     min-width: 0;
