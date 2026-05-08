@@ -9,6 +9,9 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeHash, setActiveHash] = useState("#top");
+  const desktopNavItems = navItems.filter((item) =>
+    ["#top", "#news", "#business", "#case-studies", "#company-info", "#access"].includes(item.href),
+  );
 
   useEffect(() => {
     const updateState = () => {
@@ -45,7 +48,7 @@ export function Header() {
             <span className={styles.logoSub}>滋賀県大津市 / 水まわりのホームドクター</span>
           </Link>
           <nav className={styles.desktopNav}>
-            {navItems.map((item) => (
+            {desktopNavItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
