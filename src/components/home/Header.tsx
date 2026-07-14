@@ -4,7 +4,7 @@ import { HeaderMobileMenu } from "./HeaderMobileMenu";
 import styles from "./home.module.css";
 
 const desktopNavItems = navItems.filter((item) =>
-  ["/#top", "/#news", "/#business", "/works", "/#company-info", "/#access"].includes(item.href),
+  ["/#business", "/#company-atmosphere", "/works", "/#company-info", "/#access"].includes(item.href),
 );
 
 export function Header() {

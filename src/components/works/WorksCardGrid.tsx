@@ -32,7 +32,8 @@ export function WorksCardGrid({ items, showSectionHeader = true }: WorksCardGrid
                     src={item.coverImage.src}
                     alt={item.coverImage.alt}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+                    quality={88}
                     className={styles.cardImage}
                   />
                 </div>

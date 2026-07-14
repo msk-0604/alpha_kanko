@@ -29,7 +29,10 @@
 
 .openingInner h2 {
   margin: 0;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
   font-size: clamp(1.45rem, 5vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .openingLoading {
@@ -228,7 +231,7 @@
 
 .hero {
   position: relative;
-  min-height: min(82vh, 760px);
+  min-height: 100svh;
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -245,18 +248,16 @@
 .heroImage {
   object-fit: cover;
   object-position: center;
+  transform: scale(1.04);
 }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    to top,
-    rgba(15, 39, 64, 0.58) 0%,
-    rgba(15, 39, 64, 0.22) 42%,
-    rgba(15, 39, 64, 0.1) 100%
-  );
+  background:
+    linear-gradient(105deg, rgba(10, 22, 38, 0.78) 0%, rgba(10, 22, 38, 0.42) 46%, rgba(10, 22, 38, 0.2) 100%),
+    linear-gradient(to top, rgba(10, 22, 38, 0.72) 0%, rgba(10, 22, 38, 0.18) 55%, rgba(10, 22, 38, 0.08) 100%);
   pointer-events: none;
 }
 
@@ -264,7 +265,34 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  padding: 3.25rem 0 3.75rem;
+  padding: 5rem 0 5.5rem;
+}
+
+.heroBrand {
+  margin: 0 0 1.1rem;
+  color: rgba(230, 238, 247, 0.82);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+}
+
+.heroBrandJa {
+  display: block;
+  margin-bottom: 0.85rem;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(2.4rem, 7vw, 4.4rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+}
+
+.heroHeadline {
+  display: block;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.45rem, 3.8vw, 2.35rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.45;
 }
 
 .trustSection {
@@ -305,43 +333,30 @@
 .heroContent {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  max-width: 720px;
   padding: 0;
 }
 
 .hero h1 {
-  font-size: clamp(1.85rem, 5.2vw, 3rem);
-  line-height: 1.28;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.35rem;
   color: #ffffff;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  text-shadow: 0 1px 24px rgba(15, 39, 64, 0.35);
-}
-
-.hero h1 span {
-  display: block;
-  text-wrap: balance;
+  text-shadow: 0 2px 28px rgba(8, 18, 32, 0.35);
 }
 
 .heroSub {
-  font-size: clamp(0.95rem, 2.4vw, 1.1rem);
+  font-size: clamp(0.95rem, 2.1vw, 1.08rem);
   margin: 0;
-  line-height: 1.85;
-  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.95;
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 400;
-  max-width: 34em;
-}
-
-.heroLine {
-  display: block;
+  max-width: 36em;
 }
 
 @media (prefers-reduced-motion: no-preference) {
   @keyframes heroReveal {
     from {
       opacity: 0;
-      transform: translateY(14px);
+      transform: translateY(18px);
     }
 
     to {
@@ -350,68 +365,284 @@
     }
   }
 
-  .hero h1 span {
+  .heroBrand,
+  .heroBrandJa,
+  .heroHeadline,
+  .heroSub,
+  .heroActions {
     opacity: 0;
-    animation: heroReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: heroReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   }
 
-  .heroLine {
-    opacity: 0;
-    animation: heroReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.06s forwards;
-  }
-}
-
-@media (min-width: 768px) {
-  .heroLine {
-    display: inline;
+  .heroBrand {
+    animation-delay: 0.05s;
   }
 
-  .heroLine:first-child::after {
-    content: " ";
+  .heroBrandJa {
+    animation-delay: 0.14s;
+  }
+
+  .heroHeadline:nth-of-type(1) {
+    animation-delay: 0.22s;
+  }
+
+  .heroHeadline:nth-of-type(2) {
+    animation-delay: 0.3s;
+  }
+
+  .heroSub {
+    animation-delay: 0.38s;
+  }
+
+  .heroActions {
+    animation-delay: 0.48s;
   }
 }
 
 .heroActions {
-  margin-top: 2rem;
+  margin-top: 2.25rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.85rem;
 }
 
 .primaryButton,
-.secondaryButton {
+.secondaryButton,
+.outlineButton,
+.outlineButtonLight {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  min-height: 48px;
-  padding: 0.72rem 1.35rem;
-  border-radius: 4px;
+  min-height: 50px;
+  padding: 0.72rem 1.55rem;
+  border-radius: 2px;
   font-size: 0.92rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
   transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    opacity 0.2s ease;
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    opacity 0.25s ease;
 }
 
 .primaryButton {
-  color: white;
-  background: #0f2740;
-  border: 1px solid #0f2740;
+  color: #0f2740;
+  background: #ffffff;
+  border: 1px solid #ffffff;
 }
 
 .secondaryButton {
-  color: #0f2740;
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(6px);
 }
 
+.outlineButton {
+  color: #0f2740;
+  border: 1px solid #0f2740;
+  background: transparent;
+}
+
+.outlineButtonLight {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  background: transparent;
+}
+
 .primaryButton:hover,
-.secondaryButton:hover {
-  opacity: 0.92;
+.secondaryButton:hover,
+.outlineButton:hover,
+.outlineButtonLight:hover {
+  opacity: 0.9;
+}
+
+.businessShowcase {
+  background: #fff;
+  padding-top: 6.5rem;
+  padding-bottom: 6.5rem;
+}
+
+.showcaseHeader {
+  margin-bottom: 3rem;
+  max-width: 40rem;
+}
+
+.showcaseTitle {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+  color: #142536;
+}
+
+.showcaseTitle span {
+  display: block;
+}
+
+.showcaseLead {
+  margin: 0;
+  color: #4d5f70;
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.businessPanelGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.15rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 700px) {
+  .businessPanelGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .businessPanelGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.businessPanel {
+  display: block;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  background: #0f2740;
+  overflow: hidden;
+}
+
+.businessPanelMedia {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #1a334d;
+}
+
+.businessPanelImage {
+  object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.businessPanelShade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 22, 38, 0.55), transparent 55%);
+}
+
+.businessPanel:hover .businessPanelImage,
+.businessPanel:focus-visible .businessPanelImage {
+  transform: scale(1.05);
+}
+
+.businessPanelBody {
+  padding: 1.15rem 1.2rem 1.35rem;
+  color: #e8eef5;
+}
+
+.businessPanelBody h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.businessPanelBody p {
+  margin: 0;
+  color: rgba(232, 238, 245, 0.78);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.showcaseCta {
+  margin-top: 2.5rem;
+}
+
+.companySpotlight {
+  position: relative;
+  padding: 6.5rem 0;
+  background:
+    linear-gradient(120deg, rgba(12, 28, 46, 0.94), rgba(18, 48, 78, 0.88)),
+    #0f2740;
+  color: #edf2f7;
+}
+
+.sectionEyebrowLight {
+  margin: 0 0 0.75rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  color: rgba(210, 222, 236, 0.7);
+}
+
+.companySpotlightInner {
+  max-width: 46rem;
+}
+
+.companySpotlightTitle {
+  display: grid;
+  gap: 0.15rem;
+  margin: 0 0 1.35rem;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+}
+
+.companySpotlightTitle span {
+  display: block;
+}
+
+.companySpotlightLead {
+  margin: 0 0 2rem;
+  color: rgba(232, 238, 245, 0.88);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.companySpotlightFacts {
+  list-style: none;
+  margin: 0 0 2.25rem;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+@media (min-width: 700px) {
+  .companySpotlightFacts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.companySpotlightFacts li {
+  display: grid;
+  gap: 0.3rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(220, 230, 240, 0.28);
+}
+
+.companySpotlightFacts span {
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: rgba(210, 222, 236, 0.72);
+}
+
+.companySpotlightFacts strong {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #fff;
 }
 
 .section {

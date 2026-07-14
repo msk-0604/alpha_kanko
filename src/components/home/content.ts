@@ -12,15 +12,14 @@ export type SymptomGroup = { title: string; items: string[] };
 
 export const navItems: NavItem[] = [
   { label: "トップ", href: "/#top" },
-  { label: "お知らせ", href: "/#news" },
-  { label: "会社紹介", href: "/#company-atmosphere" },
-  { label: "主な工事内容", href: "/#troubles" },
-  { label: "症状一覧", href: "/#symptoms" },
   { label: "事業内容", href: "/#business" },
-  { label: "選ばれる理由", href: "/#strengths" },
+  { label: "会社案内", href: "/#company-atmosphere" },
   { label: "施工事例", href: "/works" },
+  { label: "選ばれる理由", href: "/#strengths" },
+  { label: "主な工事内容", href: "/#troubles" },
   { label: "会社情報", href: "/#company-info" },
   { label: "アクセス", href: "/#access" },
+  { label: "お知らせ", href: "/#news" },
 ];
 
 export const troubleCards: TroubleCard[] = [
@@ -218,7 +217,7 @@ export const disclosureItems = [
 export const companyAtmospherePhotos = [
   { src: "/images/hero-construction.png", alt: "株式会社アルファ管工の拠点" },
   { src: "/images/trouble-under-sink.png", alt: "水まわりの現場確認" },
-  { src: "/images/works/new-house-plumbing-01.jpg", alt: "新築給排水設備の施工の様子" },
+  { src: "/images/works/new-house-plumbing-01.webp", alt: "新築給排水設備の施工の様子" },
 ];
 
 export const csrItems = [

@@ -8,10 +8,12 @@
 
 .sectionTitle {
   margin: 0 0 1rem;
-  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
   font-weight: 600;
-  color: #1a2735;
-  line-height: 1.3;
+  color: #142536;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
 }
 
 .sectionLead {
@@ -68,7 +70,7 @@
 
 .cardImage {
   object-fit: cover;
-  transition: transform 0.5s ease;
+  transition: transform 0.55s ease;
 }
 
 .cardLink:hover .cardImage,
@@ -135,10 +137,12 @@
 
 .detailTitle {
   margin: 0 0 1rem;
-  font-size: clamp(1.45rem, 3vw, 1.9rem);
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.55rem, 3.2vw, 2.2rem);
   font-weight: 600;
-  color: #1a2735;
-  line-height: 1.35;
+  color: #142536;
+  line-height: 1.4;
+  letter-spacing: 0.03em;
 }
 
 .detailDesc {
@@ -170,7 +174,7 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #e8edf2;
+  background: #101820;
 }
 
 .baLabel {
@@ -187,7 +191,7 @@
 }
 
 .baImage {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .galleryHeading {
@@ -217,11 +221,11 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: #e8edf2;
+  background: #101820;
 }
 
 .galleryImage {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .standardGrid {
@@ -229,34 +233,28 @@
   margin: 0 0 2rem;
   padding: 0;
   display: grid;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.standardImageWrapWide,
-.standardImageWrap {
-  position: relative;
+.photoFigure {
+  margin: 0;
+}
+
+.photoStage {
+  display: grid;
+  place-items: center;
   width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  background: #e8edf2;
+  max-width: 840px;
+  margin: 0 auto;
+  padding: 0.75rem;
+  background: #101820;
 }
 
-@media (min-width: 768px) {
-  .standardGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .standardGrid li:first-child {
-    grid-column: 1 / -1;
-  }
-
-  .standardImageWrapWide {
-    aspect-ratio: 16 / 10;
-  }
-}
-
-.standardImage {
-  object-fit: cover;
+.photoImage {
+  width: 100%;
+  height: auto;
+  max-height: min(72vh, 720px);
+  object-fit: contain;
 }
 
 .detailNav {
@@ -305,10 +303,12 @@
 
 .pageTitle {
   margin: 0 0 1rem;
-  font-size: clamp(1.75rem, 3.2vw, 2.35rem);
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
   font-weight: 600;
-  color: #1a2735;
-  line-height: 1.3;
+  color: #142536;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
 }
 
 .pageLead {

@@ -1,8 +1,8 @@
 import { Header } from "./Header";
 import { Hero } from "./Hero";
-import { NewsSection } from "./NewsSection";
 import { Footer } from "./Footer";
 import { HomeBelowFold } from "./HomeBelowFold";
+import { OpeningSplash } from "./OpeningSplash";
 import styles from "./home.module.css";
 
 const jsonLd = {
@@ -41,10 +41,10 @@ export function HomePage() {
   return (
     <div className={styles.page}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <OpeningSplash />
       <Header />
       <main>
         <Hero />
-        <NewsSection />
         <HomeBelowFold />
       </main>
       <Footer />

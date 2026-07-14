@@ -23,7 +23,8 @@ export function WorkDetail({ work }: WorkDetailProps) {
                 src={work.beforeImage.src}
                 alt={work.beforeImage.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 92vw, 440px"
+                quality={92}
                 className={styles.baImage}
               />
             </div>
@@ -35,7 +36,8 @@ export function WorkDetail({ work }: WorkDetailProps) {
                 src={work.afterImage.src}
                 alt={work.afterImage.alt}
                 fill
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 92vw, 440px"
+                quality={92}
                 className={styles.baImage}
               />
             </div>
@@ -54,7 +56,8 @@ export function WorkDetail({ work }: WorkDetailProps) {
                     src={image.src}
                     alt={image.alt}
                     fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 92vw, 420px"
+                    quality={92}
                     className={styles.galleryImage}
                   />
                 </div>
@@ -66,25 +69,21 @@ export function WorkDetail({ work }: WorkDetailProps) {
 
       {work.layout === "standard" && work.images ? (
         <ul className={styles.standardGrid}>
-          {work.images.map((image, index) => (
+          {work.images.map((image) => (
             <li key={image.src}>
-              <div
-                className={
-                  index === 0 ? styles.standardImageWrapWide : styles.standardImageWrap
-                }
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes={
-                    index === 0
-                      ? "(max-width: 768px) 100vw, 90vw"
-                      : "(max-width: 768px) 100vw, 50vw"
-                  }
-                  className={styles.standardImage}
-                />
-              </div>
+              <figure className={styles.photoFigure}>
+                <div className={styles.photoStage}>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={1024}
+                    height={768}
+                    sizes="(max-width: 768px) 92vw, 840px"
+                    quality={92}
+                    className={styles.photoImage}
+                  />
+                </div>
+              </figure>
             </li>
           ))}
         </ul>
