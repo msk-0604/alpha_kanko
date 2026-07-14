@@ -44,18 +44,9 @@ a {
   [data-animate="business-card"],
   [data-animate="strength-card"],
   [data-animate="work-card"] {
-    opacity: 0;
-    transform: translateY(24px);
-    animation: scrollReveal linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 28%;
-  }
-
-  @keyframes scrollReveal {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* GSAP ScrollEffects handles reveal on premium pages */
+    opacity: 1;
+    transform: none;
   }
 }
 

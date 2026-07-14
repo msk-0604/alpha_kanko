@@ -1,20 +1,42 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { navItems } from "./content";
 import { HeaderMobileMenu } from "./HeaderMobileMenu";
 import styles from "./home.module.css";
 
 const desktopNavItems = navItems.filter((item) =>
-  ["/#business", "/#company-atmosphere", "/works", "/#company-info", "/#access"].includes(item.href),
+  ["/business", "/company", "/works", "/#company-info", "/#access"].includes(item.href),
 );
 
-export function Header() {
+type HeaderProps = {
+  variant?: "default" | "overlay";
+};
+
+export function Header({ variant = "default" }: HeaderProps) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (variant !== "overlay") return;
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [variant]);
+
+  const headerClass =
+    variant === "overlay"
+      ? `${styles.header} ${styles.headerOverlay} ${scrolled ? styles.headerScrolled : ""}`
+      : styles.header;
+
   return (
-    <header className={styles.header}>
+    <header className={headerClass}>
       <div className={styles.container}>
         <div className={styles.headerInner}>
           <Link href="/" className={styles.logo}>
             <span className={styles.logoMain}>株式会社アルファ管工</span>
-            <span className={styles.logoSub}>滋賀県大津市 / 水まわりのホームドクター</span>
+            <span className={styles.logoSub}>滋賀県大津市 / 給排水・配管工事</span>
           </Link>
           <nav className={styles.desktopNav} aria-label="メインナビゲーション">
             {desktopNavItems.map((item) => (
@@ -28,7 +50,7 @@ export function Header() {
           </a>
           <HeaderMobileMenu />
         </div>
-        </div>
+      </div>
     </header>
   );
 }

@@ -4,7 +4,7 @@ import styles from "./home.module.css";
 
 export function CaseStudiesSection() {
   return (
-    <section className={`${styles.section} ${styles.sectionAlt}`} id="case-studies">
+    <section className={styles.section} id="case-studies">
       <div className={styles.container}>
         <WorksCardGrid items={works} />
       </div>

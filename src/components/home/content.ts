@@ -12,14 +12,15 @@ export type SymptomGroup = { title: string; items: string[] };
 
 export const navItems: NavItem[] = [
   { label: "トップ", href: "/#top" },
-  { label: "事業内容", href: "/#business" },
-  { label: "会社案内", href: "/#company-atmosphere" },
+  { label: "トップ", href: "/#top" },
+  { label: "事業内容", href: "/business" },
+  { label: "会社案内", href: "/company" },
   { label: "施工事例", href: "/works" },
   { label: "選ばれる理由", href: "/#strengths" },
-  { label: "主な工事内容", href: "/#troubles" },
   { label: "会社情報", href: "/#company-info" },
   { label: "アクセス", href: "/#access" },
   { label: "お知らせ", href: "/#news" },
+  { label: "お問い合わせ", href: "/contact" },
 ];
 
 export const troubleCards: TroubleCard[] = [

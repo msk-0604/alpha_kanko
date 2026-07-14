@@ -3,6 +3,7 @@ import { Hero } from "./Hero";
 import { Footer } from "./Footer";
 import { HomeBelowFold } from "./HomeBelowFold";
 import { OpeningSplash } from "./OpeningSplash";
+import { ScrollEffects } from "./ScrollEffects";
 import styles from "./home.module.css";
 
 const jsonLd = {
@@ -39,10 +40,11 @@ const jsonLd = {
 
 export function HomePage() {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} ${styles.pagePremium}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <OpeningSplash />
-      <Header />
+      <ScrollEffects />
+      <Header variant="overlay" />
       <main>
         <Hero />
         <HomeBelowFold />

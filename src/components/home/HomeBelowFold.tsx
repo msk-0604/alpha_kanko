@@ -1,11 +1,8 @@
 import { BusinessSection } from "./BusinessSection";
-import { CompanySpotlightSection } from "./CompanySpotlightSection";
+import { StatementBand } from "./StatementBand";
 import { CaseStudiesSection } from "./CaseStudiesSection";
+import { CompanySpotlightSection } from "./CompanySpotlightSection";
 import { StrengthSection } from "./StrengthSection";
-import { TroubleWorksSection } from "./TroubleWorksSection";
-import { SymptomSection } from "./SymptomSection";
-import { EmergencyCTASection } from "./EmergencyCTASection";
-import { FlowSection } from "./FlowSection";
 import { AreaSection } from "./AreaSection";
 import { CompanyProfileSection } from "./CompanyProfileSection";
 import { AccessSection } from "./AccessSection";
@@ -16,13 +13,10 @@ export function HomeBelowFold() {
   return (
     <>
       <BusinessSection />
-      <CompanySpotlightSection />
+      <StatementBand />
       <CaseStudiesSection />
+      <CompanySpotlightSection />
       <StrengthSection />
-      <TroubleWorksSection />
-      <SymptomSection />
-      <EmergencyCTASection />
-      <FlowSection />
       <AreaSection />
       <CompanyProfileSection />
       <AccessSection />

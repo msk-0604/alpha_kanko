@@ -61,10 +61,249 @@
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #d7e3ef;
   box-shadow: 0 4px 18px rgba(15, 39, 64, 0.06);
+  transition:
+    background-color 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    color 0.35s ease;
+}
+
+.headerOverlay {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  color: #fff;
+}
+
+.headerOverlay .logoMain,
+.headerOverlay .desktopNav a,
+.headerOverlay .headerCta {
+  color: #fff;
+}
+
+.headerOverlay .logoSub {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.headerOverlay .desktopNav a::after {
+  background: #fff;
+}
+
+.headerOverlay .headerCta {
+  border-left-color: rgba(255, 255, 255, 0.28);
+}
+
+.headerOverlay .hamburger {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(15, 39, 64, 0.2);
+}
+
+.headerOverlay .hamburger span {
+  background: #fff;
+}
+
+.headerScrolled {
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom-color: #d7e3ef;
+  box-shadow: 0 8px 24px rgba(15, 39, 64, 0.1);
+  color: inherit;
+}
+
+.headerScrolled .logoMain,
+.headerScrolled .desktopNav a,
+.headerScrolled .headerCta {
+  color: #111827;
+}
+
+.headerScrolled .logoSub {
+  color: #456380;
+}
+
+.headerScrolled .desktopNav a::after {
+  background: #1e5c99;
+}
+
+.headerScrolled .headerCta {
+  border-left-color: #d1dceb;
+}
+
+.headerScrolled .hamburger {
+  border-color: var(--color-border);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.headerScrolled .hamburger span {
+  background: var(--color-navy);
+}
+
+.pagePremium .hero {
+  margin-top: 0;
+}
+
+.pagePremium .section {
+  padding: 7.5rem 0 8rem;
+}
+
+.pagePremium .businessShowcase {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.pagePremium .showcaseTitle {
+  font-size: clamp(2.1rem, 4.6vw, 3.2rem);
+}
+
+.statementBand {
+  position: relative;
+  min-height: min(78svh, 720px);
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #edf2f7;
+  padding: 6.5rem 0;
+}
+
+.statementMedia {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.statementImage {
+  object-fit: cover;
+  transform: scale(1.12);
+}
+
+.statementShade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(8, 18, 32, 0.88) 8%, rgba(8, 18, 32, 0.45) 55%, rgba(8, 18, 32, 0.3) 100%),
+    linear-gradient(to top, rgba(8, 18, 32, 0.7), transparent 50%);
+}
+
+.statementCopy {
+  position: relative;
+  z-index: 1;
+  max-width: 40rem;
+}
+
+.statementTitle {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0 0 1.35rem;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(2rem, 4.8vw, 3.15rem);
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+}
+
+.statementTitle span {
+  display: block;
+}
+
+.statementLead {
+  margin: 0 0 2rem;
+  max-width: 34rem;
+  color: rgba(232, 238, 245, 0.88);
+  font-size: 1.02rem;
+  line-height: 2;
+}
+
+.strengthEditorial {
+  background: #fff;
+}
+
+.strengthEditorialList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+  border-top: 1px solid #d7e1ea;
+}
+
+.strengthEditorialItem {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr;
+  gap: 1.25rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid #d7e1ea;
+}
+
+@media (min-width: 768px) {
+  .strengthEditorialItem {
+    grid-template-columns: 5.5rem 1fr;
+    gap: 2rem;
+    padding: 2.1rem 0;
+  }
+}
+
+.strengthIndex {
+  font-family: var(--font-display), serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #1e5c99;
+  padding-top: 0.15rem;
+}
+
+.strengthEditorialItem h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #142536;
+  letter-spacing: 0.04em;
+}
+
+.strengthEditorialItem p {
+  margin: 0;
+  max-width: 40rem;
+  color: #546575;
+  line-height: 1.9;
+  font-size: 0.95rem;
+}
+
+.ctaPremium {
+  padding: 7.5rem 0;
+  background: #0f2740;
+  color: #edf2f7;
+  text-align: left;
+}
+
+.ctaPremiumTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.35;
+}
+
+.ctaPremiumLead {
+  margin: 0 0 2.25rem;
+  max-width: 34rem;
+  color: rgba(232, 238, 245, 0.86);
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.ctaPremium .primaryButton {
+  color: #0f2740;
+  background: #fff;
+  border-color: #fff;
+}
+
+.ctaPremium .ctaActions {
+  justify-content: flex-start;
 }
 
 @supports (animation-timeline: scroll()) {
-  .header {
+  .header:not(.headerOverlay) {
     animation: headerElevate linear both;
     animation-timeline: scroll();
     animation-range: 0 72px;
@@ -524,7 +763,7 @@
 
 .businessPanelMedia {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 11;
   overflow: hidden;
   background: #1a334d;
 }

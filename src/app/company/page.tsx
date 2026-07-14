@@ -1,95 +1,68 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Header } from "@/components/home/Header";
+import { Footer } from "@/components/home/Footer";
+import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
-  title: "会社概要｜株式会社アルファ管工",
+  title: "会社案内｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の会社概要です。所在地、代表者、創業年、事業内容、水道局指定番号を掲載しています。",
+    "株式会社アルファ管工の会社案内。創業平成3年、大津市指定給水・排水設備工事事業者として地域の給排水設備を支えています。",
+  alternates: { canonical: "/company" },
 };
 
-const rowStyle: React.CSSProperties = {
-  borderBottom: "1px solid #d5dde6",
-};
-
-const headStyle: React.CSSProperties = {
-  width: "220px",
-  padding: "14px 10px",
-  color: "#173a60",
-  fontWeight: 700,
-  verticalAlign: "top",
-};
-
-const bodyStyle: React.CSSProperties = {
-  padding: "14px 10px",
-  color: "#1f2937",
-};
+const rows = [
+  { label: "会社名", value: "株式会社アルファ管工" },
+  { label: "代表者", value: "山口 豊樹" },
+  { label: "所在地", value: "滋賀県大津市坂本6丁目8-8" },
+  { label: "電話", value: "077-579-3507", href: "tel:0775793507" },
+  { label: "E-mail", value: "honsha@alpha-kanko.co.jp", href: "mailto:honsha@alpha-kanko.co.jp" },
+  { label: "創業", value: "平成3年" },
+  {
+    label: "事業内容",
+    value: "一般住宅の水道、排水等の配管工事及び水まわりのリフォーム工事（給排水設備工事）",
+  },
+  {
+    label: "指定番号",
+    value:
+      "大津市指定給水装置工事事業者（第192号）／大津市指定排水設備工事事業者（第192号）",
+  },
+];
 
 export default function CompanyPage() {
   return (
-    <main style={{ padding: "96px 16px 56px", background: "#f5f8fb", minHeight: "100vh" }}>
-      <div style={{ width: "min(960px, 94%)", margin: "0 auto" }}>
-        <h1 style={{ color: "#0f2740", fontSize: "clamp(1.7rem, 5vw, 2.3rem)", marginBottom: "8px" }}>
-          会社概要
-        </h1>
-        <p style={{ color: "#475569", marginBottom: "24px" }}>
-          水道・排水設備を通じて、地域の暮らしとインフラを支えるために、誠実な施工を積み重ねています。
-        </p>
+    <>
+      <Header />
+      <main className={styles.page}>
+        <div className={styles.pageInnerNarrow}>
+          <header className={styles.pageHero}>
+            <p className={styles.pageEyebrow}>COMPANY</p>
+            <h1 className={styles.pageTitle}>会社案内</h1>
+            <p className={styles.pageLead}>
+              創業平成3年。大津市指定の給水・排水設備工事事業者として、
+              地域の暮らしとインフラを支える施工を積み重ねています。
+            </p>
+          </header>
 
-        <section
-          style={{
-            background: "#fff",
-            borderRadius: "16px",
-            border: "1px solid #d5dde6",
-            padding: "12px 16px",
-            boxShadow: "0 10px 28px rgba(15, 39, 64, 0.06)",
-          }}
-        >
-          <table style={{ width: "100%", borderCollapse: "collapse" }}>
-            <tbody>
-              <tr style={rowStyle}>
-                <th style={headStyle}>会社名</th>
-                <td style={bodyStyle}>株式会社アルファ管工</td>
-              </tr>
-              <tr style={rowStyle}>
-                <th style={headStyle}>代表者</th>
-                <td style={bodyStyle}>山口 豊樹</td>
-              </tr>
-              <tr style={rowStyle}>
-                <th style={headStyle}>所在地</th>
-                <td style={bodyStyle}>滋賀県大津市坂本6丁目8-8</td>
-              </tr>
-              <tr style={rowStyle}>
-                <th style={headStyle}>電話</th>
-                <td style={bodyStyle}>
-                  <a href="tel:0775793507">077-579-3507</a>
-                </td>
-              </tr>
-              <tr style={rowStyle}>
-                <th style={headStyle}>E-mail</th>
-                <td style={bodyStyle}>
-                  <a href="mailto:honsha@alpha-kanko.co.jp">honsha@alpha-kanko.co.jp</a>
-                </td>
-              </tr>
-              <tr style={rowStyle}>
-                <th style={headStyle}>創業</th>
-                <td style={bodyStyle}>平成3年</td>
-              </tr>
-              <tr style={rowStyle}>
-                <th style={headStyle}>事業内容</th>
-                <td style={bodyStyle}>
-                  一般住宅の水道、排水等の配管工事及び水まわりのリフォーム工事（給排水設備工事）
-                </td>
-              </tr>
-              <tr>
-                <th style={headStyle}>水道局指定番号</th>
-                <td style={bodyStyle}>
-                  <div>大津市指定給水装置工事事業者（第192号）</div>
-                  <div>大津市指定排水設備工事事業者（第192号）</div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </div>
-    </main>
+          <dl className={styles.companyTable}>
+            {rows.map((row) => (
+              <div key={row.label} className={styles.companyRow}>
+                <dt>{row.label}</dt>
+                <dd>
+                  {row.href ? <a href={row.href}>{row.value}</a> : row.value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+
+          <div className={styles.detailNav}>
+            <Link href="/contact" className={styles.backLink}>
+              お問い合わせへ
+            </Link>
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 }

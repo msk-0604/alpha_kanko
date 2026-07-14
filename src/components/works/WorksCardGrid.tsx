@@ -5,15 +5,15 @@ import styles from "./works.module.css";
 
 type WorksCardGridProps = {
   items: WorkItem[];
-  /** Prefixed id for section landmark when embedded on home */
   showSectionHeader?: boolean;
 };
 
 export function WorksCardGrid({ items, showSectionHeader = true }: WorksCardGridProps) {
   return (
-    <div className={styles.worksBlock}>
+    <div className={styles.worksBlock} data-reveal>
       {showSectionHeader ? (
         <header className={styles.sectionHeader}>
+          <p className={styles.sectionEyebrow}>WORKS</p>
           <h2 className={styles.sectionTitle}>施工事例</h2>
           <p className={styles.sectionLead}>
             住宅・施設・法人案件など、さまざまな現場の給排水設備工事に対応しています。
@@ -33,7 +33,7 @@ export function WorksCardGrid({ items, showSectionHeader = true }: WorksCardGrid
                     alt={item.coverImage.alt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
-                    quality={88}
+                    quality={90}
                     className={styles.cardImage}
                   />
                 </div>

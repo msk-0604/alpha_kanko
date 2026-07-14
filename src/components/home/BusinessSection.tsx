@@ -45,7 +45,7 @@ export function BusinessSection() {
   return (
     <section className={`${styles.section} ${styles.businessShowcase}`} id="business">
       <div className={styles.container}>
-        <header className={styles.showcaseHeader}>
+        <header className={styles.showcaseHeader} data-reveal>
           <p className={styles.sectionEyebrow}>BUSINESS</p>
           <h2 className={styles.showcaseTitle}>
             <span>アルファ管工の</span>
@@ -57,7 +57,7 @@ export function BusinessSection() {
           </p>
         </header>
 
-        <ul className={styles.businessPanelGrid}>
+        <ul className={styles.businessPanelGrid} data-reveal>
           {businessPanels.map((panel) => (
             <li key={panel.title}>
               <Link href={panel.href} className={styles.businessPanel} data-animate="business-card">
