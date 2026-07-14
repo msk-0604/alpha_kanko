@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "alpha-kanko.com" }],
+      "destination": "https://www.alpha-kanko.com/:path*",
+      "permanent": true
+    }
+  ]
+}
