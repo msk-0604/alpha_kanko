@@ -57,12 +57,22 @@
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid #d7e3ef;
-  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: 0 4px 18px rgba(15, 39, 64, 0.06);
 }
 
-.headerScrolled {
-  box-shadow: 0 10px 26px rgba(15, 39, 64, 0.14);
-  border-bottom-color: #cfdae6;
+@supports (animation-timeline: scroll()) {
+  .header {
+    animation: headerElevate linear both;
+    animation-timeline: scroll();
+    animation-range: 0 72px;
+  }
+
+  @keyframes headerElevate {
+    to {
+      box-shadow: 0 10px 26px rgba(15, 39, 64, 0.14);
+      border-bottom-color: #cfdae6;
+    }
+  }
 }
 
 .headerInner {
@@ -223,13 +233,13 @@
   display: flex;
   align-items: flex-end;
   padding: 0;
+  content-visibility: visible;
 }
 
 .heroMedia {
   position: absolute;
   inset: 0;
   z-index: 0;
-  will-change: transform;
 }
 
 .heroImage {
@@ -327,6 +337,30 @@
   display: block;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes heroReveal {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero h1 span {
+    opacity: 0;
+    animation: heroReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .heroLine {
+    opacity: 0;
+    animation: heroReveal 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.06s forwards;
+  }
+}
+
 @media (min-width: 768px) {
   .heroLine {
     display: inline;
@@ -382,15 +416,21 @@
 
 .section {
   padding: 5.5rem 0 6.25rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
 }
 
 .sectionAlt {
   background: #f2f4f7;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 520px;
 }
 
 .sectionAtmosphere {
   padding-top: 6.5rem;
   padding-bottom: 5rem;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 560px;
 }
 
 .section h2 {
@@ -1023,6 +1063,43 @@
   background: #f8fbff;
   padding: 1rem;
   text-align: center;
+}
+
+.mapDetails {
+  border: 1px solid #d5e2ef;
+  border-radius: 10px;
+  background: #f8fbff;
+  overflow: hidden;
+}
+
+.mapSummary {
+  cursor: pointer;
+  list-style: none;
+  min-height: 220px;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: #1e5c99;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.mapSummary::-webkit-details-marker {
+  display: none;
+}
+
+.mapDetails[open] .mapSummary {
+  display: none;
+}
+
+.mapExternalLink {
+  display: inline-block;
+  margin-top: 0.75rem;
+  color: #1e5c99;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
 
 .mapFrame {

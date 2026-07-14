@@ -1,20 +1,6 @@
 export type NavItem = { label: string; href: string };
 export type BusinessItem = { title: string; description: string; icon: string };
 export type NewsItem = { id: string; date: string; category: string; title: string };
-export type CaseStudy = {
-  id: string;
-  title: string;
-  area: string;
-  category: string;
-  duration: string;
-  cost: string;
-  summary: string;
-  challenge: string;
-  solution: string;
-  before: string;
-  after: string;
-  images: string[];
-};
 export type TroubleCard = {
   title: string;
   icon: string;
@@ -25,16 +11,16 @@ export type TroubleCard = {
 export type SymptomGroup = { title: string; items: string[] };
 
 export const navItems: NavItem[] = [
-  { label: "トップ", href: "#top" },
-  { label: "お知らせ", href: "#news" },
-  { label: "会社紹介", href: "#company-atmosphere" },
-  { label: "主な工事内容", href: "#troubles" },
-  { label: "症状一覧", href: "#symptoms" },
-  { label: "事業内容", href: "#business" },
-  { label: "選ばれる理由", href: "#strengths" },
-  { label: "施工事例", href: "#case-studies" },
-  { label: "会社情報", href: "#company-info" },
-  { label: "アクセス", href: "#access" },
+  { label: "トップ", href: "/#top" },
+  { label: "お知らせ", href: "/#news" },
+  { label: "会社紹介", href: "/#company-atmosphere" },
+  { label: "主な工事内容", href: "/#troubles" },
+  { label: "症状一覧", href: "/#symptoms" },
+  { label: "事業内容", href: "/#business" },
+  { label: "選ばれる理由", href: "/#strengths" },
+  { label: "施工事例", href: "/works" },
+  { label: "会社情報", href: "/#company-info" },
+  { label: "アクセス", href: "/#access" },
 ];
 
 export const troubleCards: TroubleCard[] = [
@@ -232,7 +218,7 @@ export const disclosureItems = [
 export const companyAtmospherePhotos = [
   { src: "/images/hero-construction.png", alt: "株式会社アルファ管工の拠点" },
   { src: "/images/trouble-under-sink.png", alt: "水まわりの現場確認" },
-  { src: "/images/works/work-1.svg", alt: "施工の様子（イメージ）" },
+  { src: "/images/works/new-house-plumbing-01.jpg", alt: "新築給排水設備の施工の様子" },
 ];
 
 export const csrItems = [
@@ -265,54 +251,6 @@ export const trustFacts = [
   { label: "指定給水装置工事事業者", value: "大津市 第192号" },
   { label: "指定排水設備工事事業者", value: "大津市 第192号" },
   { label: "主対応", value: "法人・公共・一般住宅" },
-];
-
-export const caseStudies: CaseStudy[] = [
-  {
-    id: "c1",
-    title: "大津市｜トイレ交換工事",
-    area: "滋賀県大津市",
-    category: "トイレ設備更新",
-    duration: "約3時間",
-    cost: "¥80,000〜",
-    summary:
-      "老朽化した便器と止水栓を更新。施工後の水量調整まで実施し、漏水リスクを低減しました。",
-    challenge: "老朽化による水漏れと衛生面の不安",
-    solution: "設備交換と接続部再施工で安全運用を確保",
-    before: "老朽化した既存設備で漏水リスクが高い状態",
-    after: "衛生性とメンテナンス性を改善し、安定運用を実現",
-    images: ["/images/works/work-1.svg", "/images/works/work-2.svg"],
-  },
-  {
-    id: "c2",
-    title: "草津市｜給湯配管修繕",
-    area: "滋賀県草津市",
-    category: "給湯配管修繕",
-    duration: "約4時間",
-    cost: "¥65,000〜",
-    summary:
-      "配管接続部からの漏水を現地調査で特定。配管交換と保温処理を行い安定運用を実現しました。",
-    challenge: "配管接続部の漏水再発",
-    solution: "劣化部材交換と配管ルート見直しを実施",
-    before: "給湯配管接続部で漏水が再発",
-    after: "配管更新と保温処理で再発リスクを低減",
-    images: ["/images/works/work-2.svg", "/images/works/work-3.svg"],
-  },
-  {
-    id: "c3",
-    title: "京都市山科区｜排水管高圧洗浄",
-    area: "京都府京都市",
-    category: "排水詰まり改善",
-    duration: "約2時間",
-    cost: "¥35,000〜",
-    summary:
-      "定期メンテナンスとして排水管を高圧洗浄。異臭・流れ不良を改善し、再発防止をご提案しました。",
-    challenge: "流れ不良・異臭の発生",
-    solution: "高圧洗浄と点検で原因除去、維持管理提案",
-    before: "排水不良と異臭で利用者満足度が低下",
-    after: "流れ改善と定期点検提案により安定稼働を確保",
-    images: ["/images/works/work-3.svg", "/images/works/work-1.svg"],
-  },
 ];
 
 export const customerVoices = [

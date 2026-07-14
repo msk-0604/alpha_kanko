@@ -7,11 +7,13 @@ export function Hero() {
       <div id="hero-parallax" className={styles.heroMedia}>
         <Image
           className={styles.heroImage}
-          src="/images/hero-construction.png"
+          src="/images/hero-construction.webp"
           alt="株式会社アルファ管工の拠点と作業車両"
           fill
           priority
+          fetchPriority="high"
           sizes="100vw"
+          quality={80}
         />
         <div className={styles.heroOverlay} aria-hidden />
       </div>

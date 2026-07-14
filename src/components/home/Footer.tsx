@@ -1,20 +1,21 @@
 import Image from "next/image";
+import Link from "next/link";
 import { areaList, instagramUrl } from "./content";
 
 export function Footer() {
   const relatedLinks = [
-    { label: "会社案内", href: "#company-atmosphere" },
-    { label: "事業内容", href: "#business" },
-    { label: "施工事例", href: "#case-studies" },
-    { label: "対応エリア", href: "#area" },
-    { label: "お知らせ", href: "#news" },
+    { label: "会社案内", href: "/#company-atmosphere" },
+    { label: "事業内容", href: "/#business" },
+    { label: "施工事例", href: "/works" },
+    { label: "対応エリア", href: "/#area" },
+    { label: "お知らせ", href: "/#news" },
   ];
 
   const serviceLinks = [
-    { label: "水まわりトラブル", href: "#troubles" },
-    { label: "症状一覧", href: "#symptoms" },
-    { label: "会社情報", href: "#company-info" },
-    { label: "アクセス", href: "#access" },
+    { label: "水まわりトラブル", href: "/#troubles" },
+    { label: "症状一覧", href: "/#symptoms" },
+    { label: "会社情報", href: "/#company-info" },
+    { label: "アクセス", href: "/#access" },
   ];
 
   return (
@@ -70,7 +71,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {relatedLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="group inline-flex items-center gap-2 text-white/85 transition duration-300 hover:-translate-y-0.5 hover:text-white"
                   >
@@ -78,7 +79,7 @@ export function Footer() {
                       ▸
                     </span>
                     <span>{link.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -92,7 +93,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
                     className="group inline-flex items-center gap-2 text-white/85 transition duration-300 hover:-translate-y-0.5 hover:text-white"
                   >
@@ -100,7 +101,7 @@ export function Footer() {
                       ▸
                     </span>
                     <span>{link.label}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
