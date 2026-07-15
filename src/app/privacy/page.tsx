@@ -1,4 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { Header } from "@/components/home/Header";
+import { Footer } from "@/components/home/Footer";
+import styles from "@/components/works/works.module.css";
+
+export const metadata: Metadata = {
+  title: "プライバシーポリシー｜株式会社アルファ管工",
+  description: "株式会社アルファ管工の個人情報の取扱いについての方針です。",
+  alternates: { canonical: "/privacy" },
+};
 
 const sections = [
   {
@@ -25,47 +35,49 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-[#f3f4f6] py-20">
-      <div className="mx-auto w-[min(900px,92%)]">
-        <p className="mb-2 text-xs font-semibold tracking-[0.14em] text-[#5a6c7a]">PRIVACY POLICY</p>
-        <h1 className="mb-4 text-3xl font-semibold leading-tight text-[#12263d]">プライバシーポリシー</h1>
-        <p className="mb-10 text-sm leading-8 text-[#4f6171]">
-          株式会社アルファ管工（以下「当社」）は、お客様の個人情報を適切に取り扱い、保護することを社会的責務と認識し、
-          以下の方針に基づき管理します。
-        </p>
+    <>
+      <Header />
+      <main className={styles.page}>
+        <div className={styles.pageInnerNarrow}>
+          <header className={styles.pageHero}>
+            <p className={styles.pageEyebrow}>PRIVACY POLICY</p>
+            <h1 className={styles.pageTitle}>プライバシーポリシー</h1>
+            <p className={styles.pageLead}>
+              株式会社アルファ管工は、お客様の個人情報を適切に取り扱い、保護することを社会的責務と認識し、
+              以下の方針に基づき管理します。
+            </p>
+          </header>
 
-        <div className="space-y-4">
-          {sections.map((section) => (
-            <section key={section.title} className="rounded border border-[#d7e1ea] bg-white p-5 md:p-6">
-              <h2 className="mb-3 text-lg font-semibold text-[#17324f]">{section.title}</h2>
-              <p className="text-sm leading-8 text-[#4f6171]">{section.body}</p>
+          <div className={styles.policyList}>
+            {sections.map((section) => (
+              <section key={section.title} className={styles.policyItem}>
+                <h2>{section.title}</h2>
+                <p>{section.body}</p>
+              </section>
+            ))}
+            <section className={styles.policyItem}>
+              <h2>6. お問い合わせ窓口</h2>
+              <p>
+                株式会社アルファ管工
+                <br />
+                所在地: 滋賀県大津市坂本6丁目8-8
+                <br />
+                TEL: 077-579-3507
+                <br />
+                E-mail: honsha@alpha-kanko.co.jp
+              </p>
+              <p className={styles.policyNote}>制定日: 2026年5月8日</p>
             </section>
-          ))}
-        </div>
+          </div>
 
-        <section className="mt-8 rounded border border-[#d7e1ea] bg-white p-5 md:p-6">
-          <h2 className="mb-3 text-lg font-semibold text-[#17324f]">6. お問い合わせ窓口</h2>
-          <p className="text-sm leading-8 text-[#4f6171]">
-            株式会社アルファ管工
-            <br />
-            所在地: 滋賀県大津市坂本6丁目8-8
-            <br />
-            TEL: 077-579-3507
-            <br />
-            E-mail: honsha@alpha-kanko.co.jp
-          </p>
-          <p className="mt-4 text-xs text-[#6c7e8e]">制定日: 2026年5月8日</p>
-        </section>
-
-        <div className="mt-8">
-          <Link
-            href="/"
-            className="inline-flex min-h-11 items-center justify-center rounded border border-[#123a63] px-5 text-sm font-semibold text-[#123a63] transition hover:bg-[#123a63] hover:text-white"
-          >
-            トップページへ戻る
-          </Link>
+          <div className={styles.detailNav}>
+            <Link href="/contact" className={styles.backLink}>
+              お問い合わせへ
+            </Link>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }

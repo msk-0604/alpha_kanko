@@ -20,6 +20,7 @@ const categoryLabelMap: Record<string, string> = {
   repair: "水漏れ・詰まり修理",
   equipment: "設備工事・更新",
   estimate: "見積もり依頼",
+  recruit: "採用について",
   other: "その他",
 };
 

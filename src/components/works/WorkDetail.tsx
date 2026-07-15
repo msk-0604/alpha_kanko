@@ -47,7 +47,7 @@ export function WorkDetail({ work }: WorkDetailProps) {
 
       {work.layout === "gallery" && work.images ? (
         <>
-          <h2 className={styles.galleryHeading}>トイレ設備工事</h2>
+          <h2 className={styles.galleryHeading}>{work.title}</h2>
           <ul className={styles.galleryGrid}>
             {work.images.map((image) => (
               <li key={image.src}>

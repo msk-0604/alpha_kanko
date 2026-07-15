@@ -117,10 +117,10 @@ export function Footer() {
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2">
-          <a
-            href="/contact"
-            className="group relative block overflow-hidden rounded border border-white/20 min-h-[140px]"
-            aria-label="採用情報について問い合わせる"
+            <a
+            href="/recruit"
+            className="group relative block overflow-hidden border border-white/20 min-h-[140px]"
+            aria-label="採用情報を見る"
           >
             <Image
               src="/images/hero-construction.png"
@@ -138,7 +138,7 @@ export function Footer() {
 
           <a
             href="/contact"
-            className="group relative block overflow-hidden rounded border border-white/20 min-h-[140px]"
+            className="group relative block overflow-hidden border border-white/20 min-h-[140px]"
             aria-label="お問い合わせへ"
           >
             <Image
