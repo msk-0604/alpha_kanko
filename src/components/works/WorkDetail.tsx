@@ -2,7 +2,6 @@ import Link from "next/link";
 import type { WorkItem } from "@/data/works";
 import { getRelatedWorks } from "@/data/works";
 import { BeforeAfterSlider } from "./BeforeAfterSlider";
-import { ShareButtons } from "./ShareButtons";
 import { WorkImageLightbox } from "./WorkImageLightbox";
 import { WorksCardGrid } from "./WorksCardGrid";
 import styles from "./works.module.css";
@@ -44,8 +43,6 @@ export function WorkDetail({ work }: WorkDetailProps) {
           variant="standard"
         />
       ) : null}
-
-      <ShareButtons title={work.title} path={`/works/${work.slug}`} />
 
       {related.length > 0 ? (
         <section className={styles.relatedBlock}>

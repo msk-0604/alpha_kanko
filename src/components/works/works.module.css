@@ -355,6 +355,44 @@
   font-size: 0.94rem;
 }
 
+.businessSimpleList {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  border-top: 1px solid #d7e1ea;
+  background: #fff;
+}
+
+.businessSimpleList li {
+  display: grid;
+  grid-template-columns: 3.25rem 1fr;
+  gap: 1rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid #d7e1ea;
+}
+
+.businessSimpleIndex {
+  font-family: var(--font-display), serif;
+  color: #1e5c99;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+}
+
+.businessSimpleList h2 {
+  margin: 0 0 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #142536;
+}
+
+.businessSimpleList p {
+  margin: 0;
+  color: #546575;
+  line-height: 1.85;
+  font-size: 0.94rem;
+}
+
 .companyTable {
   margin: 0 0 2rem;
   background: #fff;
@@ -931,42 +969,6 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
-}
-
-.shareRow {
-  margin: 2rem 0;
-  padding: 1.25rem 0;
-  border-top: 1px solid #d7e1ea;
-  border-bottom: 1px solid #d7e1ea;
-}
-
-.shareLabel {
-  margin: 0 0 0.75rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #5c7286;
-  letter-spacing: 0.06em;
-}
-
-.shareActions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.shareBtn {
-  border: 1px solid #c5d3e0;
-  background: #fff;
-  color: #153e69;
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.55rem 0.95rem;
-  cursor: pointer;
-}
-
-.shareBtn:hover {
-  border-color: #1e5c99;
 }
 
 .relatedBlock {
