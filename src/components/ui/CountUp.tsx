@@ -10,28 +10,40 @@ type CountUpProps = {
 };
 
 export function CountUp({ end, durationMs = 1400, suffix = "", className }: CountUpProps) {
-  const [value, setValue] = useState(0);
+  // Show the real number immediately so crawlers / failed observers never leave "0年"
+  const [value, setValue] = useState(end);
   const ref = useRef<HTMLSpanElement>(null);
   const started = useRef(false);
 
   useEffect(() => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || end <= 0) return;
+
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      setValue(end);
+      return;
+    }
+
+    const run = () => {
+      if (started.current) return;
+      started.current = true;
+      setValue(0);
+      const start = performance.now();
+      const tick = (now: number) => {
+        const progress = Math.min((now - start) / durationMs, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        setValue(Math.round(end * eased));
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting || started.current) return;
-        started.current = true;
-        const start = performance.now();
-        const tick = (now: number) => {
-          const progress = Math.min((now - start) / durationMs, 1);
-          const eased = 1 - Math.pow(1 - progress, 3);
-          setValue(Math.round(end * eased));
-          if (progress < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
+        if (entry.isIntersecting) run();
       },
-      { threshold: 0.4 },
+      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
     );
 
     observer.observe(el);
