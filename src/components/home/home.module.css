@@ -637,6 +637,7 @@
   position: absolute;
   inset: 0;
   z-index: 0;
+  background: #0c2238;
 }
 
 .heroImage {
@@ -652,6 +653,12 @@
   object-fit: cover;
   object-position: center;
   z-index: 0;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.heroVideoReady {
+  opacity: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {

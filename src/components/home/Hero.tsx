@@ -1,30 +1,24 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import styles from "./home.module.css";
 
 export function Hero() {
+  const [videoReady, setVideoReady] = useState(false);
+
   return (
     <section className={styles.hero} id="top">
       <div className={styles.heroMedia}>
-        <Image
-          className={styles.heroImage}
-          src="/images/hero-construction.webp"
-          alt=""
-          fill
-          priority
-          fetchPriority="high"
-          sizes="(max-width: 768px) 100vw, 1400px"
-          quality={72}
-          aria-hidden
-        />
         <video
-          className={styles.heroVideo}
+          className={`${styles.heroVideo} ${videoReady ? styles.heroVideoReady : ""}`}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
-          poster="/images/hero-construction.webp"
+          preload="auto"
+          onCanPlay={() => setVideoReady(true)}
+          onLoadedData={() => setVideoReady(true)}
           aria-label="アルファ管工の現場映像"
         >
           <source src="/videos/hero.mp4" type="video/mp4" />
