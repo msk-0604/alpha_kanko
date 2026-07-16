@@ -9,13 +9,26 @@ export function Hero() {
         <Image
           className={styles.heroImage}
           src="/images/hero-construction.webp"
-          alt="大津市の拠点前に並ぶアルファ管工の作業車両"
+          alt=""
           fill
           priority
           fetchPriority="high"
           sizes="(max-width: 768px) 100vw, 1400px"
           quality={72}
+          aria-hidden
         />
+        <video
+          className={styles.heroVideo}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/hero-construction.webp"
+          aria-label="アルファ管工の現場映像"
+        >
+          <source src="/videos/hero.mp4" type="video/mp4" />
+        </video>
         <div className={styles.heroOverlay} aria-hidden />
       </div>
       <div className={styles.heroContentWrap}>
