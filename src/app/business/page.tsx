@@ -36,12 +36,12 @@ const panels = [
   {
     title: "水回りリフォーム",
     text: "トイレ設備更新など、給排水接続を伴うリフォーム工事に対応します。",
-    image: "/images/works/toilet-work-03.webp",
+    image: "/images/works/toilet-work-04.webp",
   },
   {
     title: "法人・官公庁対応",
     text: "工程共有・報告書提出など、施設管理・公共工事の要件に合わせて対応します。",
-    image: "/images/works/new-house-plumbing-02.webp",
+    image: "/images/works/new-house-plumbing-03.webp",
   },
 ];
 

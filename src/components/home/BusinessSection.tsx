@@ -30,13 +30,13 @@ const businessPanels = [
   {
     title: "水回りリフォーム",
     description: "トイレなど設備更新と給排水接続。",
-    image: "/images/works/toilet-work-03.webp",
+    image: "/images/works/toilet-work-04.webp",
     href: "/works/toilet-renewal",
   },
   {
     title: "法人・施設対応",
     description: "施設管理に合わせた設備工事と報告。",
-    image: "/images/works/new-house-plumbing-02.webp",
+    image: "/images/works/new-house-plumbing-03.webp",
     href: "/#company-info",
   },
 ];
