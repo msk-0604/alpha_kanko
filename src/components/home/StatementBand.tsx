@@ -1,21 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./home.module.css";
 
 export function StatementBand() {
   return (
     <section className={styles.statementBand} aria-labelledby="statement-title">
-      <div className={styles.statementMedia}>
-        <Image
-          src="/images/works/new-house-plumbing-01.webp"
-          alt=""
-          fill
-          sizes="100vw"
-          quality={70}
-          className={styles.statementImage}
-        />
-        <div className={styles.statementShade} aria-hidden />
-      </div>
+      <div className={styles.statementShade} aria-hidden />
       <div className={styles.container}>
         <div className={styles.statementCopy} data-reveal>
           <p className={styles.sectionEyebrowLight}>PHILOSOPHY</p>

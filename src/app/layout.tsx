@@ -1,24 +1,7 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Shippori_Mincho } from "next/font/google";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import "./globals.css";
-
-const notoSansJp = Noto_Sans_JP({
-  variable: "--font-noto-sans-jp",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-  preload: true,
-});
-
-const shipporiMincho = Shippori_Mincho({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["600"],
-  display: "swap",
-  preload: true,
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.alpha-kanko.com"),
@@ -72,7 +55,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" className={`${notoSansJp.variable} ${shipporiMincho.variable} h-full antialiased`}>
+    <html lang="ja" className="h-full antialiased">
       <body className="min-h-full flex flex-col">
         <OrganizationJsonLd />
         <GoogleAnalytics />

@@ -6,7 +6,7 @@ export function CaseStudiesSection() {
   return (
     <section className={styles.section} id="case-studies">
       <div className={styles.container}>
-        <WorksCardGrid items={works} />
+        <WorksCardGrid items={works.slice(0, 3)} />
       </div>
     </section>
   );

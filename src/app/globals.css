@@ -8,6 +8,9 @@
   --color-navy: #0f2740;
   --color-surface: #ffffff;
   --color-border: #d5dde6;
+  --font-noto-sans-jp: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI",
+    "Yu Gothic", Meiryo, sans-serif;
+  --font-display: "Hiragino Mincho ProN", "Yu Mincho", "Hiragino Sans", "Yu Gothic", serif;
 }
 
 @theme inline {
@@ -19,8 +22,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-noto-sans-jp), "Hiragino Kaku Gothic ProN",
-    "Yu Gothic", sans-serif;
+  font-family: var(--font-noto-sans-jp);
   line-height: 1.7;
   overflow-x: clip;
 }
@@ -46,13 +48,11 @@ a {
     transition:
       opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: opacity, transform;
   }
 
   [data-reveal].is-revealed {
     opacity: 1;
     transform: none;
-    will-change: auto;
   }
 }
 

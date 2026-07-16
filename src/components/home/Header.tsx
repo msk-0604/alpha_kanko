@@ -2,13 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { navItems } from "./content";
+import { desktopNavItems } from "./nav";
 import { HeaderMobileMenu } from "./HeaderMobileMenu";
 import styles from "./home.module.css";
-
-const desktopNavItems = navItems.filter((item) =>
-  ["/business", "/company", "/works", "/news", "/recruit"].includes(item.href),
-);
 
 type HeaderProps = {
   variant?: "default" | "overlay";

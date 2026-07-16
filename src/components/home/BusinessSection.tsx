@@ -21,24 +21,6 @@ const businessPanels = [
     image: "/images/works/drain-after.webp",
     href: "/works/drain-renovation",
   },
-  {
-    title: "給湯器交換工事",
-    description: "既設撤去から新設接続・安全確認まで。",
-    image: "/images/works/water-heater-after.webp",
-    href: "/works/water-heater-replacement",
-  },
-  {
-    title: "水回りリフォーム",
-    description: "トイレなど設備更新と給排水接続。",
-    image: "/images/works/toilet-work-04.webp",
-    href: "/works/toilet-renewal",
-  },
-  {
-    title: "法人・施設対応",
-    description: "施設管理に合わせた設備工事と報告。",
-    image: "/images/works/new-house-plumbing-03.webp",
-    href: "/business",
-  },
 ];
 
 export function BusinessSection() {
@@ -60,14 +42,14 @@ export function BusinessSection() {
         <ul className={styles.businessPanelGrid} data-reveal>
           {businessPanels.map((panel) => (
             <li key={panel.title}>
-              <Link href={panel.href} className={styles.businessPanel} data-animate="business-card">
+              <Link href={panel.href} className={styles.businessPanel}>
                 <div className={styles.businessPanelMedia}>
                   <Image
                     src={panel.image}
                     alt={panel.title}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                    quality={75}
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    quality={65}
                     className={styles.businessPanelImage}
                   />
                   <div className={styles.businessPanelShade} aria-hidden />
@@ -82,8 +64,8 @@ export function BusinessSection() {
         </ul>
 
         <div className={styles.showcaseCta}>
-          <Link href="/works" className={styles.outlineButton}>
-            施工事例を見る
+          <Link href="/business" className={styles.outlineButton}>
+            事業内容を詳しく見る
           </Link>
         </div>
       </div>

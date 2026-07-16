@@ -1,11 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
-import { areaList, instagramUrl } from "./content";
-
-const hasInstagram =
-  Boolean(instagramUrl) &&
-  !instagramUrl.endsWith("instagram.com/") &&
-  !instagramUrl.endsWith("instagram.com");
+import { areaList } from "./content";
 
 export function Footer() {
   const relatedLinks = [
@@ -48,21 +42,6 @@ export function Footer() {
                 honsha@alpha-kanko.co.jp
               </a>
             </p>
-            {hasInstagram ? (
-              <a
-                href={instagramUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex size-9 items-center justify-center rounded-full border border-white/35 bg-white/10 transition duration-300 hover:-translate-y-0.5 hover:bg-white/20"
-                aria-label="Instagramへ移動"
-              >
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" strokeWidth="2" />
-                  <circle cx="12" cy="12" r="4" stroke="white" strokeWidth="2" />
-                  <circle cx="17.5" cy="6.5" r="1.2" fill="white" />
-                </svg>
-              </a>
-            ) : null}
           </section>
 
           <section className="space-y-3">
@@ -124,65 +103,29 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="pt-2">
-              <a
-                href="tel:0775793507"
-                className="inline-flex min-h-11 w-full items-center justify-center rounded border border-white/45 bg-white/10 text-sm font-semibold transition duration-300 hover:bg-white/20"
+            <div className="pt-2 grid gap-2">
+              <Link
+                href="/recruit"
+                className="inline-flex min-h-11 w-full items-center justify-center border border-white/45 bg-white/10 text-sm font-semibold transition duration-300 hover:bg-white/20"
               >
-                077-579-3507
-              </a>
+                採用情報
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex min-h-11 w-full items-center justify-center bg-white text-sm font-semibold text-[#10253f] transition duration-300 hover:bg-white/90"
+              >
+                お問い合わせ
+              </Link>
             </div>
           </section>
-        </div>
-
-        <div className="mt-12 grid gap-4 md:grid-cols-2">
-            <a
-            href="/recruit"
-            className="group relative block overflow-hidden border border-white/20 min-h-[140px]"
-            aria-label="採用情報を見る"
-          >
-            <Image
-              src="/images/hero-construction.webp"
-              alt="採用情報バナー"
-              fill
-              className="object-cover transition duration-500 group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              quality={65}
-            />
-            <div className="absolute inset-0 bg-[#0f2740]/55 transition duration-300 group-hover:bg-[#0f2740]/45" />
-            <div className="absolute inset-x-0 bottom-0 p-5">
-              <p className="text-xs tracking-[0.1em] text-white/80">RECRUIT</p>
-              <p className="mt-1 text-base font-semibold">採用情報を見る</p>
-            </div>
-          </a>
-
-          <a
-            href="/contact"
-            className="group relative block overflow-hidden border border-white/20 min-h-[140px]"
-            aria-label="お問い合わせへ"
-          >
-            <Image
-              src="/images/works/water-heater-after.webp"
-              alt="お問い合わせバナー"
-              fill
-              className="object-cover transition duration-500 group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, 50vw"
-              quality={65}
-            />
-            <div className="absolute inset-0 bg-[#0f2740]/55 transition duration-300 group-hover:bg-[#0f2740]/45" />
-            <div className="absolute inset-x-0 bottom-0 p-5">
-              <p className="text-xs tracking-[0.1em] text-white/80">CONTACT</p>
-              <p className="mt-1 text-base font-semibold">お問い合わせする</p>
-            </div>
-          </a>
         </div>
 
         <div className="mt-10 border-t border-white/20 pt-5">
           <div className="flex flex-col gap-3 text-xs text-white/80 sm:flex-row sm:items-center sm:justify-between">
             <p className="text-sm font-semibold text-white">株式会社アルファ管工</p>
-            <a href="/privacy" className="transition duration-300 hover:text-white">
+            <Link href="/privacy" className="transition duration-300 hover:text-white">
               プライバシーポリシー
-            </a>
+            </Link>
             <p>© Alpha Kanko Co., Ltd.</p>
           </div>
         </div>
