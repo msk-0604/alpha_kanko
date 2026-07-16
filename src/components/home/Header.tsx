@@ -48,7 +48,7 @@ export function Header({ variant = "default" }: HeaderProps) {
           <a href="tel:0775793507" className={styles.headerCta} aria-label="電話する">
             077-579-3507
           </a>
-          <HeaderMobileMenu />
+          <HeaderMobileMenu overlay={variant === "overlay" && !scrolled} />
         </div>
       </div>
     </header>
