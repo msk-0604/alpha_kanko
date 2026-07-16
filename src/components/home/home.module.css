@@ -2268,31 +2268,45 @@
   .logo {
     min-width: 0;
     width: auto;
-    max-width: calc(100% - 180px);
+    max-width: calc(100% - 11rem);
+    flex: 1 1 auto;
   }
 
   .headerCta {
-    font-size: 0.9rem;
+    flex-shrink: 0;
+    font-size: 0.84rem;
     padding-left: 0.55rem;
   }
 }
 
 @media (max-width: 767px) {
+  .headerInner {
+    gap: 0.55rem;
+  }
+
+  .headerCta {
+    display: none;
+  }
+
   .logo {
     min-width: 0;
     width: auto;
-    max-width: 100%;
+    max-width: calc(100% - 3.25rem);
     flex: 1 1 auto;
   }
 
   .logoMain {
-    font-size: 1rem;
-    white-space: normal;
+    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
+    white-space: nowrap;
     line-height: 1.22;
   }
 
   .logoSub {
-    white-space: normal;
+    font-size: 0.6rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
     line-height: 1.3;
   }
 
