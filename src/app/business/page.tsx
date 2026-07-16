@@ -69,7 +69,7 @@ const beforeAfterPanels = [
     },
     after: {
       src: "/images/business/toilet-after.webp",
-      alt: "更新後のトイレ・洗面まわり",
+      alt: "更新後のトイレ・洗面",
     },
   },
 ];
