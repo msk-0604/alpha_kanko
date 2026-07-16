@@ -355,6 +355,43 @@
   font-size: 0.94rem;
 }
 
+.businessBaSection {
+  margin: 1rem 0 2.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #d7e1ea;
+}
+
+.businessBaHeading {
+  margin: 0 0 1rem;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-weight: 600;
+  color: #142536;
+  letter-spacing: 0.04em;
+}
+
+.businessBaList {
+  display: grid;
+  gap: 2.25rem;
+}
+
+.businessBaCard {
+  background: #fff;
+  border: 1px solid #d7e1ea;
+  padding: 1.25rem 1.25rem 0.5rem;
+}
+
+.businessBaCard h3 {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #142536;
+}
+
+.businessBaCard .baSlider {
+  margin-bottom: 0.75rem;
+}
+
 .businessSimpleList {
   list-style: none;
   margin: 0 0 2rem;
