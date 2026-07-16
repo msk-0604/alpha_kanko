@@ -65,11 +65,11 @@ const beforeAfterPanels = [
     text: "既設トイレの撤去から新しい洋式トイレへの更新、給排水接続まで対応します。",
     before: {
       src: "/images/business/toilet-before.webp",
-      alt: "更新前の既設トイレ",
+      alt: "更新前のトイレ・洗面",
     },
     after: {
       src: "/images/business/toilet-after.webp",
-      alt: "更新後のトイレ・洗面",
+      alt: "更新後のトイレ・洗面まわり",
     },
   },
 ];
