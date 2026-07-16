@@ -4,22 +4,22 @@ import styles from "./home.module.css";
 
 const businessPanels = [
   {
-    title: "新築給排水設備工事",
+    title: "給排水衛生設備工事",
     description: "基礎段階からの給水・給湯・排水配管。",
-    image: "/images/works/new-house-plumbing-01.webp",
-    href: "/works/new-house-plumbing",
+    image: "/images/business/sanitary.webp",
+    href: "/business",
   },
   {
-    title: "給水・給湯配管工事",
+    title: "配管工事",
     description: "建物構造に合わせた配管ルート施工。",
-    image: "/images/works/water-piping-01.webp",
-    href: "/works/water-piping",
+    image: "/images/business/piping.webp",
+    href: "/business",
   },
   {
     title: "排水設備工事",
     description: "劣化配管の更新・屋外排水の改修。",
-    image: "/images/works/drain-after.webp",
-    href: "/works/drain-renovation",
+    image: "/images/business/drain.webp",
+    href: "/business",
   },
 ];
 
@@ -49,7 +49,7 @@ export function BusinessSection() {
                     alt={panel.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    quality={65}
+                    quality={72}
                     className={styles.businessPanelImage}
                   />
                   <div className={styles.businessPanelShade} aria-hidden />
