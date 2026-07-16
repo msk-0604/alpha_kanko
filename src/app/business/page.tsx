@@ -62,14 +62,14 @@ const beforeAfterPanels = [
   },
   {
     title: "水回りリフォーム",
-    text: "トイレ設備の更新など、給排水接続を伴うリフォーム工事に対応します。",
+    text: "既設トイレの撤去から新しい洋式トイレへの更新、給排水接続まで対応します。",
     before: {
       src: "/images/business/toilet-before.webp",
-      alt: "更新前のトイレまわり",
+      alt: "更新前の既設トイレ",
     },
     after: {
       src: "/images/business/toilet-after.webp",
-      alt: "更新後のトイレ設備",
+      alt: "更新後のトイレ・洗面まわり",
     },
   },
 ];
