@@ -1,6 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { WorkItem } from "@/data/works";
+import { getRelatedWorks } from "@/data/works";
+import { BeforeAfterSlider } from "./BeforeAfterSlider";
+import { ShareButtons } from "./ShareButtons";
+import { WorkImageLightbox } from "./WorkImageLightbox";
+import { WorksCardGrid } from "./WorksCardGrid";
 import styles from "./works.module.css";
 
 type WorkDetailProps = {
@@ -8,6 +12,8 @@ type WorkDetailProps = {
 };
 
 export function WorkDetail({ work }: WorkDetailProps) {
+  const related = getRelatedWorks(work.slug, 3);
+
   return (
     <article className={styles.detail}>
       <p className={styles.detailCategory}>{work.category}</p>
@@ -15,78 +21,37 @@ export function WorkDetail({ work }: WorkDetailProps) {
       <p className={styles.detailDesc}>{work.description}</p>
 
       {work.layout === "beforeAfter" && work.beforeImage && work.afterImage ? (
-        <div className={styles.baGrid}>
-          <figure className={styles.baFigure}>
-            <div className={styles.baImageWrap}>
-              <span className={styles.baLabel}>BEFORE</span>
-              <Image
-                src={work.beforeImage.src}
-                alt={work.beforeImage.alt}
-                fill
-                sizes="(max-width: 768px) 92vw, 440px"
-                quality={92}
-                className={styles.baImage}
-              />
-            </div>
-          </figure>
-          <figure className={styles.baFigure}>
-            <div className={styles.baImageWrap}>
-              <span className={styles.baLabel}>AFTER</span>
-              <Image
-                src={work.afterImage.src}
-                alt={work.afterImage.alt}
-                fill
-                sizes="(max-width: 768px) 92vw, 440px"
-                quality={92}
-                className={styles.baImage}
-              />
-            </div>
-          </figure>
-        </div>
+        <BeforeAfterSlider before={work.beforeImage} after={work.afterImage} />
       ) : null}
 
       {work.layout === "gallery" && work.images ? (
         <>
           <h2 className={styles.galleryHeading}>{work.title}</h2>
-          <ul className={styles.galleryGrid}>
-            {work.images.map((image) => (
-              <li key={image.src}>
-                <div className={styles.galleryImageWrap}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    fill
-                    sizes="(max-width: 640px) 92vw, 420px"
-                    quality={92}
-                    className={styles.galleryImage}
-                  />
-                </div>
-              </li>
-            ))}
-          </ul>
+          <WorkImageLightbox
+            images={work.images}
+            className={styles.galleryGrid}
+            sizes="(max-width: 640px) 92vw, 420px"
+            variant="gallery"
+          />
         </>
       ) : null}
 
       {work.layout === "standard" && work.images ? (
-        <ul className={styles.standardGrid}>
-          {work.images.map((image) => (
-            <li key={image.src}>
-              <figure className={styles.photoFigure}>
-                <div className={styles.photoStage}>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width={1024}
-                    height={768}
-                    sizes="(max-width: 768px) 92vw, 840px"
-                    quality={92}
-                    className={styles.photoImage}
-                  />
-                </div>
-              </figure>
-            </li>
-          ))}
-        </ul>
+        <WorkImageLightbox
+          images={work.images}
+          className={styles.standardGrid}
+          sizes="(max-width: 768px) 92vw, 840px"
+          variant="standard"
+        />
+      ) : null}
+
+      <ShareButtons title={work.title} path={`/works/${work.slug}`} />
+
+      {related.length > 0 ? (
+        <section className={styles.relatedBlock}>
+          <h2 className={styles.relatedTitle}>関連する施工事例</h2>
+          <WorksCardGrid items={related} showSectionHeader={false} />
+        </section>
       ) : null}
 
       <div className={styles.detailNav}>

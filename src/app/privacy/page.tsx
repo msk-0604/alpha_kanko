@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
@@ -39,6 +40,12 @@ export default function PrivacyPage() {
       <Header />
       <main className={styles.page}>
         <div className={styles.pageInnerNarrow}>
+          <Breadcrumb
+            items={[
+              { label: "トップ", href: "/" },
+              { label: "プライバシーポリシー" },
+            ]}
+          />
           <header className={styles.pageHero}>
             <p className={styles.pageEyebrow}>PRIVACY POLICY</p>
             <h1 className={styles.pageTitle}>プライバシーポリシー</h1>

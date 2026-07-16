@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
 import { areaList } from "@/components/home/content";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
@@ -18,6 +19,12 @@ export default function AreaPage() {
       <Header />
       <main className={styles.page}>
         <div className={styles.pageInnerNarrow}>
+          <Breadcrumb
+            items={[
+              { label: "トップ", href: "/" },
+              { label: "対応エリア" },
+            ]}
+          />
           <header className={styles.pageHero}>
             <p className={styles.pageEyebrow}>AREA</p>
             <h1 className={styles.pageTitle}>対応エリア</h1>

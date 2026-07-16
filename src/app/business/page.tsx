@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
@@ -51,6 +52,12 @@ export default function BusinessPage() {
       <Header />
       <main className={styles.page}>
         <div className={styles.pageInner}>
+          <Breadcrumb
+            items={[
+              { label: "トップ", href: "/" },
+              { label: "事業内容" },
+            ]}
+          />
           <header className={styles.pageHero}>
             <p className={styles.pageEyebrow}>BUSINESS</p>
             <h1 className={styles.pageTitle}>事業内容</h1>

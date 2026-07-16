@@ -5,17 +5,19 @@ import { areaList, instagramUrl } from "./content";
 export function Footer() {
   const relatedLinks = [
     { label: "会社案内", href: "/company" },
+    { label: "代表挨拶", href: "/greeting" },
     { label: "事業内容", href: "/business" },
     { label: "施工事例", href: "/works" },
-    { label: "対応エリア", href: "/#area" },
-    { label: "お知らせ", href: "/#news" },
+    { label: "対応エリア", href: "/area" },
+    { label: "お知らせ", href: "/news" },
   ];
 
   const serviceLinks = [
-    { label: "会社情報", href: "/#company-info" },
-    { label: "アクセス", href: "/#access" },
+    { label: "選ばれる理由", href: "/strength" },
+    { label: "よくある質問", href: "/faq" },
+    { label: "採用情報", href: "/recruit" },
     { label: "お問い合わせ", href: "/contact" },
-    { label: "選ばれる理由", href: "/#strengths" },
+    { label: "プライバシーポリシー", href: "/privacy" },
   ];
 
   return (

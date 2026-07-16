@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
 import { strengths } from "@/components/home/content";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
@@ -29,6 +30,12 @@ export default function StrengthPage() {
       <Header />
       <main className={styles.page}>
         <div className={styles.pageInnerNarrow}>
+          <Breadcrumb
+            items={[
+              { label: "トップ", href: "/" },
+              { label: "選ばれる理由" },
+            ]}
+          />
           <header className={styles.pageHero}>
             <p className={styles.pageEyebrow}>STRENGTH</p>
             <h1 className={styles.pageTitle}>選ばれる理由</h1>

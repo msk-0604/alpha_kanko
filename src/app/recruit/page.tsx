@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
@@ -17,6 +18,12 @@ export default function RecruitPage() {
       <Header />
       <main className={styles.page}>
         <div className={styles.pageInnerNarrow}>
+          <Breadcrumb
+            items={[
+              { label: "トップ", href: "/" },
+              { label: "採用情報" },
+            ]}
+          />
           <header className={styles.pageHero}>
             <p className={styles.pageEyebrow}>RECRUIT</p>
             <h1 className={styles.pageTitle}>採用情報</h1>

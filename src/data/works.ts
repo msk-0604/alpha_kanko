@@ -24,6 +24,14 @@ export type WorkItem = {
   afterImage?: WorkImage;
 };
 
+export const workCategories: WorkCategory[] = [
+  "新築給排水設備工事",
+  "給水・給湯配管工事",
+  "排水設備工事",
+  "水回りリフォーム",
+  "給湯器交換工事",
+];
+
 export const works: WorkItem[] = [
   {
     slug: "new-house-plumbing",
@@ -37,22 +45,10 @@ export const works: WorkItem[] = [
     },
     layout: "standard",
     images: [
-      {
-        src: "/images/works/new-house-plumbing-01.webp",
-        alt: "基礎上に排水管と給水・給湯管を多数施工した様子",
-      },
-      {
-        src: "/images/works/new-house-plumbing-02.webp",
-        alt: "基礎内の排水管と給水・給湯管の配管ルート",
-      },
-      {
-        src: "/images/works/new-house-plumbing-03.webp",
-        alt: "基礎上の給排水配管立ち上がり部",
-      },
-      {
-        src: "/images/works/new-house-plumbing-04.webp",
-        alt: "基礎内に広がる給水・給湯・排水配管",
-      },
+      { src: "/images/works/new-house-plumbing-01.webp", alt: "基礎上に排水管と給水・給湯管を多数施工した様子" },
+      { src: "/images/works/new-house-plumbing-02.webp", alt: "基礎内の排水管と給水・給湯管の配管ルート" },
+      { src: "/images/works/new-house-plumbing-03.webp", alt: "基礎上の給排水配管立ち上がり部" },
+      { src: "/images/works/new-house-plumbing-04.webp", alt: "基礎内に広がる給水・給湯・排水配管" },
     ],
   },
   {
@@ -67,18 +63,9 @@ export const works: WorkItem[] = [
     },
     layout: "standard",
     images: [
-      {
-        src: "/images/works/water-piping-01.webp",
-        alt: "木造住宅内部天井に青・赤の給水給湯管を施工した様子",
-      },
-      {
-        src: "/images/works/water-piping-02.webp",
-        alt: "ヘッダー周りに整理された給水・給湯配管",
-      },
-      {
-        src: "/images/works/water-piping-03.webp",
-        alt: "壁面に固定された給水・給湯配管ヘッダー",
-      },
+      { src: "/images/works/water-piping-01.webp", alt: "木造住宅内部天井に青・赤の給水給湯管を施工した様子" },
+      { src: "/images/works/water-piping-02.webp", alt: "ヘッダー周りに整理された給水・給湯配管" },
+      { src: "/images/works/water-piping-03.webp", alt: "壁面に固定された給水・給湯配管ヘッダー" },
     ],
   },
   {
@@ -133,22 +120,10 @@ export const works: WorkItem[] = [
     },
     layout: "gallery",
     images: [
-      {
-        src: "/images/works/toilet-work-01.webp",
-        alt: "既存トイレ設備の施工写真",
-      },
-      {
-        src: "/images/works/toilet-work-02.webp",
-        alt: "和式トイレ設備の施工写真",
-      },
-      {
-        src: "/images/works/toilet-work-03.webp",
-        alt: "新設洋式トイレの施工写真",
-      },
-      {
-        src: "/images/works/toilet-work-04.webp",
-        alt: "トイレ・洗面まわりの設備更新施工写真",
-      },
+      { src: "/images/works/toilet-work-01.webp", alt: "既存トイレ設備の施工写真" },
+      { src: "/images/works/toilet-work-02.webp", alt: "和式トイレ設備の施工写真" },
+      { src: "/images/works/toilet-work-03.webp", alt: "新設洋式トイレの施工写真" },
+      { src: "/images/works/toilet-work-04.webp", alt: "トイレ・洗面まわりの設備更新施工写真" },
     ],
   },
 ];
@@ -159,4 +134,12 @@ export function getWorkBySlug(slug: string): WorkItem | undefined {
 
 export function getAllWorkSlugs(): string[] {
   return works.map((work) => work.slug);
+}
+
+export function getRelatedWorks(slug: string, limit = 3): WorkItem[] {
+  const current = getWorkBySlug(slug);
+  if (!current) return works.slice(0, limit);
+  const same = works.filter((w) => w.slug !== slug && w.category === current.category);
+  const others = works.filter((w) => w.slug !== slug && w.category !== current.category);
+  return [...same, ...others].slice(0, limit);
 }

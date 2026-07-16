@@ -14,12 +14,12 @@ export const navItems: NavItem[] = [
   { label: "トップ", href: "/#top" },
   { label: "事業内容", href: "/business" },
   { label: "会社案内", href: "/company" },
+  { label: "代表挨拶", href: "/greeting" },
   { label: "施工事例", href: "/works" },
   { label: "選ばれる理由", href: "/strength" },
   { label: "対応エリア", href: "/area" },
-  { label: "会社情報", href: "/#company-info" },
-  { label: "アクセス", href: "/#access" },
-  { label: "お知らせ", href: "/#news" },
+  { label: "お知らせ", href: "/news" },
+  { label: "よくある質問", href: "/faq" },
   { label: "採用情報", href: "/recruit" },
   { label: "お問い合わせ", href: "/contact" },
 ];
@@ -234,11 +234,7 @@ export const supportItems = [
   { date: "2025.07.10", title: "次世代育成に向けた現場見学会を実施しました" },
 ];
 
-export const newsItems: NewsItem[] = [
-  { id: "n1", date: "2026.05.01", category: "お知らせ", title: "ホームページを公開しました" },
-  { id: "n2", date: "2026.04.20", category: "重要", title: "設備更新・修繕のご相談を受け付けています" },
-  { id: "n3", date: "2026.04.10", category: "法人向け", title: "施設管理者様向けの定期点検提案を開始しました" },
-];
+export { newsItems } from "@/data/news";
 
 export const areaList = [
   "滋賀県全域",

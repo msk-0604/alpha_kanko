@@ -1,5 +1,9 @@
 import Link from "next/link";
+import { CountUp } from "@/components/ui/CountUp";
 import styles from "./home.module.css";
+
+/** 創業平成3年（1991年）からの経過年数 */
+const YEARS_SINCE_FOUNDING = new Date().getFullYear() - 1991;
 
 export function CompanySpotlightSection() {
   return (
@@ -18,8 +22,10 @@ export function CompanySpotlightSection() {
           </p>
           <ul className={styles.companySpotlightFacts}>
             <li>
-              <span>創業</span>
-              <strong>平成3年</strong>
+              <span>創業からの歩み</span>
+              <strong>
+                <CountUp end={YEARS_SINCE_FOUNDING} suffix="年" />
+              </strong>
             </li>
             <li>
               <span>指定給水装置工事事業者</span>
@@ -30,9 +36,14 @@ export function CompanySpotlightSection() {
               <strong>大津市 第192号</strong>
             </li>
           </ul>
-          <Link href="/#company-info" className={styles.outlineButtonLight}>
-            会社情報を見る
-          </Link>
+          <div className={styles.companySpotlightActions}>
+            <Link href="/company" className={styles.outlineButtonLight}>
+              会社案内を見る
+            </Link>
+            <Link href="/greeting" className={styles.outlineButtonLight}>
+              代表挨拶を読む
+            </Link>
+          </div>
         </div>
       </div>
     </section>

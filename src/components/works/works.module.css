@@ -267,6 +267,9 @@
 }
 
 .detailNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
   padding-top: 0.5rem;
   border-top: 1px solid var(--color-border, #d5dde6);
 }
@@ -533,3 +536,433 @@
   width: min(960px, 92%);
   margin-inline: auto;
 }
+
+.filterBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.filterBtn,
+.filterActive {
+  border: 1px solid #c5d3e0;
+  background: #fff;
+  color: #3d556a;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filterBtn:hover {
+  border-color: #1e5c99;
+  color: #153e69;
+}
+
+.filterActive {
+  background: #0f2740;
+  border-color: #0f2740;
+  color: #fff;
+}
+
+.filterCount {
+  margin: 0 0 1.5rem;
+  font-size: 0.85rem;
+  color: #5c7286;
+}
+
+.filterEmpty {
+  margin: 2rem 0;
+  color: #5c7286;
+  line-height: 1.8;
+}
+
+.faqList {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.faqItem {
+  background: #fff;
+  border: 1px solid #d7e1ea;
+  padding: 0;
+}
+
+.faqItem summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.2rem;
+  font-weight: 600;
+  color: #142536;
+  line-height: 1.6;
+}
+
+.faqItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.faqItem summary::after {
+  content: "+";
+  float: right;
+  color: #1e5c99;
+  font-weight: 500;
+}
+
+.faqItem[open] summary::after {
+  content: "−";
+}
+
+.faqItem p {
+  margin: 0;
+  padding: 0 1.2rem 1.2rem;
+  color: #546575;
+  line-height: 1.9;
+  font-size: 0.95rem;
+}
+
+.newsList {
+  list-style: none;
+  margin: 0 0 2rem;
+  padding: 0;
+  border-top: 1px solid #d7e1ea;
+}
+
+.newsList li {
+  border-bottom: 1px solid #d7e1ea;
+}
+
+.newsLink {
+  display: block;
+  padding: 1.25rem 0;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.newsLink:hover {
+  opacity: 0.75;
+}
+
+.newsMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  color: #6a7d8f;
+  letter-spacing: 0.04em;
+}
+
+.newsTitle {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #142536;
+  line-height: 1.55;
+}
+
+.newsBody {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.newsBody p {
+  margin: 0;
+  color: #445566;
+  line-height: 1.95;
+  font-size: 0.98rem;
+}
+
+.greetingLayout {
+  display: grid;
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 800px) {
+  .greetingLayout {
+    grid-template-columns: 280px 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+}
+
+.greetingPhoto {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: #dce5ee;
+  overflow: hidden;
+}
+
+.greetingCopy {
+  display: grid;
+  gap: 1rem;
+}
+
+.greetingCopy p {
+  margin: 0;
+  color: #445566;
+  line-height: 1.95;
+  font-size: 0.98rem;
+}
+
+.greetingRole {
+  font-size: 0.9rem !important;
+  color: #5c7286 !important;
+}
+
+.greetingRole span {
+  display: block;
+  margin-top: 0.35rem;
+  font-family: var(--font-display), serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #142536;
+  letter-spacing: 0.06em;
+}
+
+.greetingLead {
+  font-family: var(--font-display), serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #142536 !important;
+  letter-spacing: 0.06em;
+}
+
+.companyGreetingTeaser {
+  margin: 0 0 2.25rem;
+  padding: 1.5rem 0 1.75rem;
+  border-top: 1px solid #d7e1ea;
+  border-bottom: 1px solid #d7e1ea;
+}
+
+.companyGreetingEyebrow {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #5c7286;
+}
+
+.companyGreetingQuote {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display), serif;
+  font-size: 1.1rem;
+  line-height: 1.85;
+  color: #142536;
+  letter-spacing: 0.03em;
+}
+
+.companyGreetingName {
+  margin: 0 0 1rem;
+  font-size: 0.88rem;
+  color: #5c7286;
+}
+
+.lightboxTrigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+}
+
+.lightboxBackdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(10, 20, 32, 0.82);
+  cursor: pointer;
+}
+
+.lightboxPanel {
+  position: relative;
+  z-index: 1;
+  width: min(960px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  background: #0f1720;
+  padding: 1rem;
+}
+
+.lightboxImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lightboxCaption {
+  margin: 0.75rem 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.lightboxControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.85rem;
+}
+
+.lightboxControls button {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 0.82rem;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+}
+
+.baSlider {
+  margin: 0 0 2rem;
+}
+
+.baSliderStage {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #dce5ee;
+  user-select: none;
+}
+
+.baSliderImage {
+  object-fit: cover;
+}
+
+.baSliderBefore {
+  position: absolute;
+  inset: 0 auto 0 0;
+  overflow: hidden;
+  border-right: 2px solid #fff;
+  z-index: 1;
+}
+
+.baSliderBeforeInner {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(840px, 92vw);
+  height: 100%;
+}
+
+.baSliderHandle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #fff;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.baSliderLabel {
+  position: absolute;
+  top: 0.75rem;
+  z-index: 2;
+  padding: 0.25rem 0.55rem;
+  background: rgba(15, 39, 64, 0.75);
+  color: #fff;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.baSliderLabelBefore {
+  left: 0.75rem;
+}
+
+.baSliderLabelAfter {
+  right: 0.75rem;
+}
+
+.baSliderControl {
+  display: block;
+  margin-top: 0.85rem;
+}
+
+.baSliderControl input {
+  width: 100%;
+  accent-color: #0f2740;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.shareRow {
+  margin: 2rem 0;
+  padding: 1.25rem 0;
+  border-top: 1px solid #d7e1ea;
+  border-bottom: 1px solid #d7e1ea;
+}
+
+.shareLabel {
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #5c7286;
+  letter-spacing: 0.06em;
+}
+
+.shareActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.shareBtn {
+  border: 1px solid #c5d3e0;
+  background: #fff;
+  color: #153e69;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.55rem 0.95rem;
+  cursor: pointer;
+}
+
+.shareBtn:hover {
+  border-color: #1e5c99;
+}
+
+.relatedBlock {
+  margin: 2.5rem 0 1rem;
+}
+
+.relatedTitle {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-display), serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #142536;
+  letter-spacing: 0.04em;
+}
+

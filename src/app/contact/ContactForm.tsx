@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
 
@@ -12,6 +13,7 @@ type FormState = {
   category: string;
   message: string;
   privacy: boolean;
+  website: string;
 };
 
 const initialState: FormState = {
@@ -22,9 +24,11 @@ const initialState: FormState = {
   category: "",
   message: "",
   privacy: false,
+  website: "",
 };
 
 export function ContactForm() {
+  const router = useRouter();
   const [form, setForm] = useState<FormState>(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
@@ -50,11 +54,7 @@ export function ContactForm() {
         return;
       }
 
-      setResult({
-        ok: true,
-        message: "お問い合わせを受け付けました。担当者より折り返しご連絡いたします。",
-      });
-      setForm(initialState);
+      router.push("/contact/thanks");
     } catch {
       setResult({
         ok: false,
@@ -67,6 +67,20 @@ export function ContactForm() {
 
   return (
     <form className={styles.form} onSubmit={onSubmit}>
+      <div className={styles.honeypot} aria-hidden="true">
+        <label>
+          ウェブサイト
+          <input
+            type="text"
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            value={form.website}
+            onChange={(e) => setForm((prev) => ({ ...prev, website: e.target.value }))}
+          />
+        </label>
+      </div>
+
       <label>
         会社名（任意）
         <input
@@ -121,6 +135,7 @@ export function ContactForm() {
           <option value="equipment">設備工事・更新</option>
           <option value="estimate">見積もり依頼</option>
           <option value="recruit">採用について</option>
+          <option value="partner">協力会社募集</option>
           <option value="other">その他</option>
         </select>
       </label>

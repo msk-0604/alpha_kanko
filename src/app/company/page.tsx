@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { greeting } from "@/components/home/content";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
@@ -35,6 +37,12 @@ export default function CompanyPage() {
       <Header />
       <main className={styles.page}>
         <div className={styles.pageInnerNarrow}>
+          <Breadcrumb
+            items={[
+              { label: "トップ", href: "/" },
+              { label: "会社案内" },
+            ]}
+          />
           <header className={styles.pageHero}>
             <p className={styles.pageEyebrow}>COMPANY</p>
             <h1 className={styles.pageTitle}>会社案内</h1>
@@ -43,6 +51,19 @@ export default function CompanyPage() {
               地域の暮らしとインフラを支える施工を積み重ねています。
             </p>
           </header>
+
+          <section className={styles.companyGreetingTeaser}>
+            <p className={styles.companyGreetingEyebrow}>代表挨拶</p>
+            <p className={styles.companyGreetingQuote}>
+              私たちは、地域の暮らしを支える水まわり設備を守ることを使命としています。
+            </p>
+            <p className={styles.companyGreetingName}>
+              {greeting.title} {greeting.name}
+            </p>
+            <Link href="/greeting" className={styles.backLink}>
+              代表挨拶を読む
+            </Link>
+          </section>
 
           <dl className={styles.companyTable}>
             {rows.map((row) => (

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { WorkDetail } from "@/components/works/WorkDetail";
 import { getAllWorkSlugs, getWorkBySlug } from "@/data/works";
 import styles from "@/components/works/works.module.css";
@@ -26,6 +27,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `/works/${work.slug}`,
     },
+    openGraph: {
+      title: `${work.title}｜施工事例｜株式会社アルファ管工`,
+      description: work.description,
+      images: [{ url: work.coverImage.src }],
+    },
   };
 }
 
@@ -41,6 +47,13 @@ export default async function WorkDetailPage({ params }: PageProps) {
       <Header />
       <main className={styles.detailPage}>
         <div className={styles.detailPageInner}>
+          <Breadcrumb
+            items={[
+              { label: "トップ", href: "/" },
+              { label: "施工事例", href: "/works" },
+              { label: work.title },
+            ]}
+          />
           <WorkDetail work={work} />
         </div>
       </main>

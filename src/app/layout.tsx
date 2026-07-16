@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Sans_JP, Shippori_Mincho } from "next/font/google";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
+import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
 import "./globals.css";
 
 const notoSansJp = Noto_Sans_JP({
@@ -69,7 +71,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJp.variable} ${shipporiMincho.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <OrganizationJsonLd />
+        <GoogleAnalytics />
+        {children}
+      </body>
     </html>
   );
 }
