@@ -37,7 +37,7 @@ const businessPanels = [
     title: "法人・施設対応",
     description: "施設管理に合わせた設備工事と報告。",
     image: "/images/works/new-house-plumbing-03.webp",
-    href: "/#company-info",
+    href: "/business",
   },
 ];
 

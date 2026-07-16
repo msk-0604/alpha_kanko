@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./home.module.css";
 
 export function CTASection() {
@@ -14,9 +15,9 @@ export function CTASection() {
           <a href="tel:0775793507" className={styles.outlineButtonLight}>
             077-579-3507
           </a>
-          <a href="/contact" className={styles.primaryButton}>
+          <Link href="/contact" className={styles.primaryButton}>
             お問い合わせフォーム
-          </a>
+          </Link>
         </div>
       </div>
     </section>

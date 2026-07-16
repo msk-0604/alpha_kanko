@@ -703,7 +703,17 @@
   gap: 1rem;
 }
 
-.greetingCopy p {
+.greetingCopyOnly {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 0.25rem 0 0.5rem;
+  border-top: 1px solid #d7e1ea;
+  padding-top: 1.75rem;
+}
+
+.greetingCopy p,
+.greetingCopyOnly p {
   margin: 0;
   color: #445566;
   line-height: 1.95;
@@ -711,6 +721,12 @@
 }
 
 .greetingRole {
+  font-size: 0.9rem !important;
+  color: #5c7286 !important;
+}
+
+.greetingCopyOnly .greetingRole,
+.greetingCopy .greetingRole {
   font-size: 0.9rem !important;
   color: #5c7286 !important;
 }

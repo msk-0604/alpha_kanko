@@ -2,6 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { areaList, instagramUrl } from "./content";
 
+const hasInstagram =
+  Boolean(instagramUrl) &&
+  !instagramUrl.endsWith("instagram.com/") &&
+  !instagramUrl.endsWith("instagram.com");
+
 export function Footer() {
   const relatedLinks = [
     { label: "会社案内", href: "/company" },
@@ -31,21 +36,33 @@ export function Footer() {
             </h3>
             <p className="text-lg font-semibold leading-relaxed">株式会社アルファ管工</p>
             <p className="text-sm leading-7 text-white/85">滋賀県大津市坂本6丁目8-8</p>
-            <p className="text-sm leading-7 text-white/85">TEL: 077-579-3507</p>
-            <p className="text-sm leading-7 text-white/85">E-mail: honsha@alpha-kanko.co.jp</p>
-            <a
-              href={instagramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex size-9 items-center justify-center rounded-full border border-white/35 bg-white/10 transition duration-300 hover:-translate-y-0.5 hover:bg-white/20"
-              aria-label="Instagramへ移動"
-            >
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" strokeWidth="2" />
-                <circle cx="12" cy="12" r="4" stroke="white" strokeWidth="2" />
-                <circle cx="17.5" cy="6.5" r="1.2" fill="white" />
-              </svg>
-            </a>
+            <p className="text-sm leading-7 text-white/85">
+              TEL:{" "}
+              <a href="tel:0775793507" className="transition hover:text-white">
+                077-579-3507
+              </a>
+            </p>
+            <p className="text-sm leading-7 text-white/85">
+              E-mail:{" "}
+              <a href="mailto:honsha@alpha-kanko.co.jp" className="transition hover:text-white">
+                honsha@alpha-kanko.co.jp
+              </a>
+            </p>
+            {hasInstagram ? (
+              <a
+                href={instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex size-9 items-center justify-center rounded-full border border-white/35 bg-white/10 transition duration-300 hover:-translate-y-0.5 hover:bg-white/20"
+                aria-label="Instagramへ移動"
+              >
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="white" strokeWidth="2" />
+                  <circle cx="12" cy="12" r="4" stroke="white" strokeWidth="2" />
+                  <circle cx="17.5" cy="6.5" r="1.2" fill="white" />
+                </svg>
+              </a>
+            ) : null}
           </section>
 
           <section className="space-y-3">

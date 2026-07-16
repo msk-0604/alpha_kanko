@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
@@ -32,30 +31,20 @@ export default function GreetingPage() {
             <h1 className={styles.pageTitle}>代表挨拶</h1>
           </header>
 
-          <div className={styles.greetingLayout}>
-            <div className={styles.greetingPhoto}>
-              <Image
-                src={greeting.image}
-                alt={`${greeting.name} 代表`}
-                fill
-                sizes="(max-width: 768px) 100vw, 360px"
-              />
-            </div>
-            <div className={styles.greetingCopy}>
-              <p className={styles.greetingRole}>
-                {greeting.title}
-                <span>{greeting.name}</span>
-              </p>
-              <p className={styles.greetingLead}>丁寧に、正直に。</p>
-              <p>{greeting.message}</p>
-              <p>
-                創業平成3年より、大津市を拠点に給排水設備工事に向き合ってまいりました。
-                法人・公共施設から一般住宅まで、現場ごとに最適な施工と誠実なご案内を心がけています。
-              </p>
-              <p>
-                水まわりの不安や設備更新のご相談がありましたら、どうぞお気軽にご連絡ください。
-              </p>
-            </div>
+          <div className={styles.greetingCopyOnly}>
+            <p className={styles.greetingRole}>
+              {greeting.title}
+              <span>{greeting.name}</span>
+            </p>
+            <p className={styles.greetingLead}>丁寧に、正直に。</p>
+            <p>{greeting.message}</p>
+            <p>
+              創業平成3年より、大津市を拠点に給排水設備工事に向き合ってまいりました。
+              法人・公共施設から一般住宅まで、現場ごとに最適な施工と誠実なご案内を心がけています。
+            </p>
+            <p>
+              水まわりの不安や設備更新のご相談がありましたら、どうぞお気軽にご連絡ください。
+            </p>
           </div>
 
           <div className={styles.detailNav}>

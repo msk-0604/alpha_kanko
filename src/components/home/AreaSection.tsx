@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { areaList } from "./content";
 import styles from "./home.module.css";
 
@@ -20,7 +21,7 @@ export function AreaSection() {
           ))}
         </ul>
         <p className={styles.areaNote}>
-          <a href="/area">対応エリアの詳細を見る</a>
+          <Link href="/area">対応エリアの詳細を見る</Link>
         </p>
       </div>
     </section>
