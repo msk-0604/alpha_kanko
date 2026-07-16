@@ -142,11 +142,12 @@ export function Footer() {
             aria-label="採用情報を見る"
           >
             <Image
-              src="/images/hero-construction.png"
+              src="/images/hero-construction.webp"
               alt="採用情報バナー"
               fill
               className="object-cover transition duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
+              quality={65}
             />
             <div className="absolute inset-0 bg-[#0f2740]/55 transition duration-300 group-hover:bg-[#0f2740]/45" />
             <div className="absolute inset-x-0 bottom-0 p-5">
@@ -161,11 +162,12 @@ export function Footer() {
             aria-label="お問い合わせへ"
           >
             <Image
-              src="/images/trouble-under-sink.png"
+              src="/images/works/water-heater-after.webp"
               alt="お問い合わせバナー"
               fill
               className="object-cover transition duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
+              quality={65}
             />
             <div className="absolute inset-0 bg-[#0f2740]/55 transition duration-300 group-hover:bg-[#0f2740]/45" />
             <div className="absolute inset-x-0 bottom-0 p-5">

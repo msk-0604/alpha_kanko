@@ -7,15 +7,17 @@ import "./globals.css";
 const notoSansJp = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  weight: ["400", "700"],
   display: "swap",
+  preload: true,
 });
 
 const shipporiMincho = Shippori_Mincho({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["600"],
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {

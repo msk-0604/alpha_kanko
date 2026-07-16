@@ -11,9 +11,8 @@ export function StatementBand() {
           alt=""
           fill
           sizes="100vw"
-          quality={90}
+          quality={70}
           className={styles.statementImage}
-          data-parallax
         />
         <div className={styles.statementShade} aria-hidden />
       </div>

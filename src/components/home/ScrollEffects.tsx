@@ -1,51 +1,35 @@
 "use client";
 
 import { useEffect } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
-
+/**
+ * Lightweight scroll reveal without GSAP (keeps mobile Lighthouse healthier).
+ */
 export function ScrollEffects() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.querySelectorAll<HTMLElement>("[data-reveal]").forEach((el) => {
+        el.classList.add("is-revealed");
+      });
       return;
     }
 
-    const ctx = gsap.context(() => {
-      gsap.utils.toArray<HTMLElement>("[data-reveal]").forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 48 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1.05,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: el,
-              start: "top 88%",
-              toggleActions: "play none none none",
-            },
-          },
-        );
-      });
+    const elements = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+    if (elements.length === 0) return;
 
-      gsap.utils.toArray<HTMLElement>("[data-parallax]").forEach((el) => {
-        gsap.to(el, {
-          yPercent: 12,
-          ease: "none",
-          scrollTrigger: {
-            trigger: el.parentElement,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: true,
-          },
-        });
-      });
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -6% 0px" },
+    );
 
-    return () => ctx.revert();
+    for (const el of elements) observer.observe(el);
+    return () => observer.disconnect();
   }, []);
 
   return null;
