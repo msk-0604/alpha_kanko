@@ -4,20 +4,23 @@ import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { WorkDetail } from "@/components/works/WorkDetail";
-import { getAllWorkSlugs, getWorkBySlug } from "@/data/works";
+import { getAllWorkSlugs, getRelatedWorks, getWorkBySlug } from "@/lib/works";
 import styles from "@/components/works/works.module.css";
+
+export const revalidate = 60;
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
-export function generateStaticParams() {
-  return getAllWorkSlugs().map((slug) => ({ slug }));
+export async function generateStaticParams() {
+  const slugs = await getAllWorkSlugs();
+  return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const work = getWorkBySlug(slug);
+  const work = await getWorkBySlug(slug);
   if (!work) {
     return { title: "施工事例｜株式会社アルファ管工" };
   }
@@ -37,10 +40,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function WorkDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const work = getWorkBySlug(slug);
+  const work = await getWorkBySlug(slug);
   if (!work) {
     notFound();
   }
+
+  const related = await getRelatedWorks(work.slug, 3);
 
   return (
     <>
@@ -54,7 +59,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
               { label: work.title },
             ]}
           />
-          <WorkDetail work={work} />
+          <WorkDetail work={work} related={related} />
         </div>
       </main>
       <Footer />

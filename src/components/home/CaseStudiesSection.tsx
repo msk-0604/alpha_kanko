@@ -1,8 +1,10 @@
 import { WorksCardGrid } from "@/components/works/WorksCardGrid";
-import { works } from "@/data/works";
+import { getWorks } from "@/lib/works";
 import styles from "./home.module.css";
 
-export function CaseStudiesSection() {
+export async function CaseStudiesSection() {
+  const works = await getWorks();
+
   return (
     <section className={styles.section} id="case-studies">
       <div className={styles.container}>

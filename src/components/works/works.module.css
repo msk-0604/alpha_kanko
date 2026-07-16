@@ -103,7 +103,7 @@
 }
 
 .cardTitle {
-  margin: 0 0 0.65rem;
+  margin: 0;
   font-size: 1.05rem;
   font-weight: 600;
   color: #1a2f44;
@@ -562,6 +562,12 @@
   color: #4d5f70;
   font-size: 0.98rem;
   line-height: 1.9;
+}
+
+.cmsNote {
+  margin: 0.85rem 0 0;
+  font-size: 0.82rem;
+  color: #6a7d8f;
 }
 
 .detailPage {

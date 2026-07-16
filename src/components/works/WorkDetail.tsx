@@ -1,6 +1,5 @@
 import Link from "next/link";
 import type { WorkItem } from "@/data/works";
-import { getRelatedWorks } from "@/data/works";
 import { BeforeAfterSlider } from "./BeforeAfterSlider";
 import { WorkImageLightbox } from "./WorkImageLightbox";
 import { WorksCardGrid } from "./WorksCardGrid";
@@ -8,11 +7,10 @@ import styles from "./works.module.css";
 
 type WorkDetailProps = {
   work: WorkItem;
+  related?: WorkItem[];
 };
 
-export function WorkDetail({ work }: WorkDetailProps) {
-  const related = getRelatedWorks(work.slug, 3);
-
+export function WorkDetail({ work, related = [] }: WorkDetailProps) {
   return (
     <article className={styles.detail}>
       <p className={styles.detailCategory}>{work.category}</p>
@@ -25,7 +23,7 @@ export function WorkDetail({ work }: WorkDetailProps) {
 
       {work.layout === "gallery" && work.images ? (
         <>
-          <h2 className={styles.galleryHeading}>{work.title}</h2>
+          <h2 className={styles.galleryHeading}>施工写真</h2>
           <WorkImageLightbox
             images={work.images}
             className={styles.galleryGrid}

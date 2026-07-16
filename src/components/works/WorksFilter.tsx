@@ -18,6 +18,11 @@ export function WorksFilter({ items }: WorksFilterProps) {
     return items.filter((item) => item.category === category);
   }, [category, items]);
 
+  const availableCategories = useMemo(
+    () => workCategories.filter((cat) => items.some((item) => item.category === cat)),
+    [items],
+  );
+
   return (
     <div>
       <div className={styles.filterBar} role="group" aria-label="工事種別で絞り込み">
@@ -29,7 +34,7 @@ export function WorksFilter({ items }: WorksFilterProps) {
         >
           すべて
         </button>
-        {workCategories.map((cat) => (
+        {availableCategories.map((cat) => (
           <button
             key={cat}
             type="button"
@@ -41,10 +46,7 @@ export function WorksFilter({ items }: WorksFilterProps) {
           </button>
         ))}
       </div>
-      <p className={styles.filterCount}>
-        {filtered.length}件の施工事例
-        {category !== "all" ? `（${category}）` : null}
-      </p>
+      <p className={styles.filterCount}>{filtered.length}件</p>
       {filtered.length > 0 ? (
         <WorksCardGrid items={filtered} showSectionHeader={false} />
       ) : (

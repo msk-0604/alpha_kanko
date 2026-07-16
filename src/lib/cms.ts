@@ -1,15 +1,16 @@
 /**
  * Content access layer.
- * Currently serves local TypeScript data. When MICROCMS_* env vars are set,
- * this module can be extended to fetch from microCMS without changing page components.
+ * Works are loaded from microCMS when MICROCMS_* env vars are set,
+ * otherwise local TypeScript data is used.
  */
 export {
-  works,
+  getWorks,
   getWorkBySlug,
   getAllWorkSlugs,
   getRelatedWorks,
   workCategories,
-} from "@/data/works";
+  isMicroCmsEnabled,
+} from "./works";
 export type { WorkItem, WorkCategory } from "@/data/works";
 export { newsItems, getNewsById, getAllNewsIds } from "@/data/news";
 export type { NewsItem } from "@/data/news";

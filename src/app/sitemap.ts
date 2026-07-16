@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { getAllNewsIds } from "@/data/news";
-import { getAllWorkSlugs } from "@/data/works";
+import { getAllWorkSlugs } from "@/lib/works";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = "https://www.alpha-kanko.com";
   const now = new Date();
+  const workSlugs = await getAllWorkSlugs();
 
   const staticRoutes: MetadataRoute.Sitemap = [
     "",
@@ -34,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             : 0.6,
   }));
 
-  const workRoutes: MetadataRoute.Sitemap = getAllWorkSlugs().map((slug) => ({
+  const workRoutes: MetadataRoute.Sitemap = workSlugs.map((slug) => ({
     url: `${base}/works/${slug}`,
     lastModified: now,
     changeFrequency: "monthly",
