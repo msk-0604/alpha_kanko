@@ -103,18 +103,12 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-            <div className="pt-2 grid gap-2">
-              <Link
-                href="/recruit"
-                className="inline-flex min-h-11 w-full items-center justify-center border border-white/45 bg-white/10 text-sm font-semibold transition duration-300 hover:bg-white/20"
-              >
-                採用情報
-              </Link>
+            <div className="pt-2">
               <Link
                 href="/contact"
-                className="inline-flex min-h-11 w-full items-center justify-center bg-white text-sm font-semibold text-[#10253f] transition duration-300 hover:bg-white/90"
+                className="inline-flex min-h-11 w-full items-center justify-center bg-white text-sm font-semibold !text-[#10253f] transition duration-300 hover:bg-white/90"
               >
-                お問い合わせ
+                お問合せ
               </Link>
             </div>
           </section>
