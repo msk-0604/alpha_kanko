@@ -36,8 +36,8 @@ export function Header({ variant = "default" }: HeaderProps) {
             <Image
               src={onHero ? "/images/brand/logo-light.webp" : "/images/brand/logo.webp"}
               alt="株式会社アルファ管工"
-              width={940}
-              height={249}
+              width={825}
+              height={225}
               className={styles.logoImage}
               priority
             />

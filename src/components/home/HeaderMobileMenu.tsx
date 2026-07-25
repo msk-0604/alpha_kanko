@@ -60,8 +60,8 @@ export function HeaderMobileMenu({ overlay = false }: HeaderMobileMenuProps) {
                     <Image
                       src="/images/brand/logo-light.webp"
                       alt="株式会社アルファ管工"
-                      width={940}
-                      height={249}
+                      width={825}
+                      height={225}
                       className={styles.brandLogo}
                     />
                   </p>
