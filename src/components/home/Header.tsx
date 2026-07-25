@@ -49,11 +49,12 @@ export function Header({ variant = "default" }: HeaderProps) {
               </Link>
             ))}
           </nav>
-          <a href="tel:0775793507" className={styles.headerCta} aria-label="電話する">
-            077-579-3507
-          </a>
-          <HeaderMobileMenu overlay={onHero} />
-        </div>
+          <div className={styles.headerActions}>
+            <a href="tel:0775793507" className={styles.headerCta} aria-label="電話する">
+              077-579-3507
+            </a>
+            <HeaderMobileMenu overlay={onHero} />
+          </div>        </div>
       </div>
     </header>
   );
