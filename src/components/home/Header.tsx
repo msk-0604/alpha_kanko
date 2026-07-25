@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { desktopNavItems } from "./nav";
 import { HeaderMobileMenu } from "./HeaderMobileMenu";
@@ -21,6 +22,7 @@ export function Header({ variant = "default" }: HeaderProps) {
     return () => window.removeEventListener("scroll", onScroll);
   }, [variant]);
 
+  const onHero = variant === "overlay" && !scrolled;
   const headerClass =
     variant === "overlay"
       ? `${styles.header} ${styles.headerOverlay} ${scrolled ? styles.headerScrolled : ""}`
@@ -30,9 +32,15 @@ export function Header({ variant = "default" }: HeaderProps) {
     <header className={headerClass}>
       <div className={styles.container}>
         <div className={styles.headerInner}>
-          <Link href="/" className={styles.logo}>
-            <span className={styles.logoMain}>株式会社アルファ管工</span>
-            <span className={styles.logoSub}>滋賀県大津市 / 給排水・配管工事</span>
+          <Link href="/" className={styles.logo} aria-label="株式会社アルファ管工 トップへ">
+            <Image
+              src={onHero ? "/images/brand/logo-light.webp" : "/images/brand/logo.webp"}
+              alt="株式会社アルファ管工"
+              width={940}
+              height={249}
+              className={styles.logoImage}
+              priority
+            />
           </Link>
           <nav className={styles.desktopNav} aria-label="メインナビゲーション">
             {desktopNavItems.map((item) => (
@@ -44,7 +52,7 @@ export function Header({ variant = "default" }: HeaderProps) {
           <a href="tel:0775793507" className={styles.headerCta} aria-label="電話する">
             077-579-3507
           </a>
-          <HeaderMobileMenu overlay={variant === "overlay" && !scrolled} />
+          <HeaderMobileMenu overlay={onHero} />
         </div>
       </div>
     </header>

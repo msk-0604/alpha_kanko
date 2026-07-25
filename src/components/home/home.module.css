@@ -78,14 +78,9 @@
   color: #fff;
 }
 
-.headerOverlay .logoMain,
 .headerOverlay .desktopNav a,
 .headerOverlay .headerCta {
   color: #fff;
-}
-
-.headerOverlay .logoSub {
-  color: rgba(255, 255, 255, 0.72);
 }
 
 .headerOverlay .desktopNav a::after {
@@ -112,14 +107,9 @@
   color: inherit;
 }
 
-.headerScrolled .logoMain,
 .headerScrolled .desktopNav a,
 .headerScrolled .headerCta {
   color: #111827;
-}
-
-.headerScrolled .logoSub {
-  color: #456380;
 }
 
 .headerScrolled .desktopNav a::after {
@@ -452,37 +442,19 @@
 
 .logo {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.12rem;
-  color: #111827;
-  white-space: normal;
-  min-width: max-content;
-  width: max-content;
-  max-width: none;
-  flex: 0 0 auto;
-  writing-mode: horizontal-tb;
+  align-items: center;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: min(280px, 58vw);
+  line-height: 0;
 }
 
-.logoMain {
-  font-size: 1.08rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  line-height: 1.18;
-  white-space: nowrap;
-  display: block;
-  writing-mode: horizontal-tb;
-}
-
-.logoSub {
-  color: #456380;
-  font-size: 0.69rem;
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  display: block;
-  writing-mode: horizontal-tb;
+.logoImage {
+  width: 100%;
+  height: auto;
+  max-height: 42px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .desktopNav {
@@ -2123,19 +2095,11 @@
   }
 
   .logo {
-    min-width: 280px;
-    width: 280px;
+    max-width: 300px;
   }
 
-  .logoMain {
-    font-size: 1rem;
-    line-height: 1.15;
-  }
-
-  .logoSub {
-    font-size: 0.64rem;
-    line-height: 1.2;
-    letter-spacing: 0;
+  .logoImage {
+    max-height: 46px;
   }
 
   .hero {
@@ -2268,8 +2232,12 @@
   .logo {
     min-width: 0;
     width: auto;
-    max-width: calc(100% - 11rem);
+    max-width: min(240px, calc(100% - 11rem));
     flex: 1 1 auto;
+  }
+
+  .logoImage {
+    max-height: 40px;
   }
 
   .headerCta {
@@ -2291,23 +2259,12 @@
   .logo {
     min-width: 0;
     width: auto;
-    max-width: calc(100% - 3.25rem);
+    max-width: min(220px, calc(100% - 3.25rem));
     flex: 1 1 auto;
   }
 
-  .logoMain {
-    font-size: clamp(0.8rem, 3.5vw, 0.95rem);
-    white-space: nowrap;
-    line-height: 1.22;
-  }
-
-  .logoSub {
-    font-size: 0.6rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
-    line-height: 1.3;
+  .logoImage {
+    max-height: 36px;
   }
 
   .heroActions {
@@ -2326,17 +2283,11 @@
 
 @media (min-width: 1024px) {
   .logo {
-    gap: 0.12rem;
-    min-width: 330px;
-    width: 330px;
+    max-width: 320px;
   }
 
-  .logoMain {
-    font-size: 1.08rem;
-  }
-
-  .logoSub {
-    font-size: 0.67rem;
+  .logoImage {
+    max-height: 48px;
   }
 
   .desktopNav {

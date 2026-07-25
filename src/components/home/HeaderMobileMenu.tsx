@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useState } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./mobile-menu.module.css";
 
@@ -56,7 +57,13 @@ export function HeaderMobileMenu({ overlay = false }: HeaderMobileMenuProps) {
               <div className={styles.panelTop}>
                 <div>
                   <p id={titleId} className={styles.brand}>
-                    株式会社アルファ管工
+                    <Image
+                      src="/images/brand/logo-light.webp"
+                      alt="株式会社アルファ管工"
+                      width={940}
+                      height={249}
+                      className={styles.brandLogo}
+                    />
                   </p>
                   <p className={styles.brandSub}>滋賀県大津市 / 給排水・配管工事</p>
                 </div>
