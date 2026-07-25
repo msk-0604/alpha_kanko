@@ -58,11 +58,12 @@ export function HeaderMobileMenu({ overlay = false }: HeaderMobileMenuProps) {
                 <div>
                   <p id={titleId} className={styles.brand}>
                     <Image
-                      src="/images/brand/logo-light.webp"
+                      src="/images/brand/logo-light.png"
                       alt="株式会社アルファ管工"
-                      width={825}
-                      height={225}
+                      width={929}
+                      height={191}
                       className={styles.brandLogo}
+                      unoptimized
                     />
                   </p>
                   <p className={styles.brandSub}>滋賀県大津市 / 給排水・配管工事</p>

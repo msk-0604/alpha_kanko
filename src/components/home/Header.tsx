@@ -34,12 +34,13 @@ export function Header({ variant = "default" }: HeaderProps) {
         <div className={styles.headerInner}>
           <Link href="/" className={styles.logo} aria-label="株式会社アルファ管工 トップへ">
             <Image
-              src={onHero ? "/images/brand/logo-light.webp" : "/images/brand/logo.webp"}
+              src={onHero ? "/images/brand/logo-light.png" : "/images/brand/logo.png"}
               alt="株式会社アルファ管工"
-              width={825}
-              height={225}
+              width={929}
+              height={191}
               className={styles.logoImage}
               priority
+              unoptimized
             />
           </Link>
           <nav className={styles.desktopNav} aria-label="メインナビゲーション">
