@@ -324,28 +324,70 @@
 .businessPageCard {
   background: #fff;
   overflow: hidden;
+  border: 1px solid #d7e1ea;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.businessPageCard:hover {
+  box-shadow: 0 12px 28px rgba(15, 39, 64, 0.1);
+  transform: translateY(-2px);
 }
 
 .businessPageMedia {
   position: relative;
   aspect-ratio: 16 / 11;
   background: #101820;
+  overflow: hidden;
 }
 
 .businessPageImage {
   object-fit: cover;
+  transition: transform 0.55s ease;
+}
+
+.businessPageCard:hover .businessPageImage {
+  transform: scale(1.05);
+}
+
+.businessImagePlaceholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(15, 39, 64, 0.55);
+  pointer-events: none;
+}
+
+.businessImagePlaceholder span {
+  padding: 0.55rem 1rem;
+  border: 1px dashed rgba(197, 213, 229, 0.55);
+  color: #dce6f0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .businessPageBody {
   padding: 1.25rem 1.3rem 1.5rem;
+  display: grid;
+  gap: 0.75rem;
 }
 
 .businessPageBody h2 {
-  margin: 0 0 0.55rem;
+  margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
   color: #142536;
   letter-spacing: 0.03em;
+}
+
+.businessPageSubtitle {
+  margin: 0 !important;
+  color: #1e5c99 !important;
+  font-size: 0.92rem !important;
+  font-weight: 600;
+  line-height: 1.6 !important;
+  letter-spacing: 0.02em;
 }
 
 .businessPageBody p {
@@ -353,6 +395,62 @@
   color: #546575;
   line-height: 1.85;
   font-size: 0.94rem;
+}
+
+.businessTagList {
+  list-style: none;
+  margin: 0.15rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.businessTagList li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.7rem;
+  padding: 0.15rem 0.65rem;
+  border: 1px solid #c5d3e0;
+  background: #f4f8fb;
+  color: #2a455e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.businessFeatureList {
+  list-style: none;
+  margin: 0.25rem 0 0;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid #e2eaf1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 0.85rem;
+}
+
+.businessFeatureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #243b53;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+}
+
+.businessFeatureIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid #c5d3e0;
+  background: #f7fafc;
+  color: #1e5c99;
 }
 
 .businessBaSection {

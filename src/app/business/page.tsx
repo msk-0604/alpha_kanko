@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  Crosshair,
+  Cpu,
+  ShieldCheck,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -10,11 +17,23 @@ import styles from "@/components/works/works.module.css";
 export const metadata: Metadata = {
   title: "事業内容｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の事業内容。給排水衛生設備工事、配管工事、排水設備工事、給湯器交換、水回りリフォーム、法人・官公庁対応。",
+    "株式会社アルファ管工の事業内容。給排水衛生設備工事、配管工事、排水設備工事、給湯器交換、水回りリフォーム、水素式非破壊漏水調査、法人・官公庁対応。",
   alternates: { canonical: "/business" },
 };
 
-const overviewPanels = [
+type BusinessPanel = {
+  title: string;
+  text: string;
+  image: string;
+  alt: string;
+  subtitle?: string;
+  tags?: string[];
+  features?: { label: string; icon: LucideIcon }[];
+  /** true のとき仮画像オーバーレイを表示。本番写真に差し替えたら false / 削除 */
+  imagePlaceholder?: boolean;
+};
+
+const overviewPanels: BusinessPanel[] = [
   {
     title: "給排水衛生設備工事",
     text: "施設用途に合わせた設計・施工で、安定した給排水環境を構築します。",
@@ -34,6 +53,35 @@ const overviewPanels = [
     alt: "建物内部の設備配管施工の様子",
   },
 ];
+
+/**
+ * 水素式非破壊漏水調査
+ * 画像差し替え: `image` のパス（public/images/business/leak-survey.webp）を本番写真に置き換え、
+ * `imagePlaceholder` を削除してください。
+ */
+const leakSurveyPanel: BusinessPanel = {
+  title: "水素式非破壊漏水調査",
+  subtitle: "見えない漏水を、壊さず正確に調査。",
+  text: "最新の水素式非破壊漏水調査機器を導入し、戸建住宅・マンション・工場・公共施設・学校など幅広い建物の漏水調査に対応します。配管を壊すことなく漏水箇所を特定できるため、建物への負担を最小限に抑え、迅速かつ正確な調査を行います。",
+  image: "/images/business/leak-survey.webp",
+  alt: "水素式非破壊漏水調査のイメージ",
+  imagePlaceholder: true,
+  tags: [
+    "戸建住宅",
+    "マンション",
+    "工場",
+    "学校",
+    "公共施設",
+    "消火設備",
+    "上水道",
+  ],
+  features: [
+    { label: "非破壊調査", icon: ShieldCheck },
+    { label: "高精度", icon: Crosshair },
+    { label: "迅速対応", icon: Zap },
+    { label: "最新設備導入", icon: Cpu },
+  ],
+};
 
 const beforeAfterPanels = [
   {
@@ -74,6 +122,54 @@ const beforeAfterPanels = [
   },
 ];
 
+function BusinessCard({ panel }: { panel: BusinessPanel }) {
+  return (
+    <li className={styles.businessPageCard}>
+      <div className={styles.businessPageMedia}>
+        <Image
+          src={panel.image}
+          alt={panel.alt}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          quality={78}
+          className={styles.businessPageImage}
+        />
+        {panel.imagePlaceholder ? (
+          <div className={styles.businessImagePlaceholder} aria-hidden="true">
+            <span>画像準備中</span>
+          </div>
+        ) : null}
+      </div>
+      <div className={styles.businessPageBody}>
+        <h2>{panel.title}</h2>
+        {panel.subtitle ? (
+          <p className={styles.businessPageSubtitle}>{panel.subtitle}</p>
+        ) : null}
+        <p>{panel.text}</p>
+        {panel.tags && panel.tags.length > 0 ? (
+          <ul className={styles.businessTagList} aria-label="対応施設">
+            {panel.tags.map((tag) => (
+              <li key={tag}>{tag}</li>
+            ))}
+          </ul>
+        ) : null}
+        {panel.features && panel.features.length > 0 ? (
+          <ul className={styles.businessFeatureList} aria-label="特徴">
+            {panel.features.map(({ label, icon: Icon }) => (
+              <li key={label} className={styles.businessFeatureItem}>
+                <span className={styles.businessFeatureIcon} aria-hidden="true">
+                  <Icon size={18} strokeWidth={1.75} />
+                </span>
+                <span>{label}</span>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    </li>
+  );
+}
+
 export default function BusinessPage() {
   return (
     <>
@@ -97,23 +193,9 @@ export default function BusinessPage() {
 
           <ul className={styles.businessPageGrid}>
             {overviewPanels.map((panel) => (
-              <li key={panel.title} className={styles.businessPageCard}>
-                <div className={styles.businessPageMedia}>
-                  <Image
-                    src={panel.image}
-                    alt={panel.alt}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    quality={78}
-                    className={styles.businessPageImage}
-                  />
-                </div>
-                <div className={styles.businessPageBody}>
-                  <h2>{panel.title}</h2>
-                  <p>{panel.text}</p>
-                </div>
-              </li>
+              <BusinessCard key={panel.title} panel={panel} />
             ))}
+            <BusinessCard panel={leakSurveyPanel} />
           </ul>
 
           <section className={styles.businessBaSection} aria-labelledby="business-ba-title">
