@@ -583,6 +583,7 @@
   color: #1a2735;
   line-height: 1.8;
   font-size: 0.98rem;
+  white-space: pre-line;
 }
 
 .companyRow a {

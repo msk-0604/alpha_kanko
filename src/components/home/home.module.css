@@ -1625,6 +1625,10 @@
   background: #f3f8fd;
 }
 
+.profileRow p:last-child {
+  white-space: pre-line;
+}
+
 .accessGrid {
   display: grid;
   gap: 1rem;

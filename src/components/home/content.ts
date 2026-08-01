@@ -277,5 +277,5 @@ export const companyProfile = [
   { label: "E-mail", value: "honsha@alpha-kanko.co.jp" },
   { label: "創業", value: "平成3年" },
   { label: "事業内容", value: "一般住宅の水道、排水等の配管工事及び水まわりリフォーム工事" },
-  { label: "指定番号", value: "大津市指定給水装置工事事業者（第192号） / 大津市指定排水設備工事事業者（第192号）" },
+  { label: "水道局指定番号", value: "大津市指定給水装置工事事業者（第192号）\n大津市指定排水設備工事事業者（第192号）" },
 ];
