@@ -349,22 +349,43 @@
   transform: scale(1.05);
 }
 
-.businessImagePlaceholder {
-  position: absolute;
-  inset: 0;
+.businessMediaSplit {
   display: grid;
-  place-items: center;
-  background: rgba(15, 39, 64, 0.55);
-  pointer-events: none;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 2px;
+  aspect-ratio: 16 / 11;
+  background: #d7e1ea;
+  overflow: hidden;
 }
 
-.businessImagePlaceholder span {
-  padding: 0.55rem 1rem;
-  border: 1px dashed rgba(197, 213, 229, 0.55);
-  color: #dce6f0;
-  font-size: 0.88rem;
+.businessMediaMain {
+  position: relative;
+  overflow: hidden;
+  background: #101820;
+}
+
+.businessMediaSub {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.businessSubImage {
+  object-fit: contain;
+  padding: 0.7rem 0.7rem 1.9rem;
+}
+
+.businessMediaSub figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 0.3rem 0.5rem;
+  background: rgba(15, 39, 64, 0.85);
+  color: #eef4fa;
+  font-size: 0.66rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
+  text-align: center;
 }
 
 .businessPageBody {

@@ -29,8 +29,8 @@ type BusinessPanel = {
   subtitle?: string;
   tags?: string[];
   features?: { label: string; icon: LucideIcon }[];
-  /** true のとき仮画像オーバーレイを表示。本番写真に差し替えたら false / 削除 */
-  imagePlaceholder?: boolean;
+  /** 併記する補足写真（機材など）。指定するとメイン写真と2枚並びで表示する */
+  subImage?: { src: string; alt: string; caption?: string };
 };
 
 const overviewPanels: BusinessPanel[] = [
@@ -54,18 +54,17 @@ const overviewPanels: BusinessPanel[] = [
   },
 ];
 
-/**
- * 水素式非破壊漏水調査
- * 画像差し替え: `image` のパス（public/images/business/leak-survey.webp）を本番写真に置き換え、
- * `imagePlaceholder` を削除してください。
- */
 const leakSurveyPanel: BusinessPanel = {
   title: "水素式非破壊漏水調査",
   subtitle: "見えない漏水を、壊さず正確に調査。",
   text: "最新の水素式非破壊漏水調査機器を導入し、戸建住宅・マンション・工場・公共施設・学校など幅広い建物の漏水調査に対応します。配管を壊すことなく漏水箇所を特定できるため、建物への負担を最小限に抑え、迅速かつ正確な調査を行います。",
   image: "/images/business/leak-survey.webp",
-  alt: "水素式非破壊漏水調査のイメージ",
-  imagePlaceholder: true,
+  alt: "水素ガス検知器を使った現場での漏水調査",
+  subImage: {
+    src: "/images/business/leak-survey-device.webp",
+    alt: "漏水探索用トレーサーガス発生装置 HT-60",
+    caption: "トレーサーガス発生装置 HT-60",
+  },
   tags: [
     "戸建住宅",
     "マンション",
@@ -125,21 +124,44 @@ const beforeAfterPanels = [
 function BusinessCard({ panel }: { panel: BusinessPanel }) {
   return (
     <li className={styles.businessPageCard}>
-      <div className={styles.businessPageMedia}>
-        <Image
-          src={panel.image}
-          alt={panel.alt}
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          quality={78}
-          className={styles.businessPageImage}
-        />
-        {panel.imagePlaceholder ? (
-          <div className={styles.businessImagePlaceholder} aria-hidden="true">
-            <span>画像準備中</span>
+      {panel.subImage ? (
+        <div className={styles.businessMediaSplit}>
+          <div className={styles.businessMediaMain}>
+            <Image
+              src={panel.image}
+              alt={panel.alt}
+              fill
+              sizes="(max-width: 768px) 60vw, 30vw"
+              quality={78}
+              className={styles.businessPageImage}
+            />
           </div>
-        ) : null}
-      </div>
+          <figure className={styles.businessMediaSub}>
+            <Image
+              src={panel.subImage.src}
+              alt={panel.subImage.alt}
+              fill
+              sizes="(max-width: 768px) 40vw, 20vw"
+              quality={80}
+              className={styles.businessSubImage}
+            />
+            {panel.subImage.caption ? (
+              <figcaption>{panel.subImage.caption}</figcaption>
+            ) : null}
+          </figure>
+        </div>
+      ) : (
+        <div className={styles.businessPageMedia}>
+          <Image
+            src={panel.image}
+            alt={panel.alt}
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={78}
+            className={styles.businessPageImage}
+          />
+        </div>
+      )}
       <div className={styles.businessPageBody}>
         <h2>{panel.title}</h2>
         {panel.subtitle ? (
