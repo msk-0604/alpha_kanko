@@ -3,7 +3,7 @@ import { getAllNewsIds } from "@/data/news";
 import { getAllWorkSlugs } from "@/lib/works";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = "https://www.alpha-kanko.com";
+  const base = "https://alphakanko.jp";
   const now = new Date();
   const workSlugs = await getAllWorkSlugs();
 

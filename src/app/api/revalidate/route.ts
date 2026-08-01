@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 /**
  * microCMS webhook target.
- * Set webhook URL to: https://www.alpha-kanko.com/api/revalidate?secret=YOUR_SECRET
+ * Set webhook URL to: https://alphakanko.jp/api/revalidate?secret=YOUR_SECRET
  */
 export async function POST(request: Request) {
   const { searchParams } = new URL(request.url);

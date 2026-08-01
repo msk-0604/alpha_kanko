@@ -19,7 +19,7 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
       position: index + 1,
       name: item.label,
       ...(item.href
-        ? { item: `https://www.alpha-kanko.com${item.href === "/" ? "" : item.href}` }
+        ? { item: `https://alphakanko.jp${item.href === "/" ? "" : item.href}` }
         : {}),
     })),
   };

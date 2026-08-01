@@ -11,7 +11,7 @@ const jsonLd = {
     {
       "@type": "LocalBusiness",
       name: "株式会社アルファ管工",
-      url: "https://www.alpha-kanko.com",
+      url: "https://alphakanko.jp",
       telephone: "077-579-3507",
       email: "honsha@alpha-kanko.co.jp",
       address: {
@@ -32,7 +32,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       name: "株式会社アルファ管工",
-      url: "https://www.alpha-kanko.com",
+      url: "https://alphakanko.jp",
     },
   ],
 };

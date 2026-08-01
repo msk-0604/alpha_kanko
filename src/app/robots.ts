@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://www.alpha-kanko.com/sitemap.xml",
-    host: "https://www.alpha-kanko.com",
+    sitemap: "https://alphakanko.jp/sitemap.xml",
+    host: "https://alphakanko.jp",
   };
 }
