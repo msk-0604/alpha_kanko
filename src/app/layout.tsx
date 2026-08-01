@@ -41,6 +41,16 @@ export const metadata: Metadata = {
       "滋賀県大津市の株式会社アルファ管工。給排水衛生設備工事、配管工事、水道施設工事、修繕・メンテナンスまで対応。法人・公共施設・一般住宅のご相談を承ります。",
     images: ["/ogp.png"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   manifest: "/site.webmanifest",
 };
 
