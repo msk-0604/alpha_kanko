@@ -1,27 +1,25 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import styles from "./page.module.css";
 
 type FormState = {
-  company: string;
   name: string;
-  email: string;
+  company: string;
   phone: string;
-  category: string;
+  email: string;
   message: string;
   privacy: boolean;
   website: string;
 };
 
 const initialState: FormState = {
-  company: "",
   name: "",
-  email: "",
+  company: "",
   phone: "",
-  category: "",
+  email: "",
   message: "",
   privacy: false,
   website: "",
@@ -32,9 +30,19 @@ export function ContactForm() {
   const [form, setForm] = useState<FormState>(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [result, setResult] = useState<{ ok: boolean; message: string } | null>(null);
+  const lastSubmitAt = useRef(0);
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (isSubmitting) return;
+
+    const now = Date.now();
+    if (now - lastSubmitAt.current < 3000) {
+      setResult({ ok: false, message: "連続送信を防止しています。少し待ってから再度お試しください。" });
+      return;
+    }
+    lastSubmitAt.current = now;
+
     setIsSubmitting(true);
     setResult(null);
 
@@ -66,7 +74,7 @@ export function ContactForm() {
   };
 
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className={styles.form} onSubmit={onSubmit} noValidate>
       <div className={styles.honeypot} aria-hidden="true">
         <label>
           ウェブサイト
@@ -82,7 +90,18 @@ export function ContactForm() {
       </div>
 
       <label>
-        会社名（任意）
+        お名前<span aria-hidden="true"> *</span>
+        <input
+          type="text"
+          required
+          value={form.name}
+          onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
+          autoComplete="name"
+        />
+      </label>
+
+      <label>
+        会社名
         <input
           type="text"
           value={form.company}
@@ -92,13 +111,13 @@ export function ContactForm() {
       </label>
 
       <label>
-        ご担当者名<span aria-hidden="true"> *</span>
+        電話番号<span aria-hidden="true"> *</span>
         <input
-          type="text"
+          type="tel"
           required
-          value={form.name}
-          onChange={(e) => setForm((prev) => ({ ...prev, name: e.target.value }))}
-          autoComplete="name"
+          value={form.phone}
+          onChange={(e) => setForm((prev) => ({ ...prev, phone: e.target.value }))}
+          autoComplete="tel"
         />
       </label>
 
@@ -114,40 +133,13 @@ export function ContactForm() {
       </label>
 
       <label>
-        電話番号（折り返し用・推奨）
-        <input
-          type="tel"
-          value={form.phone}
-          onChange={(e) => setForm((prev) => ({ ...prev, phone: e.target.value }))}
-          autoComplete="tel"
-        />
-      </label>
-
-      <label>
-        お問い合わせ種別<span aria-hidden="true"> *</span>
-        <select
-          required
-          value={form.category}
-          onChange={(e) => setForm((prev) => ({ ...prev, category: e.target.value }))}
-        >
-          <option value="">選択してください</option>
-          <option value="repair">水漏れ・詰まり修理</option>
-          <option value="equipment">設備工事・更新</option>
-          <option value="estimate">見積もり依頼</option>
-          <option value="recruit">採用について</option>
-          <option value="partner">協力会社募集</option>
-          <option value="other">その他</option>
-        </select>
-      </label>
-
-      <label>
         お問い合わせ内容<span aria-hidden="true"> *</span>
         <textarea
           required
           value={form.message}
           onChange={(e) => setForm((prev) => ({ ...prev, message: e.target.value }))}
           rows={7}
-          placeholder="症状・場所・ご希望日時などをご記入ください。"
+          placeholder="ご相談内容・ご希望日時などをご記入ください。"
         />
       </label>
 
@@ -165,7 +157,7 @@ export function ContactForm() {
       </label>
 
       <button type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "送信中..." : "送信する"}
+        {isSubmitting ? "送信しています..." : "お問い合わせを送信"}
       </button>
 
       {result ? (

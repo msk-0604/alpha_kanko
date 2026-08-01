@@ -1,45 +1,79 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { z } from "zod";
 
-type ContactPayload = {
-  company?: string;
-  name?: string;
-  email?: string;
-  phone?: string;
-  category?: string;
-  message?: string;
-  privacy?: boolean;
-  website?: string;
-};
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "お名前を入力してください。").max(100),
+  company: z.string().trim().max(100).optional().default(""),
+  phone: z.string().trim().min(1, "電話番号を入力してください。").max(30),
+  email: z
+    .string()
+    .trim()
+    .min(1, "メールアドレスを入力してください。")
+    .email("メールアドレスの形式が正しくありません。")
+    .max(200),
+  message: z.string().trim().min(1, "お問い合わせ内容を入力してください。").max(5000),
+  privacy: z.literal(true, {
+    error: "個人情報の取扱いに同意してください。",
+  }),
+  website: z.string().optional().default(""),
+});
 
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
-const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "honsha@alpha-kanko.co.jp";
+const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "yamaguchi@alpha-kanko.co.jp";
 const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
-const categoryLabelMap: Record<string, string> = {
-  repair: "水漏れ・詰まり修理",
-  equipment: "設備工事・更新",
-  estimate: "見積もり依頼",
-  recruit: "採用について",
-  partner: "協力会社募集",
-  other: "その他",
-};
+
+/** 簡易連打防止（同一IPで60秒に3回まで） */
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX = 3;
+
+function getClientIp(request: Request) {
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) return forwarded.split(",")[0]?.trim() || "unknown";
+  return request.headers.get("x-real-ip") || "unknown";
+}
+
+function isRateLimited(ip: string) {
+  const now = Date.now();
+  const current = rateLimitMap.get(ip);
+  if (!current || current.resetAt <= now) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    return false;
+  }
+  if (current.count >= RATE_LIMIT_MAX) return true;
+  current.count += 1;
+  return false;
+}
 
 export async function POST(request: Request) {
-  const body = (await request.json()) as ContactPayload;
-
-  // Honeypot: bots fill hidden fields
-  if (body.website) {
-    return NextResponse.json({ message: "お問い合わせを受け付けました。" });
+  const ip = getClientIp(request);
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { message: "送信が集中しています。しばらくしてから再度お試しください。" },
+      { status: 429 },
+    );
   }
 
-  if (!body.name || !body.email || !body.category || !body.message || !body.privacy) {
-    return NextResponse.json({ message: "必須項目を入力してください。" }, { status: 400 });
+  let body: unknown;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ message: "リクエストが不正です。" }, { status: 400 });
   }
 
-  if (!EMAIL_REGEX.test(body.email)) {
-    return NextResponse.json({ message: "メールアドレスの形式が正しくありません。" }, { status: 400 });
+  const parsed = contactSchema.safeParse(body);
+  if (!parsed.success) {
+    const message = parsed.error.issues[0]?.message ?? "入力内容をご確認ください。";
+    return NextResponse.json({ message }, { status: 400 });
+  }
+
+  const data = parsed.data;
+
+  // Honey pot: bots fill hidden fields
+  if (data.website) {
+    return NextResponse.json({ message: "お問い合わせありがとうございました。" });
   }
 
   if (!resend) {
@@ -49,75 +83,54 @@ export async function POST(request: Request) {
     );
   }
 
-  const categoryLabel = categoryLabelMap[body.category] ?? body.category;
-  const subject = `【アルファ管工】お問い合わせ: ${categoryLabel}`;
-  const html = `
-    <h2>お問い合わせを受信しました</h2>
-    <p><strong>会社名:</strong> ${escapeHtml(body.company || "未入力")}</p>
-    <p><strong>ご担当者名:</strong> ${escapeHtml(body.name)}</p>
-    <p><strong>メール:</strong> ${escapeHtml(body.email)}</p>
-    <p><strong>電話番号:</strong> ${escapeHtml(body.phone || "未入力")}</p>
-    <p><strong>種別:</strong> ${escapeHtml(categoryLabel)}</p>
-    <p><strong>内容:</strong><br/>${escapeHtml(body.message).replace(/\n/g, "<br/>")}</p>
-  `;
-
+  const subject = "【ホームページ】お問い合わせ";
   const text = [
-    "お問い合わせを受信しました",
-    `会社名: ${body.company || "未入力"}`,
-    `ご担当者名: ${body.name}`,
-    `メール: ${body.email}`,
-    `電話番号: ${body.phone || "未入力"}`,
-    `種別: ${categoryLabel}`,
-    "内容:",
-    body.message,
+    "----------------------------",
+    "",
+    "ホームページからお問い合わせがありました。",
+    "",
+    `お名前：${data.name}`,
+    `会社名：${data.company || "未入力"}`,
+    `電話番号：${data.phone}`,
+    `メールアドレス：${data.email}`,
+    "",
+    "お問い合わせ内容：",
+    data.message,
+    "",
+    "----------------------------",
   ].join("\n");
 
+  const html = `
+    <pre style="font-family:inherit;white-space:pre-wrap;line-height:1.7;">${escapeHtml(text)}</pre>
+  `;
+
   try {
-    await resend.emails.send({
+    const result = await resend.emails.send({
       from: contactFromEmail,
       to: contactToEmail,
-      replyTo: body.email,
+      replyTo: data.email,
       subject,
       html,
       text,
     });
 
-    await resend.emails.send({
-      from: contactFromEmail,
-      to: body.email,
-      subject: "【アルファ管工】お問い合わせありがとうございます",
-      html: `
-        <p>${escapeHtml(body.name)} 様</p>
-        <p>この度は株式会社アルファ管工へお問い合わせいただき、誠にありがとうございます。</p>
-        <p>内容を確認のうえ、担当者より折り返しご連絡いたします。</p>
-        <p>お急ぎの場合は 077-579-3507 までお電話ください。</p>
-        <hr/>
-        <p><strong>お問い合わせ種別:</strong> ${escapeHtml(categoryLabel)}</p>
-        <p><strong>内容:</strong><br/>${escapeHtml(body.message).replace(/\n/g, "<br/>")}</p>
-        <p>株式会社アルファ管工<br/>滋賀県大津市坂本6丁目8-8<br/>TEL: 077-579-3507</p>
-      `,
-      text: [
-        `${body.name} 様`,
-        "",
-        "この度は株式会社アルファ管工へお問い合わせいただき、誠にありがとうございます。",
-        "内容を確認のうえ、担当者より折り返しご連絡いたします。",
-        "お急ぎの場合は 077-579-3507 までお電話ください。",
-        "",
-        `お問い合わせ種別: ${categoryLabel}`,
-        "内容:",
-        body.message,
-        "",
-        "株式会社アルファ管工",
-        "滋賀県大津市坂本6丁目8-8",
-        "TEL: 077-579-3507",
-      ].join("\n"),
-    });
-  } catch {
-    return NextResponse.json({ message: "メール送信に失敗しました。時間をおいて再度お試しください。" }, { status: 500 });
+    if (result.error) {
+      console.error("Resend error:", result.error);
+      return NextResponse.json(
+        { message: "メール送信に失敗しました。時間をおいて再度お試しください。" },
+        { status: 500 },
+      );
+    }
+  } catch (error) {
+    console.error("Contact send failed:", error);
+    return NextResponse.json(
+      { message: "メール送信に失敗しました。時間をおいて再度お試しください。" },
+      { status: 500 },
+    );
   }
 
   return NextResponse.json({
-    message: "お問い合わせを受け付けました。",
+    message: "お問い合わせありがとうございました。担当者よりご連絡いたします。",
   });
 }
 

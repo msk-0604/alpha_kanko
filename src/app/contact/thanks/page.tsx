@@ -21,7 +21,10 @@ export default function ContactThanksPage() {
             <p className={styles.lead}>CONTACT</p>
             <h1>送信完了</h1>
             <p>
-              お問い合わせありがとうございました。内容を確認のうえ、担当者より折り返しご連絡いたします。
+              お問い合わせありがとうございました。
+              <br />
+              担当者よりご連絡いたします。
+              <br />
               お急ぎの場合は <a href="tel:0775793507">077-579-3507</a> までご連絡ください。
             </p>
             <div className={styles.thanksActions}>
