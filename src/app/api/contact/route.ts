@@ -116,8 +116,20 @@ export async function POST(request: Request) {
 
     if (result.error) {
       console.error("Resend error:", result.error);
+      const detail =
+        typeof result.error === "object" && result.error && "message" in result.error
+          ? String((result.error as { message?: string }).message ?? "")
+          : "";
+      const isTestRecipientRestriction =
+        /only send testing emails to your own email/i.test(detail) ||
+        /can only send to/i.test(detail);
+
       return NextResponse.json(
-        { message: "メール送信に失敗しました。時間をおいて再度お試しください。" },
+        {
+          message: isTestRecipientRestriction
+            ? "メール送信に失敗しました。Resendのテスト送信では、Resendアカウントに登録したメールアドレス宛のみ送信できます。VercelのCONTACT_TO_EMAILを登録メールに合わせてください。"
+            : "メール送信に失敗しました。時間をおいて再度お試しください。",
+        },
         { status: 500 },
       );
     }
