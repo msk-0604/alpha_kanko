@@ -137,7 +137,7 @@ export const businessItems: BusinessItem[] = [
   },
   {
     title: "排水設備工事",
-    description: "劣化配管の更新・屋外排水の改修など、排水廻りの工事に対応します。",
+    description: "劣化配管の更新・屋外排水の改修など、排水まわりの工事に対応します。",
     icon: "🧰",
   },
   {
