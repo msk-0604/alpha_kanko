@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { getAllNewsIds } from "@/data/news";
 import { getAllWorkSlugs } from "@/lib/works";
 import { getAllAreaSlugs } from "@/data/areas";
-import { getAllBlogSlugs } from "@/data/blog";
 import { getAllVoiceIds } from "@/data/voices";
 import { servicePages } from "@/data/services";
 
@@ -23,7 +22,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/company",
     "/greeting",
     "/area",
-    "/blog",
     "/voices",
     "/strength",
     "/recruit",
@@ -35,9 +33,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     url: `${base}${path}`,
     lastModified: now,
     changeFrequency:
-      path === "" || path === "/works" || path === "/blog" || path === "/news"
-        ? "weekly"
-        : "monthly",
+      path === "" || path === "/works" || path === "/news" ? "weekly" : "monthly",
     priority:
       path === ""
         ? 1
@@ -48,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           ? 0.9
           : path === "/plumbing" || path === "/drainage" || path === "/reform"
             ? 0.85
-            : path === "/blog" || path === "/faq" || path === "/area"
+            : path === "/faq" || path === "/area"
               ? 0.75
               : 0.6,
   }));
@@ -65,13 +61,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.8,
-  }));
-
-  const blogRoutes: MetadataRoute.Sitemap = getAllBlogSlugs().map((slug) => ({
-    url: `${base}/blog/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.7,
   }));
 
   const voiceRoutes: MetadataRoute.Sitemap = getAllVoiceIds().map((id) => ({
@@ -99,7 +88,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticRoutes,
     ...serviceRoutes,
     ...areaRoutes,
-    ...blogRoutes,
     ...voiceRoutes,
     ...workRoutes,
     ...newsRoutes,

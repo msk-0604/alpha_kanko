@@ -162,12 +162,6 @@ export const faqItems: FaqItem[] = [
     links: [{ label: "施工事例", href: "/works" }],
   },
   {
-    question: "ブログやお役立ち情報はありますか？",
-    answer:
-      "漏水や配管に関する記事をブログで公開しています。",
-    links: [{ label: "ブログ", href: "/blog" }],
-  },
-  {
     question: "採用について知りたいです",
     answer:
       "採用情報ページをご覧ください。ご質問はお問い合わせフォームからも受け付けています。",
