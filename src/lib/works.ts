@@ -51,7 +51,7 @@ function mapWork(entry: MicroCmsWork): WorkItem {
   return {
     slug: entry.slug || entry.id,
     title: entry.title,
-    category: entry.category,
+    category: normalizeCategory(entry.category),
     description: entry.description,
     coverImage: cover,
     layout: entry.layout || "standard",
@@ -111,6 +111,30 @@ export async function getRelatedWorks(slug: string, limit = 3): Promise<WorkItem
   const same = items.filter((item) => item.slug !== slug && item.category === current.category);
   const others = items.filter((item) => item.slug !== slug && item.category !== current.category);
   return [...same, ...others].slice(0, limit);
+}
+
+export async function getAdjacentWorks(
+  slug: string,
+): Promise<{ prev: WorkItem | null; next: WorkItem | null }> {
+  const items = await getWorks();
+  const index = items.findIndex((item) => item.slug === slug);
+  if (index < 0) return { prev: null, next: null };
+  return {
+    prev: index > 0 ? items[index - 1] : null,
+    next: index < items.length - 1 ? items[index + 1] : null,
+  };
+}
+
+function normalizeCategory(value: string): WorkCategory {
+  const legacy: Record<string, WorkCategory> = {
+    新築給排水設備工事: "給排水設備",
+    "給水・給湯配管工事": "給排水設備",
+    排水設備工事: "排水工事",
+    水回りリフォーム: "リフォーム",
+    給湯器交換工事: "リフォーム",
+  };
+  if (workCategories.includes(value as WorkCategory)) return value as WorkCategory;
+  return legacy[value] ?? "給排水設備";
 }
 
 export { workCategories, localWorks, getLocalRelated };

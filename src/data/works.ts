@@ -1,9 +1,17 @@
 export type WorkCategory =
-  | "新築給排水設備工事"
-  | "給水・給湯配管工事"
-  | "排水設備工事"
-  | "水回りリフォーム"
-  | "給湯器交換工事";
+  | "漏水調査"
+  | "漏水修理"
+  | "排水工事"
+  | "給排水設備"
+  | "リフォーム";
+
+export const workCategoryToService: Record<WorkCategory, string> = {
+  漏水調査: "/leak-survey",
+  漏水修理: "/leak-repair",
+  排水工事: "/drainage",
+  給排水設備: "/plumbing",
+  リフォーム: "/reform",
+};
 
 export type WorkLayout = "standard" | "beforeAfter" | "gallery";
 
@@ -25,18 +33,18 @@ export type WorkItem = {
 };
 
 export const workCategories: WorkCategory[] = [
-  "新築給排水設備工事",
-  "給水・給湯配管工事",
-  "排水設備工事",
-  "水回りリフォーム",
-  "給湯器交換工事",
+  "漏水調査",
+  "漏水修理",
+  "排水工事",
+  "給排水設備",
+  "リフォーム",
 ];
 
 export const works: WorkItem[] = [
   {
     slug: "new-house-plumbing",
     title: "新築住宅 給排水設備配管工事",
-    category: "新築給排水設備工事",
+    category: "給排水設備",
     description:
       "新築住宅の基礎施工段階から給水・給湯・排水設備の配管工事を実施。建物の設備計画に合わせて各配管ルートを施工しました。",
     coverImage: {
@@ -54,7 +62,7 @@ export const works: WorkItem[] = [
   {
     slug: "water-piping",
     title: "住宅 給水・給湯配管施工",
-    category: "給水・給湯配管工事",
+    category: "給排水設備",
     description:
       "住宅内部の給水・給湯配管を施工。各設備への配管ルートを整理し、建物構造に合わせて配管工事を行いました。",
     coverImage: {
@@ -71,7 +79,7 @@ export const works: WorkItem[] = [
   {
     slug: "drain-renovation",
     title: "屋外排水管 改修工事",
-    category: "排水設備工事",
+    category: "排水工事",
     description:
       "既設排水管の劣化状況を確認し、排水配管の更新工事を実施。配管ルートと接続部を調整し、排水設備を改修しました。",
     coverImage: {
@@ -91,7 +99,7 @@ export const works: WorkItem[] = [
   {
     slug: "water-heater-replacement",
     title: "給湯器交換工事",
-    category: "給湯器交換工事",
+    category: "リフォーム",
     description:
       "既設給湯設備を撤去し、新しい給湯器へ交換。既存配管との接続調整を行い、安全確認後に設備を引き渡しました。",
     coverImage: {
@@ -111,7 +119,7 @@ export const works: WorkItem[] = [
   {
     slug: "toilet-renewal",
     title: "トイレ設備更新工事",
-    category: "水回りリフォーム",
+    category: "リフォーム",
     description:
       "既設トイレ設備を撤去し、新しい洋式トイレへ更新。給排水接続を調整し、設備更新工事を行いました。",
     coverImage: {

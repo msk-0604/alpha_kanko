@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { PageCta } from "@/components/seo/PageCta";
 import { greeting } from "@/components/home/content";
 import styles from "@/components/works/works.module.css";
 
@@ -81,6 +82,8 @@ export default function CompanyPage() {
               お問い合わせへ
             </Link>
           </div>
+
+          <PageCta />
         </div>
       </main>
       <Footer />

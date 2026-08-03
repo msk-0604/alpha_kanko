@@ -4,7 +4,7 @@ import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { WorkDetail } from "@/components/works/WorkDetail";
-import { getAllWorkSlugs, getRelatedWorks, getWorkBySlug } from "@/lib/works";
+import { getAllWorkSlugs, getAdjacentWorks, getRelatedWorks, getWorkBySlug } from "@/lib/works";
 import styles from "@/components/works/works.module.css";
 
 export const revalidate = 60;
@@ -46,6 +46,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
   }
 
   const related = await getRelatedWorks(work.slug, 3);
+  const { prev, next } = await getAdjacentWorks(work.slug);
 
   return (
     <>
@@ -59,7 +60,7 @@ export default async function WorkDetailPage({ params }: PageProps) {
               { label: work.title },
             ]}
           />
-          <WorkDetail work={work} related={related} />
+          <WorkDetail work={work} related={related} prev={prev} next={next} />
         </div>
       </main>
       <Footer />

@@ -7,19 +7,19 @@ const businessPanels = [
     title: "給排水衛生設備工事",
     description: "基礎段階からの給水・給湯・排水配管。",
     image: "/images/business/sanitary.webp",
-    href: "/business",
+    href: "/plumbing",
   },
   {
     title: "配管工事",
     description: "建物構造に合わせた配管ルート施工。",
     image: "/images/business/piping.webp",
-    href: "/business",
+    href: "/plumbing",
   },
   {
     title: "排水設備工事",
     description: "劣化配管の更新・屋外排水の改修。",
     image: "/images/business/drain.webp",
-    href: "/business",
+    href: "/drainage",
   },
 ];
 

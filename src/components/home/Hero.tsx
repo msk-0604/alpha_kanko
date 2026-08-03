@@ -1,28 +1,20 @@
-"use client";
-
-import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./home.module.css";
 
 export function Hero() {
-  const [videoReady, setVideoReady] = useState(false);
-
   return (
     <section className={styles.hero} id="top">
       <div className={styles.heroMedia}>
-        <video
-          className={`${styles.heroVideo} ${videoReady ? styles.heroVideoReady : ""}`}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          onCanPlay={() => setVideoReady(true)}
-          onLoadedData={() => setVideoReady(true)}
-          aria-label="アルファ管工の現場映像"
-        >
-          <source src="/videos/hero.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/images/hero-office.webp"
+          alt="株式会社アルファ管工の事務所外観（滋賀県大津市）"
+          fill
+          priority
+          sizes="100vw"
+          quality={78}
+          className={styles.heroImage}
+        />
         <div className={styles.heroOverlay} aria-hidden />
       </div>
       <div className={styles.heroContentWrap}>

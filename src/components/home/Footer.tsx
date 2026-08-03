@@ -1,20 +1,23 @@
 import Link from "next/link";
 import { areaList } from "./content";
+import { areaCities } from "@/data/areas";
 
 export function Footer() {
   const relatedLinks = [
-    { label: "会社案内", href: "/company" },
-    { label: "代表挨拶", href: "/greeting" },
-    { label: "事業内容", href: "/business" },
+    { label: "漏水調査", href: "/leak-survey" },
+    { label: "漏水修理", href: "/leak-repair" },
+    { label: "排水工事", href: "/drainage" },
+    { label: "給排水設備工事", href: "/plumbing" },
+    { label: "リフォーム", href: "/reform" },
     { label: "施工事例", href: "/works" },
-    { label: "対応エリア", href: "/area" },
-    { label: "お知らせ", href: "/news" },
+    { label: "ブログ", href: "/blog" },
   ];
 
   const serviceLinks = [
-    { label: "選ばれる理由", href: "/strength" },
+    { label: "対応エリア", href: "/area" },
     { label: "よくある質問", href: "/faq" },
-    { label: "採用情報", href: "/recruit" },
+    { label: "お客様の声", href: "/voices" },
+    { label: "会社案内", href: "/company" },
     { label: "お問い合わせ", href: "/contact" },
     { label: "プライバシーポリシー", href: "/privacy" },
   ];
@@ -50,7 +53,25 @@ export function Footer() {
               対応エリア
             </h3>
             <ul className="space-y-2 text-sm leading-7 text-white/85">
-              {areaList.map((area) => (
+              {areaCities.slice(0, 8).map((city) => (
+                <li key={city.slug} className="flex items-start gap-2">
+                  <span aria-hidden="true" className="mt-2 text-[10px]">
+                    ▸
+                  </span>
+                  <Link href={`/area/${city.slug}`} className="transition hover:text-white">
+                    {city.name}
+                  </Link>
+                </li>
+              ))}
+              <li className="flex items-start gap-2">
+                <span aria-hidden="true" className="mt-2 text-[10px]">
+                  ▸
+                </span>
+                <Link href="/area" className="transition hover:text-white">
+                  すべてのエリア
+                </Link>
+              </li>
+              {areaList.slice(1).map((area) => (
                 <li key={area} className="flex items-start gap-2">
                   <span aria-hidden="true" className="mt-2 text-[10px]">
                     ▸
@@ -64,7 +85,7 @@ export function Footer() {
           <section className="space-y-3">
             <h3 className="flex items-center gap-2 text-sm font-semibold tracking-[0.12em] text-white/85">
               <span aria-hidden="true">&gt;</span>
-              関連ページ
+              サービス
             </h3>
             <ul className="space-y-2 text-sm">
               {relatedLinks.map((link) => (

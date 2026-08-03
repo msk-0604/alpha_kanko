@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { WorkItem } from "@/data/works";
+import { workCategoryToService } from "@/data/works";
+import { PageCta } from "@/components/seo/PageCta";
 import { BeforeAfterSlider } from "./BeforeAfterSlider";
 import { WorkImageLightbox } from "./WorkImageLightbox";
 import { WorksCardGrid } from "./WorksCardGrid";
@@ -8,9 +10,18 @@ import styles from "./works.module.css";
 type WorkDetailProps = {
   work: WorkItem;
   related?: WorkItem[];
+  prev?: WorkItem | null;
+  next?: WorkItem | null;
 };
 
-export function WorkDetail({ work, related = [] }: WorkDetailProps) {
+export function WorkDetail({
+  work,
+  related = [],
+  prev = null,
+  next = null,
+}: WorkDetailProps) {
+  const serviceHref = workCategoryToService[work.category];
+
   return (
     <article className={styles.detail}>
       <p className={styles.detailCategory}>{work.category}</p>
@@ -42,6 +53,15 @@ export function WorkDetail({ work, related = [] }: WorkDetailProps) {
         />
       ) : null}
 
+      <ul className={styles.relatedLinks} style={{ marginTop: "1.5rem" }}>
+        <li>
+          <Link href={serviceHref}>{work.category}のサービスを見る</Link>
+        </li>
+        <li>
+          <Link href="/contact">この工事について問い合わせる</Link>
+        </li>
+      </ul>
+
       {related.length > 0 ? (
         <section className={styles.relatedBlock}>
           <h2 className={styles.relatedTitle}>関連する施工事例</h2>
@@ -50,10 +70,23 @@ export function WorkDetail({ work, related = [] }: WorkDetailProps) {
       ) : null}
 
       <div className={styles.detailNav}>
-        <Link href="/works" className={styles.backLink}>
-          施工事例一覧へ戻る
-        </Link>
+        {prev ? (
+          <Link href={`/works/${prev.slug}`} className={styles.backLink}>
+            前の事例
+          </Link>
+        ) : (
+          <Link href="/works" className={styles.backLink}>
+            施工事例一覧へ戻る
+          </Link>
+        )}
+        {next ? (
+          <Link href={`/works/${next.slug}`} className={styles.backLink}>
+            次の事例
+          </Link>
+        ) : null}
       </div>
+
+      <PageCta />
     </article>
   );
 }

@@ -205,7 +205,7 @@ export const disclosureItems = [
 ];
 
 export const companyAtmospherePhotos = [
-  { src: "/images/hero-construction.png", alt: "株式会社アルファ管工の拠点" },
+  { src: "/images/hero-office.webp", alt: "株式会社アルファ管工の事務所外観" },
   { src: "/images/trouble-under-sink.png", alt: "水まわりの現場確認" },
   { src: "/images/works/new-house-plumbing-01.webp", alt: "新築給排水設備の施工の様子" },
 ];

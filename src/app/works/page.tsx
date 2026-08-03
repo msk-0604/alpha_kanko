@@ -3,17 +3,24 @@ import { Header } from "@/components/home/Header";
 import { Footer } from "@/components/home/Footer";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { WorksFilter } from "@/components/works/WorksFilter";
+import { PageCta } from "@/components/seo/PageCta";
 import { getWorks, isMicroCmsEnabled } from "@/lib/works";
 import styles from "@/components/works/works.module.css";
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "施工事例｜株式会社アルファ管工",
+  title: "施工事例｜漏水・給排水・リフォーム｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の施工事例。新築給排水設備工事、給水・給湯配管工事、排水設備工事、給湯器交換、水回りリフォームなどの実績をご紹介します。",
+    "株式会社アルファ管工の施工事例。漏水調査・漏水修理・排水工事・給排水設備・水回りリフォームの実績をご紹介します。",
   alternates: {
     canonical: "/works",
+  },
+  openGraph: {
+    title: "施工事例｜株式会社アルファ管工",
+    description:
+      "漏水調査・修理、排水工事、給排水設備、リフォームの施工事例。",
+    url: "/works",
   },
 };
 
@@ -43,6 +50,7 @@ export default async function WorksPage() {
             ) : null}
           </header>
           <WorksFilter items={works} />
+          <PageCta />
         </div>
       </main>
       <Footer />
