@@ -10,7 +10,7 @@ type WorksCardGridProps = {
 
 export function WorksCardGrid({ items, showSectionHeader = true }: WorksCardGridProps) {
   return (
-    <div className={styles.worksBlock} data-reveal>
+    <div className={styles.worksBlock}>
       {showSectionHeader ? (
         <header className={styles.sectionHeader}>
           <p className={styles.sectionEyebrow}>WORKS</p>
