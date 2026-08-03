@@ -12,7 +12,7 @@ export const revalidate = 60;
 export const metadata: Metadata = {
   title: "施工事例｜漏水・給排水・リフォーム｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の施工事例。漏水調査・漏水修理・排水工事・給排水設備・水回りリフォームの実績をご紹介します。",
+    "株式会社アルファ管工の施工事例。漏水調査・漏水修理・排水工事・給排水設備・水廻りリフォームの実績をご紹介します。",
   alternates: {
     canonical: "/works",
   },

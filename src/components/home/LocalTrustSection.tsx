@@ -9,7 +9,7 @@ export function LocalTrustSection() {
         <div className={styles.localTrustSplit}>
           <div className={styles.localTrustText}>
             <p className={styles.sectionEyebrow}>地域密着</p>
-            <h2>水まわりのホームドクター</h2>
+            <h2>水廻りのホームドクター</h2>
             <p className={styles.sectionIntroCalm}>
               大津市を中心に、暮らしの近くで丁寧に向き合います。営業口調にはせず、現場のことがわかる相談窓口でありたいと考えています。
             </p>

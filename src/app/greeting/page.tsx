@@ -9,7 +9,7 @@ import styles from "@/components/works/works.module.css";
 export const metadata: Metadata = {
   title: "代表挨拶｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工 代表取締役 山口豊樹からのごあいさつ。地域の暮らしを支える水まわり設備を、丁寧で誠実な施工で守ります。",
+    "株式会社アルファ管工 代表取締役 山口豊樹からのごあいさつ。地域の暮らしを支える水廻り設備を、丁寧で誠実な施工で守ります。",
   alternates: { canonical: "/greeting" },
 };
 
@@ -43,7 +43,7 @@ export default function GreetingPage() {
               法人・公共施設から一般住宅まで、現場ごとに最適な施工と誠実なご案内を心がけています。
             </p>
             <p>
-              水まわりの不安や設備更新のご相談がありましたら、どうぞお気軽にご連絡ください。
+              水廻りの不安や設備更新のご相談がありましたら、どうぞお気軽にご連絡ください。
             </p>
           </div>
 

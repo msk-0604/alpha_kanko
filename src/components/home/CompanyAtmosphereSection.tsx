@@ -9,7 +9,7 @@ export function CompanyAtmosphereSection() {
         <p className={styles.sectionEyebrow}>会社紹介</p>
         <h2>地域に根ざした仕事</h2>
         <p className={styles.sectionIntroCalm}>
-          創業は平成3年。滋賀県大津市を拠点に、水まわりの保全と工事に向き合ってきました。
+          創業は平成3年。滋賀県大津市を拠点に、水廻りの保全と工事に向き合ってきました。
         </p>
         <ul className={styles.disclosureInline} aria-label="指定工事業者">
           {disclosureItems.slice(0, 2).map((line) => (

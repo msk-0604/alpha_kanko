@@ -133,13 +133,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "bathroom-reform-checklist",
-    title: "水回りリフォーム前に確認したい給排水のポイント",
+    title: "水廻りリフォーム前に確認したい給排水のポイント",
     description:
       "トイレや洗面のリフォームで見落としがちな給排水接続と漏水リスクについて。",
     category: "リフォーム",
     date: "2026-07-12",
     lead:
-      "水回りリフォームは機器選びに目が行きがちですが、給排水の接続と既存管の状態確認が仕上がりを左右します。",
+      "水廻りリフォームは機器選びに目が行きがちですが、給排水の接続と既存管の状態確認が仕上がりを左右します。",
     sections: [
       {
         heading: "既存管の確認",
@@ -151,15 +151,15 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedServices: [
-      { label: "水回りリフォーム", href: "/reform" },
+      { label: "水廻りリフォーム", href: "/reform" },
       { label: "施工事例", href: "/works" },
     ],
   },
   {
     slug: "maintenance-tips",
-    title: "水まわりの日常点検｜小さな異常を見逃さないために",
+    title: "水廻りの日常点検｜小さな異常を見逃さないために",
     description:
-      "家庭でできる水まわり点検のポイント。滋賀県での水漏れ予防とメンテナンス。",
+      "家庭でできる水廻り点検のポイント。滋賀県での水漏れ予防とメンテナンス。",
     category: "メンテナンス",
     date: "2026-07-25",
     lead:
@@ -205,13 +205,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "subsidy-check-shiga",
-    title: "水まわり工事と補助金・助成｜確認しておきたい考え方",
+    title: "水廻り工事と補助金・助成｜確認しておきたい考え方",
     description:
       "リフォームや設備更新で補助金・助成を検討するときの確認ポイント。滋賀県での相談時の注意点。",
     category: "補助金",
     date: "2026-07-30",
     lead:
-      "水回り設備の更新では、自治体や制度によって補助の対象になる場合があります。制度は時期で変わるため、申請前の確認が重要です。",
+      "水廻り設備の更新では、自治体や制度によって補助の対象になる場合があります。制度は時期で変わるため、申請前の確認が重要です。",
     sections: [
       {
         heading: "工事前に確認する",
@@ -223,7 +223,7 @@ export const blogPosts: BlogPost[] = [
       },
     ],
     relatedServices: [
-      { label: "水回りリフォーム", href: "/reform" },
+      { label: "水廻りリフォーム", href: "/reform" },
       { label: "お問い合わせ", href: "/contact" },
     ],
   },

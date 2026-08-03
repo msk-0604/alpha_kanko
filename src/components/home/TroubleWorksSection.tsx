@@ -8,7 +8,7 @@ export function TroubleWorksSection() {
       <div className={styles.container}>
         <h2>主な工事内容</h2>
         <p className={styles.sectionIntro}>
-          トイレ・お風呂・キッチンなど、毎日の水まわりトラブルに地域密着で対応しています。
+          トイレ・お風呂・キッチンなど、毎日の水廻りトラブルに地域密着で対応しています。
         </p>
         <div className={styles.troubleHeroImage} data-animate="fade-card">
           <Image

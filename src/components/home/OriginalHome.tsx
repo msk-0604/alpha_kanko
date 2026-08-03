@@ -16,7 +16,7 @@ const workItems = [
 ];
 
 const serviceItems = [
-  "水道衛生工事、給排水設備工事、水まわりの緊急メンテナンス、リフォーム事業",
+  "水道衛生工事、給排水設備工事、水廻りの緊急メンテナンス、リフォーム事業",
   "トイレ・台所の詰まり修理、水漏れ修理、交換作業、リフォーム工事",
   "排水管・排水溝の詰まり修理、排水マスの交換工事",
   "蛇口の水漏れ修理、蛇口交換作業、キッチンリフォーム工事",
@@ -54,7 +54,7 @@ export function OriginalHome() {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.wrap}>
-          <p className={styles.topLine}>創業30余年 大津市の水まわり工事なら</p>
+          <p className={styles.topLine}>創業30余年 大津市の水廻り工事なら</p>
           <div className={styles.headRow}>
             <h1>株式会社アルファ管工</h1>
             <a href="tel:0775793507" className={styles.tel}>
@@ -74,10 +74,10 @@ export function OriginalHome() {
       <main>
         <section className={styles.hero} id="top" data-anim="hero">
           <div className={styles.wrap}>
-            <p className={styles.catch}>大津市の水まわり工事なら</p>
+            <p className={styles.catch}>大津市の水廻り工事なら</p>
             <h2>株式会社アルファ管工へお任せください。</h2>
             <p>
-              私たちは水まわりのホームドクターとして、お客様にベストなご提案をいたします。
+              私たちは水廻りのホームドクターとして、お客様にベストなご提案をいたします。
             </p>
           </div>
         </section>
@@ -99,7 +99,7 @@ export function OriginalHome() {
         <section className={`${styles.section} ${styles.alt}`} id="service">
           <div className={styles.wrap}>
             <h3>サービス内容</h3>
-            <p className={styles.lead}>水まわり全般のトラブルに対応致します。</p>
+            <p className={styles.lead}>水廻り全般のトラブルに対応致します。</p>
             <ul className={styles.list}>
               {serviceItems.map((item) => (
                 <li key={item}>{item}</li>
@@ -139,7 +139,7 @@ export function OriginalHome() {
               <dt>創業</dt>
               <dd>平成3年</dd>
               <dt>事業内容</dt>
-              <dd>一般住宅の水道、排水等の配管工事及び水まわりのリフォーム工事（給排水設備工事）</dd>
+              <dd>一般住宅の水道、排水等の配管工事及び水廻りのリフォーム工事（給排水設備工事）</dd>
               <dt>水道局指定番号</dt>
               <dd>大津市指定給水装置工事事業者（第192号） / 大津市指定排水設備工事事業者（第192号）</dd>
             </dl>

@@ -1,4 +1,4 @@
-﻿export type FaqItem = {
+export type FaqItem = {
   question: string;
   answer: string;
   links?: { label: string; href: string }[];
@@ -8,7 +8,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "どのような工事に対応していますか？",
     answer:
-      "給排水衛生設備工事、配管工事、排水設備工事、漏水調査・修理、給湯器交換、水回りリフォームなどに対応しています。",
+      "給排水衛生設備工事、配管工事、排水設備工事、漏水調査・修理、給湯器交換、水廻りリフォームなどに対応しています。",
     links: [
       { label: "給排水設備工事", href: "/plumbing" },
       { label: "漏水調査", href: "/leak-survey" },
@@ -82,7 +82,7 @@ export const faqItems: FaqItem[] = [
     question: "トイレのリフォームはできますか？",
     answer:
       "便器の更新やウォシュレット設置、給排水接続まで対応します。和式から洋式への変更もご相談ください。",
-    links: [{ label: "水回りリフォーム", href: "/reform" }],
+    links: [{ label: "水廻りリフォーム", href: "/reform" }],
   },
   {
     question: "キッチンの水栓交換だけでも依頼できますか？",

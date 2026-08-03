@@ -22,7 +22,7 @@ const businessPanels = [
     href: "/drainage",
   },
   {
-    title: "水回りリフォーム",
+    title: "水廻りリフォーム",
     description: "トイレ・キッチン・お風呂の更新と給排水接続。",
     image: "/images/business/remodel.webp",
     href: "/reform",

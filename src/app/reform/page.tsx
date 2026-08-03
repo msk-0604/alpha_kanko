@@ -6,11 +6,11 @@ import { getServiceBySlug } from "@/data/services";
 const page = getServiceBySlug("reform");
 
 export const metadata: Metadata = {
-  title: "水回りリフォーム｜滋賀｜株式会社アルファ管工",
+  title: "水廻りリフォーム｜滋賀｜株式会社アルファ管工",
   description: page?.description,
   alternates: { canonical: "/reform" },
   openGraph: {
-    title: "水回りリフォーム｜滋賀｜株式会社アルファ管工",
+    title: "水廻りリフォーム｜滋賀｜株式会社アルファ管工",
     description: page?.description,
     url: "/reform",
   },

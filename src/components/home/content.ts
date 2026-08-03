@@ -61,7 +61,7 @@ export const troubleCards: TroubleCard[] = [
   {
     title: "その他",
     icon: "🔩",
-    summary: "水まわりで気になる症状はまずご相談ください。",
+    summary: "水廻りで気になる症状はまずご相談ください。",
     troubles: ["まずは症状をヒアリング", "現地確認後に最適な対応をご提案"],
   },
 ];
@@ -137,11 +137,11 @@ export const businessItems: BusinessItem[] = [
   },
   {
     title: "排水設備工事",
-    description: "劣化配管の更新・屋外排水の改修など、排水まわりの工事に対応します。",
+    description: "劣化配管の更新・屋外排水の改修など、排水廻りの工事に対応します。",
     icon: "🧰",
   },
   {
-    title: "水回りリフォーム",
+    title: "水廻りリフォーム",
     description: "トイレ・キッチン・お風呂の更新と給排水接続に対応します。",
     icon: "🛁",
   },
@@ -216,14 +216,14 @@ export const disclosureItems = [
 
 export const companyAtmospherePhotos = [
   { src: "/images/hero-office.webp", alt: "株式会社アルファ管工の事務所外観" },
-  { src: "/images/trouble-under-sink.png", alt: "水まわりの現場確認" },
+  { src: "/images/trouble-under-sink.png", alt: "水廻りの現場確認" },
   { src: "/images/works/new-house-plumbing-01.webp", alt: "新築給排水設備の施工の様子" },
 ];
 
 export const csrItems = [
   { date: "2026.04.22", title: "地域防災訓練への設備協力を実施しました" },
   { date: "2026.03.08", title: "地元清掃活動と排水経路点検を実施しました" },
-  { date: "2025.12.19", title: "学校設備の水回り保全活動に参加しました" },
+  { date: "2025.12.19", title: "学校設備の水廻り保全活動に参加しました" },
 ];
 
 export const supportItems = [
@@ -273,7 +273,7 @@ export const greeting = {
   name: "山口 豊樹",
   title: "代表取締役",
   message:
-    "私たちは、地域の暮らしを支える水まわり設備を守ることを使命としています。小さな修繕から設備更新まで、安心して相談できる会社であることを大切に、丁寧で誠実な施工を徹底してまいります。",
+    "私たちは、地域の暮らしを支える水廻り設備を守ることを使命としています。小さな修繕から設備更新まで、安心して相談できる会社であることを大切に、丁寧で誠実な施工を徹底してまいります。",
   image: "/images/people/ceo.svg",
 };
 
@@ -286,6 +286,6 @@ export const companyProfile = [
   { label: "TEL", value: "077-579-3507" },
   { label: "E-mail", value: "honsha@alpha-kanko.co.jp" },
   { label: "創業", value: "平成3年" },
-  { label: "事業内容", value: "一般住宅の水道、排水等の配管工事及び水まわりリフォーム工事" },
+  { label: "事業内容", value: "一般住宅の水道、排水等の配管工事及び水廻りリフォーム工事" },
   { label: "水道局指定番号", value: "大津市指定給水装置工事事業者（第192号）\n大津市指定排水設備工事事業者（第192号）" },
 ];

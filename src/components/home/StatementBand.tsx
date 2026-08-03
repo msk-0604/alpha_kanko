@@ -10,7 +10,7 @@ export function StatementBand() {
           <p className={styles.sectionEyebrowLight}>PHILOSOPHY</p>
           <h2 id="statement-title" className={styles.statementTitle}>
             <span>確かな配管技術で、</span>
-            <span>まちの水まわりを支える。</span>
+            <span>まちの水廻りを支える。</span>
           </h2>
           <p className={styles.statementLead}>
             新築設備から修繕・更新まで。現場の条件を見極め、安全と品質を第一に施工します。

@@ -10,7 +10,7 @@ import styles from "@/components/works/works.module.css";
 export const metadata: Metadata = {
   title: "ブログ｜漏水・水道工事の情報｜株式会社アルファ管工",
   description:
-    "漏水調査、水漏れ修理、配管工事、水回りリフォームに関するお役立ち情報。滋賀県大津市の株式会社アルファ管工。",
+    "漏水調査、水漏れ修理、配管工事、水廻りリフォームに関するお役立ち情報。滋賀県大津市の株式会社アルファ管工。",
   alternates: { canonical: "/blog" },
   openGraph: {
     title: "ブログ｜株式会社アルファ管工",

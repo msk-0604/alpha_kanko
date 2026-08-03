@@ -130,7 +130,7 @@ function normalizeCategory(value: string): WorkCategory {
     新築給排水設備工事: "給排水設備",
     "給水・給湯配管工事": "給排水設備",
     排水設備工事: "排水工事",
-    水回りリフォーム: "リフォーム",
+    水廻りリフォーム: "リフォーム",
     給湯器交換工事: "リフォーム",
   };
   if (workCategories.includes(value as WorkCategory)) return value as WorkCategory;

@@ -23,7 +23,7 @@ const rows = [
   { label: "創業", value: "平成3年" },
   {
     label: "事業内容",
-    value: "一般住宅の水道、排水等の配管工事及び水まわりのリフォーム工事（給排水設備工事）",
+    value: "一般住宅の水道、排水等の配管工事及び水廻りのリフォーム工事（給排水設備工事）",
   },
   {
     label: "水道局指定番号",
@@ -56,7 +56,7 @@ export default function CompanyPage() {
           <section className={styles.companyGreetingTeaser}>
             <p className={styles.companyGreetingEyebrow}>代表挨拶</p>
             <p className={styles.companyGreetingQuote}>
-              私たちは、地域の暮らしを支える水まわり設備を守ることを使命としています。
+              私たちは、地域の暮らしを支える水廻り設備を守ることを使命としています。
             </p>
             <p className={styles.companyGreetingName}>
               {greeting.title} {greeting.name}

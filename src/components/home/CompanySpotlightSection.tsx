@@ -17,7 +17,7 @@ export function CompanySpotlightSection() {
           </h2>
           <p className={styles.companySpotlightLead}>
             創業平成3年。大津市指定の給水・排水設備工事事業者として、
-            地域のインフラと水まわりを支えてきました。
+            地域のインフラと水廻りを支えてきました。
             品質と安全を大切に、個人住宅から法人・官公庁案件まで対応します。
           </p>
           <ul className={styles.companySpotlightFacts}>
