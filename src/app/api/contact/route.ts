@@ -21,7 +21,7 @@ const contactSchema = z.object({
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
-const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "yamamasaki0604@icloud.com";
+const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "yamamasaki0604@gmail.com";
 const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
 
 /** 簡易連打防止（同一IPで60秒に3回まで） */
