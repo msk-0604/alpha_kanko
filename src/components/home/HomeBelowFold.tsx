@@ -6,7 +6,6 @@ import { StrengthSection } from "./StrengthSection";
 import { AreaSection } from "./AreaSection";
 import { CompanyProfileSection } from "./CompanyProfileSection";
 import { AccessSection } from "./AccessSection";
-import { NewsSection } from "./NewsSection";
 import { CTASection } from "./CTASection";
 
 export function HomeBelowFold() {
@@ -20,7 +19,6 @@ export function HomeBelowFold() {
       <AreaSection />
       <CompanyProfileSection />
       <AccessSection />
-      <NewsSection />
       <CTASection />
     </>
   );
