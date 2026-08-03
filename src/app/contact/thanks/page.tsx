@@ -16,24 +16,44 @@ export default function ContactThanksPage() {
     <>
       <Header />
       <main className={styles.page}>
-        <section className={styles.hero}>
-          <div className={styles.container}>
-            <p className={styles.lead}>CONTACT</p>
-            <h1>送信完了</h1>
-            <p>
-              お問い合わせありがとうございました。
-              <br />
-              担当者よりご連絡いたします。
-              <br />
-              お急ぎの場合は <a href="tel:0775793507">077-579-3507</a> までご連絡ください。
-            </p>
-            <div className={styles.thanksActions}>
-              <Link href="/" className={styles.thanksLink}>
-                トップへ戻る
-              </Link>
-              <Link href="/works" className={styles.thanksLink}>
-                施工事例を見る
-              </Link>
+        <section className={styles.thanksHero}>
+          <div className={styles.thanksInner}>
+            <div className={styles.thanksCard}>
+              <div className={styles.thanksIcon} aria-hidden="true">
+                <svg viewBox="0 0 48 48" width="48" height="48" fill="none">
+                  <circle cx="24" cy="24" r="22" stroke="currentColor" strokeWidth="2" />
+                  <path
+                    d="M14 24.5 21 31.5 34 16.5"
+                    stroke="currentColor"
+                    strokeWidth="2.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              <p className={styles.thanksEyebrow}>CONTACT</p>
+              <h1 className={styles.thanksTitle}>送信が完了しました</h1>
+              <p className={styles.thanksLead}>
+                お問い合わせありがとうございました。
+                <br />
+                内容を確認のうえ、担当者よりご連絡いたします。
+              </p>
+
+              <div className={styles.thanksNote}>
+                <p>お急ぎの場合はお電話ください</p>
+                <a href="tel:0775793507" className={styles.thanksPhone}>
+                  077-579-3507
+                </a>
+              </div>
+
+              <div className={styles.thanksActions}>
+                <Link href="/" className={styles.thanksPrimary}>
+                  トップへ戻る
+                </Link>
+                <Link href="/works" className={styles.thanksSecondary}>
+                  施工事例を見る
+                </Link>
+              </div>
             </div>
           </div>
         </section>

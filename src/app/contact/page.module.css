@@ -138,8 +138,8 @@
 .thanksActions {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.25rem;
-  margin-top: 1.75rem;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
 }
 
 .thanksLink {
@@ -147,6 +147,123 @@
   font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 0.18em;
+}
+
+.thanksHero {
+  padding: 5.5rem 0 4rem;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(30, 92, 153, 0.12), transparent 55%),
+    linear-gradient(180deg, #eef3f8 0%, #f4f6f8 100%);
+}
+
+.thanksInner {
+  width: min(640px, 92%);
+  margin: 0 auto;
+}
+
+.thanksCard {
+  background: #fff;
+  border: 1px solid #d7e1ea;
+  padding: 2.25rem 1.75rem 2rem;
+  box-shadow: 0 12px 32px rgba(15, 39, 64, 0.06);
+  text-align: left;
+}
+
+.thanksIcon {
+  display: inline-flex;
+  color: #0f2740;
+  margin-bottom: 1.1rem;
+}
+
+.thanksEyebrow {
+  margin: 0 0 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+  color: #5c7286;
+}
+
+.thanksTitle {
+  margin: 0 0 1rem;
+  font-family: var(--font-display), var(--font-noto-sans-jp), sans-serif;
+  font-size: clamp(1.65rem, 4vw, 2.15rem);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: #142536;
+}
+
+.thanksLead {
+  margin: 0 0 1.75rem;
+  color: #4d5f70;
+  font-size: 0.98rem;
+  line-height: 1.9;
+}
+
+.thanksNote {
+  margin: 0 0 1.75rem;
+  padding: 1rem 1.1rem;
+  background: #f3f7fb;
+  border-left: 3px solid #0f2740;
+}
+
+.thanksNote p {
+  margin: 0 0 0.35rem;
+  font-size: 0.82rem;
+  color: #5c7286;
+}
+
+.thanksPhone {
+  color: #0f2740;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+}
+
+.thanksPhone:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.thanksPrimary,
+.thanksSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.7rem 1.35rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.thanksPrimary {
+  background: #0f2740;
+  color: #fff;
+  border: 1px solid #0f2740;
+}
+
+.thanksPrimary:hover {
+  background: #173552;
+}
+
+.thanksSecondary {
+  background: #fff;
+  color: #0f2740;
+  border: 1px solid #0f2740;
+}
+
+.thanksSecondary:hover {
+  background: #f3f7fb;
+}
+
+@media (min-width: 640px) {
+  .thanksCard {
+    padding: 2.75rem 2.5rem 2.35rem;
+  }
 }
 
 .errorMessage {
