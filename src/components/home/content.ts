@@ -136,6 +136,16 @@ export const businessItems: BusinessItem[] = [
     icon: "🔧",
   },
   {
+    title: "排水設備工事",
+    description: "劣化配管の更新・屋外排水の改修など、排水まわりの工事に対応します。",
+    icon: "🧰",
+  },
+  {
+    title: "水回りリフォーム",
+    description: "トイレ・キッチン・お風呂の更新と給排水接続に対応します。",
+    icon: "🛁",
+  },
+  {
     title: "水道施設工事",
     description: "公共性の高い案件にも対応し、法令順守と安全管理を徹底します。",
     icon: "🏗",

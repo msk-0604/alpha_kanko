@@ -17,7 +17,7 @@ import styles from "@/components/works/works.module.css";
 export const metadata: Metadata = {
   title: "事業内容｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の事業内容。給排水衛生設備工事、配管工事、排水設備工事、給湯器交換、水回りリフォーム、水素式非破壊漏水調査、法人・官公庁対応。",
+    "株式会社アルファ管工の事業内容。給排水衛生設備工事、配管工事、排水設備工事、水回りリフォーム、給湯器交換、水素式非破壊漏水調査、法人・官公庁対応。",
   alternates: { canonical: "/business" },
 };
 
@@ -51,6 +51,12 @@ const overviewPanels: BusinessPanel[] = [
     text: "工程共有・報告書提出など、施設管理・公共工事の要件に合わせて対応します。",
     image: "/images/business/facility.webp",
     alt: "建物内部の設備配管施工の様子",
+  },
+  {
+    title: "水回りリフォーム",
+    text: "トイレ・キッチン・お風呂など、水まわり設備の更新と給排水接続に対応します。",
+    image: "/images/business/remodel.webp",
+    alt: "水回りリフォームの施工イメージ",
   },
 ];
 
@@ -109,7 +115,7 @@ const beforeAfterPanels = [
   },
   {
     title: "水回りリフォーム",
-    text: "既設トイレの撤去から新しい洋式トイレへの更新、給排水接続まで対応します。",
+    text: "トイレ・キッチン・お風呂など、水まわり設備の更新と給排水接続まで対応します。",
     before: {
       src: "/images/business/toilet-before.webp",
       alt: "更新前のトイレ・洗面",

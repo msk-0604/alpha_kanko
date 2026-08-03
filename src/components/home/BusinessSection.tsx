@@ -21,6 +21,12 @@ const businessPanels = [
     image: "/images/business/drain.webp",
     href: "/drainage",
   },
+  {
+    title: "水回りリフォーム",
+    description: "トイレ・キッチン・お風呂の更新と給排水接続。",
+    image: "/images/business/remodel.webp",
+    href: "/reform",
+  },
 ];
 
 export function BusinessSection() {
