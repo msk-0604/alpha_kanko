@@ -20,7 +20,9 @@ export function Hero() {
       <div className={styles.heroContentWrap}>
         <div className={styles.container}>
           <div className={styles.heroContent}>
-            <p className={styles.heroBrand}>滋賀県大津市 / 給排水・配管工事</p>
+            <p className={styles.heroBrand}>
+              <span className={styles.heroBrandBadge}>上下水道大津市指定工事店</span>
+            </p>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroHeadline}>水と配管で、</span>
               <span className={styles.heroHeadline}>まちの暮らしを支える。</span>

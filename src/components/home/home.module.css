@@ -666,11 +666,25 @@
 }
 
 .heroBrand {
-  margin: 0 0 1.25rem;
-  color: rgba(230, 238, 247, 0.78);
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  margin: 0 0 1.35rem;
+}
+
+.heroBrandBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  max-width: 100%;
+  padding: 0.45rem 0.85rem 0.45rem 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-left: 3px solid rgba(255, 255, 255, 0.92);
+  background: rgba(8, 18, 32, 0.42);
+  color: #f4f8fc;
+  font-size: clamp(0.78rem, 1.7vw, 0.9rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(8, 18, 32, 0.18);
 }
 
 .heroTitle {
