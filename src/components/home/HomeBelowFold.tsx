@@ -3,7 +3,6 @@ import { StatementBand } from "./StatementBand";
 import { CaseStudiesSection } from "./CaseStudiesSection";
 import { CompanySpotlightSection } from "./CompanySpotlightSection";
 import { StrengthSection } from "./StrengthSection";
-import { AreaSection } from "./AreaSection";
 import { CompanyProfileSection } from "./CompanyProfileSection";
 import { AccessSection } from "./AccessSection";
 import { CTASection } from "./CTASection";
@@ -16,7 +15,6 @@ export function HomeBelowFold() {
       <CaseStudiesSection />
       <CompanySpotlightSection />
       <StrengthSection />
-      <AreaSection />
       <CompanyProfileSection />
       <AccessSection />
       <CTASection />

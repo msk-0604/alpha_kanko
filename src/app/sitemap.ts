@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllNewsIds } from "@/data/news";
 import { getAllWorkSlugs } from "@/lib/works";
-import { getAllAreaSlugs } from "@/data/areas";
 import { getAllVoiceIds } from "@/data/voices";
 import { servicePages } from "@/data/services";
 
@@ -21,19 +19,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/business",
     "/company",
     "/greeting",
-    "/area",
     "/voices",
     "/strength",
     "/recruit",
-    "/news",
     "/faq",
     "/contact",
     "/privacy",
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified: now,
-    changeFrequency:
-      path === "" || path === "/works" || path === "/news" ? "weekly" : "monthly",
+    changeFrequency: path === "" || path === "/works" ? "weekly" : "monthly",
     priority:
       path === ""
         ? 1
@@ -42,9 +37,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             path === "/works" ||
             path === "/contact"
           ? 0.9
-          : path === "/plumbing" || path === "/drainage" || path === "/reform"
-            ? 0.85
-            : path === "/faq" || path === "/area"
+          : path === "/plumbing" || path === "/drainage" || path === "/reform" || path === "/business"
+            ? 0.88
+            : path === "/faq"
               ? 0.75
               : 0.6,
   }));
@@ -54,13 +49,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.88,
-  }));
-
-  const areaRoutes: MetadataRoute.Sitemap = getAllAreaSlugs().map((slug) => ({
-    url: `${base}/area/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
   }));
 
   const voiceRoutes: MetadataRoute.Sitemap = getAllVoiceIds().map((id) => ({
@@ -77,21 +65,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  const newsRoutes: MetadataRoute.Sitemap = getAllNewsIds().map((id) => ({
-    url: `${base}/news/${id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.65,
-  }));
-
-  const merged = [
-    ...staticRoutes,
-    ...serviceRoutes,
-    ...areaRoutes,
-    ...voiceRoutes,
-    ...workRoutes,
-    ...newsRoutes,
-  ];
+  const merged = [...staticRoutes, ...serviceRoutes, ...voiceRoutes, ...workRoutes];
   const seen = new Set<string>();
   return merged.filter((item) => {
     if (seen.has(item.url)) return false;

@@ -10,17 +10,18 @@ import styles from "@/components/works/works.module.css";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "施工事例｜漏水・給排水・リフォーム｜株式会社アルファ管工",
+  title: "施工事例｜滋賀の管工事・給排水・リフォーム｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の施工事例。漏水調査・漏水修理・排水工事・給排水設備・水廻りリフォームの実績をご紹介します。",
+    "滋賀県大津市の株式会社アルファ管工の施工事例。管工事・給排水設備、排水工事、水廻りリフォームなどの実績をご紹介します。",
   alternates: {
     canonical: "/works",
   },
   openGraph: {
     title: "施工事例｜株式会社アルファ管工",
     description:
-      "漏水調査・修理、排水工事、給排水設備、リフォームの施工事例。",
+      "管工事・給排水設備、排水工事、水廻りリフォームなどの施工事例。滋賀県大津市の株式会社アルファ管工。",
     url: "/works",
+    images: [{ url: "/ogp.png", width: 1200, height: 630 }],
   },
 };
 
@@ -42,7 +43,7 @@ export default async function WorksPage() {
             <p className={styles.pageEyebrow}>WORKS</p>
             <h1 className={styles.pageTitle}>施工事例</h1>
             <p className={styles.pageLead}>
-              住宅・施設・法人案件など、現場ごとの給排水設備工事の実績です。
+              住宅・施設・法人案件など、現場ごとの管工事・給排水設備工事の実績です。
               工事種別で絞り込みできます。
             </p>
             {isMicroCmsEnabled ? (

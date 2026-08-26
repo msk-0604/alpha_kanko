@@ -232,15 +232,6 @@ export const supportItems = [
   { date: "2025.07.10", title: "次世代育成に向けた現場見学会を実施しました" },
 ];
 
-export { newsItems } from "@/data/news";
-
-export const areaList = [
-  "滋賀県全域",
-  "京都府南部",
-  "大阪府北部",
-  "関西近隣エリア（要相談）",
-];
-
 export const trustFacts = [
   { label: "創業", value: "平成3年" },
   { label: "指定給水装置工事事業者", value: "大津市 第192号" },

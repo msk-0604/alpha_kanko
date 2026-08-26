@@ -6,13 +6,14 @@ import { getServiceBySlug } from "@/data/services";
 const page = getServiceBySlug("plumbing");
 
 export const metadata: Metadata = {
-  title: "給排水設備工事・配管工事｜滋賀｜株式会社アルファ管工",
+  title: "滋賀県の管工事・配管工事・給排水設備工事｜株式会社アルファ管工",
   description: page?.description,
   alternates: { canonical: "/plumbing" },
   openGraph: {
-    title: "給排水設備工事・配管工事｜滋賀｜株式会社アルファ管工",
+    title: "滋賀県の管工事・配管工事・給排水設備工事｜株式会社アルファ管工",
     description: page?.description,
     url: "/plumbing",
+    images: [{ url: "/ogp.png", width: 1200, height: 630 }],
   },
 };
 

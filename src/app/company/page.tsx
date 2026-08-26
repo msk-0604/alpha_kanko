@@ -8,10 +8,17 @@ import { greeting } from "@/components/home/content";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
-  title: "会社案内｜株式会社アルファ管工",
+  title: "会社案内｜滋賀県大津市の管工事・給排水設備｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の会社案内。創業平成3年、大津市指定給水・排水設備工事事業者として地域の給排水設備を支えています。",
+    "株式会社アルファ管工の会社案内。創業平成3年、大津市指定給水・排水設備工事事業者として、滋賀県大津市で管工事・給排水設備工事を支えています。",
   alternates: { canonical: "/company" },
+  openGraph: {
+    title: "会社案内｜株式会社アルファ管工",
+    description:
+      "創業平成3年。大津市指定給水・排水設備工事事業者として、滋賀県大津市で管工事・給排水設備工事に対応しています。",
+    url: "/company",
+    images: [{ url: "/ogp.png", width: 1200, height: 630 }],
+  },
 };
 
 const rows = [

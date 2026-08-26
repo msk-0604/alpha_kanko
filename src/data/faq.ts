@@ -17,8 +17,8 @@ export const faqItems: FaqItem[] = [
   {
     question: "対応エリアはどこですか？",
     answer:
-      "滋賀県を中心に、京都府南部・大阪府北部などもご相談ください。大津市・草津市など市ごとのご案内もあります。",
-    links: [{ label: "対応エリア", href: "/area" }],
+      "滋賀県を中心に、京都府南部・大阪府北部などもご相談ください。まずはお電話またはお問い合わせフォームよりご連絡ください。",
+    links: [{ label: "お問い合わせ", href: "/contact" }],
   },
   {
     question: "見積もりは無料ですか？",
@@ -134,16 +134,12 @@ export const faqItems: FaqItem[] = [
     question: "草津市でも対応していますか？",
     answer:
       "はい。草津市の漏水調査・修理・給排水工事もご相談ください。",
-    links: [{ label: "草津市の対応案内", href: "/area/kusatsu" }],
+    links: [{ label: "お問い合わせ", href: "/contact" }],
   },
   {
     question: "守山市・栗東市も見てもらえますか？",
-    answer:
-      "対応しています。市ごとの案内ページもご覧ください。",
-    links: [
-      { label: "守山市", href: "/area/moriyama" },
-      { label: "栗東市", href: "/area/ritto" },
-    ],
+    answer: "対応しています。お気軽にご相談ください。",
+    links: [{ label: "お問い合わせ", href: "/contact" }],
   },
   {
     question: "夜間・休日の相談はできますか？",

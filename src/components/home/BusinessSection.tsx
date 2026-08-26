@@ -40,7 +40,7 @@ export function BusinessSection() {
             <span>事業について</span>
           </h2>
           <p className={styles.showcaseLead}>
-            給排水衛生設備工事を核に、新築配管から修繕・設備更新まで。
+            管工事・給排水衛生設備工事を核に、新築配管から修繕・設備更新まで。
             現場ごとの条件に合わせ、技術と施工管理で応えます。
           </p>
         </header>

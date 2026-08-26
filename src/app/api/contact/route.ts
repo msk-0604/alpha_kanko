@@ -21,8 +21,11 @@ const contactSchema = z.object({
 
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
-const contactToEmail = process.env.CONTACT_TO_EMAIL ?? "honsha@alpha-kanko.co.jp";
-const contactFromEmail = process.env.CONTACT_FROM_EMAIL ?? "noreply@alphakanko.jp";
+const contactToEmail =
+  process.env.CONTACT_TO_EMAIL?.trim() || "honsha@alpha-kanko.co.jp";
+const contactFromEmail =
+  process.env.CONTACT_FROM_EMAIL?.trim() ||
+  "株式会社アルファ管工 <noreply@alphakanko.jp>";
 
 /** 簡易連打防止（同一IPで60秒に3回まで） */
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
@@ -90,7 +93,7 @@ export async function POST(request: Request) {
     "ホームページからお問い合わせがありました。",
     "",
     `お名前：${data.name}`,
-    `会社名：${data.company || "未入力"}`,
+    `住所：${data.company || "未入力"}`,
     `電話番号：${data.phone}`,
     `メールアドレス：${data.email}`,
     "",

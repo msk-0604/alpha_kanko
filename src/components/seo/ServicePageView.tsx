@@ -21,6 +21,7 @@ export function ServicePageView({ page }: { page: ServicePage }) {
           <Breadcrumb
             items={[
               { label: "トップ", href: "/" },
+              { label: "事業内容", href: "/business" },
               { label: page.title },
             ]}
           />

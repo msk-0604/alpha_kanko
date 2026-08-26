@@ -5,9 +5,13 @@ import Image from "next/image";
 import type { WorkImage } from "@/data/works";
 import styles from "./works.module.css";
 
+type SliderImage = WorkImage & {
+  objectPosition?: string;
+};
+
 type BeforeAfterSliderProps = {
-  before: WorkImage;
-  after: WorkImage;
+  before: SliderImage;
+  after: SliderImage;
 };
 
 export function BeforeAfterSlider({ before, after }: BeforeAfterSliderProps) {
@@ -71,6 +75,7 @@ export function BeforeAfterSlider({ before, after }: BeforeAfterSliderProps) {
           sizes="(max-width: 768px) 92vw, 840px"
           quality={92}
           className={styles.baSliderImage}
+          style={after.objectPosition ? { objectPosition: after.objectPosition } : undefined}
           draggable={false}
         />
         <div className={styles.baSliderBefore} style={{ width: `${pos}%` }}>
@@ -82,6 +87,7 @@ export function BeforeAfterSlider({ before, after }: BeforeAfterSliderProps) {
               sizes="(max-width: 768px) 92vw, 840px"
               quality={92}
               className={styles.baSliderImage}
+              style={before.objectPosition ? { objectPosition: before.objectPosition } : undefined}
               draggable={false}
             />
           </div>

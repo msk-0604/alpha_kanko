@@ -23,7 +23,7 @@ export function ServiceJsonLd({ name, description, url }: ServiceJsonLdProps) {
         addressCountry: "JP",
       },
     },
-    areaServed: ["滋賀県", "大津市", "草津市"],
+    areaServed: ["滋賀県", "大津市", "草津市", "守山市", "栗東市"],
   };
 
   return (

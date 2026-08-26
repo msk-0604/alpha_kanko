@@ -101,12 +101,12 @@ export function ContactForm() {
       </label>
 
       <label>
-        会社名
+        住所
         <input
           type="text"
           value={form.company}
           onChange={(e) => setForm((prev) => ({ ...prev, company: e.target.value }))}
-          autoComplete="organization"
+          autoComplete="street-address"
         />
       </label>
 

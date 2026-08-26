@@ -14,6 +14,7 @@ export const metadata: Metadata = {
     title: "漏水調査｜滋賀・大津市｜株式会社アルファ管工",
     description: page?.description,
     url: "/leak-survey",
+    images: [{ url: "/ogp.png", width: 1200, height: 630 }],
   },
 };
 

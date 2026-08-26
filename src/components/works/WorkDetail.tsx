@@ -58,6 +58,9 @@ export function WorkDetail({
           <Link href={serviceHref}>{work.category}のサービスを見る</Link>
         </li>
         <li>
+          <Link href="/works">施工事例一覧へ</Link>
+        </li>
+        <li>
           <Link href="/contact">この工事について問い合わせる</Link>
         </li>
       </ul>

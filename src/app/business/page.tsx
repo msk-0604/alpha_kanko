@@ -15,10 +15,17 @@ import { BeforeAfterSlider } from "@/components/works/BeforeAfterSlider";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
-  title: "事業内容｜株式会社アルファ管工",
+  title: "事業内容｜滋賀・大津市の管工事・給排水・漏水調査｜株式会社アルファ管工",
   description:
-    "株式会社アルファ管工の事業内容。給排水衛生設備工事、配管工事、排水設備工事、水廻りリフォーム、給湯器交換、水素式非破壊漏水調査、法人・官公庁対応。",
+    "滋賀県大津市の株式会社アルファ管工の事業内容。管工事・給排水衛生設備工事、配管工事、排水設備工事、水廻りリフォーム、給湯器交換、水素式非破壊漏水調査、法人・官公庁対応。",
   alternates: { canonical: "/business" },
+  openGraph: {
+    title: "事業内容｜株式会社アルファ管工",
+    description:
+      "管工事・給排水設備工事、配管工事、排水設備工事、水廻りリフォーム、漏水調査まで。滋賀県大津市の株式会社アルファ管工。",
+    url: "/business",
+    images: [{ url: "/ogp.png", width: 1200, height: 630 }],
+  },
 };
 
 type BusinessPanel = {
@@ -26,7 +33,9 @@ type BusinessPanel = {
   text: string;
   image: string;
   alt: string;
+  href?: string;
   subtitle?: string;
+  imagePosition?: string;
   tags?: string[];
   features?: { label: string; icon: LucideIcon }[];
   /** 併記する補足写真（機材など）。指定するとメイン写真と2枚並びで表示する */
@@ -36,27 +45,39 @@ type BusinessPanel = {
 const overviewPanels: BusinessPanel[] = [
   {
     title: "給排水衛生設備工事",
-    text: "施設用途に合わせた設計・施工で、安定した給排水環境を構築します。",
+    text: "施設用途に合わせた設計・施工で、安定した給排水環境を構築します。管工事・配管工事として新設から更新まで対応します。",
     image: "/images/business/sanitary.webp",
     alt: "基礎内に施工した給水・給湯・排水配管",
+    href: "/plumbing",
   },
   {
     title: "配管工事",
     text: "新設・更新・改修まで一貫対応。稼働影響を抑えた施工計画をご提案します。",
     image: "/images/business/piping.webp",
     alt: "壁面に整理された給水・給湯配管ヘッダー",
+    href: "/plumbing",
   },
   {
     title: "法人・官公庁対応",
     text: "工程共有・報告書提出など、施設管理・公共工事の要件に合わせて対応します。",
     image: "/images/business/facility.webp",
     alt: "建物内部の設備配管施工の様子",
+    href: "/company",
   },
   {
     title: "水廻りリフォーム",
     text: "トイレ・キッチン・お風呂など、水廻り設備の更新と給排水接続に対応します。",
     image: "/images/business/remodel.webp",
     alt: "水廻りリフォームの施工イメージ",
+    href: "/reform",
+  },
+  {
+    title: "排水桝清掃",
+    text: "排水桝内部に蓄積した油脂・汚泥・固形物などを丁寧に除去し、排水経路を清潔な状態に整えます。定期的な清掃により、排水不良や詰まりの予防につながります。",
+    image: "/images/business/drain-basin-cleaning.webp",
+    alt: "排水桝を高圧洗浄で清掃している作業の様子",
+    imagePosition: "50% 42%",
+    href: "/drainage",
   },
 ];
 
@@ -66,6 +87,7 @@ const leakSurveyPanel: BusinessPanel = {
   text: "最新の水素式非破壊漏水調査機器を導入し、戸建住宅・マンション・工場・公共施設・学校など幅広い建物の漏水調査に対応します。配管を壊すことなく漏水箇所を特定できるため、建物への負担を最小限に抑え、迅速かつ正確な調査を行います。",
   image: "/images/business/leak-survey.webp",
   alt: "水素ガス検知器を使った現場での漏水調査",
+  href: "/leak-survey",
   subImage: {
     src: "/images/business/leak-survey-device.webp",
     alt: "漏水探索用トレーサーガス発生装置 HT-60",
@@ -99,6 +121,20 @@ const beforeAfterPanels = [
     after: {
       src: "/images/business/drain-after.webp",
       alt: "改修後の屋外排水管",
+    },
+  },
+  {
+    title: "排水桝清掃",
+    text: "排水桝内部に蓄積した油脂や汚泥などの堆積物を除去し、排水経路をきれいな状態に清掃しました。定期的な清掃により、排水不良や詰まりの予防につながります。",
+    before: {
+      src: "/images/business/drain-basin-before.webp",
+      alt: "清掃前の排水桝。内部に油脂や汚泥が堆積している状態",
+      objectPosition: "54% 48%",
+    },
+    after: {
+      src: "/images/business/drain-basin-after.webp",
+      alt: "清掃後の排水桝。内部がきれいになり排水管が見える状態",
+      objectPosition: "50% 55%",
     },
   },
   {
@@ -165,6 +201,7 @@ function BusinessCard({ panel }: { panel: BusinessPanel }) {
             sizes="(max-width: 768px) 100vw, 50vw"
             quality={78}
             className={styles.businessPageImage}
+            style={panel.imagePosition ? { objectPosition: panel.imagePosition } : undefined}
           />
         </div>
       )}
@@ -193,6 +230,13 @@ function BusinessCard({ panel }: { panel: BusinessPanel }) {
             ))}
           </ul>
         ) : null}
+        {panel.href ? (
+          <p style={{ marginTop: "0.9rem" }}>
+            <Link href={panel.href} className={styles.backLink}>
+              詳しく見る
+            </Link>
+          </p>
+        ) : null}
       </div>
     </li>
   );
@@ -214,7 +258,7 @@ export default function BusinessPage() {
             <p className={styles.pageEyebrow}>BUSINESS</p>
             <h1 className={styles.pageTitle}>事業内容</h1>
             <p className={styles.pageLead}>
-              給排水衛生設備工事を中心に、新築・修繕・設備更新まで対応しています。
+              滋賀県大津市を拠点に、管工事・給排水衛生設備工事を中心とした新築・修繕・設備更新まで対応しています。
               住宅から法人・施設案件まで、現場の条件に合わせた施工を行います。
             </p>
           </header>
@@ -251,6 +295,9 @@ export default function BusinessPage() {
           </section>
 
           <div className={styles.detailNav}>
+            <Link href="/plumbing" className={styles.backLink}>
+              管工事・給排水設備工事を見る
+            </Link>
             <Link href="/works" className={styles.backLink}>
               施工事例を見る
             </Link>

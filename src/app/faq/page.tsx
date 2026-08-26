@@ -8,15 +8,16 @@ import { PageCta } from "@/components/seo/PageCta";
 import styles from "@/components/works/works.module.css";
 
 export const metadata: Metadata = {
-  title: "よくある質問｜漏水調査・水道工事｜株式会社アルファ管工",
+  title: "よくある質問｜管工事・給排水・漏水調査｜株式会社アルファ管工",
   description:
-    "滋賀県の漏水調査・水漏れ修理・給排水設備工事に関するよくある質問。大津市の株式会社アルファ管工。",
+    "滋賀県大津市の管工事・給排水設備工事・漏水調査・水漏れ修理に関するよくある質問。株式会社アルファ管工。",
   alternates: { canonical: "/faq" },
   openGraph: {
     title: "よくある質問｜株式会社アルファ管工",
     description:
-      "漏水調査・水漏れ修理・給排水設備工事などのよくある質問。",
+      "管工事・給排水設備工事・漏水調査・水漏れ修理などのよくある質問。",
     url: "/faq",
+    images: [{ url: "/ogp.png", width: 1200, height: 630 }],
   },
 };
 
