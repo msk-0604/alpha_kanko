@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { OrganizationJsonLd } from "@/components/seo/OrganizationJsonLd";
+import { RecruitFloatingButton } from "@/components/ui/RecruitFloatingButton";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -65,6 +66,7 @@ export default function RootLayout({
         <OrganizationJsonLd />
         <GoogleAnalytics />
         {children}
+        <RecruitFloatingButton />
       </body>
     </html>
   );
