@@ -667,6 +667,9 @@
 
 .heroBrand {
   margin: 0 0 1.35rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .heroBrandBadge {

@@ -22,6 +22,8 @@ export function Hero() {
           <div className={styles.heroContent}>
             <p className={styles.heroBrand}>
               <span className={styles.heroBrandBadge}>上下水道大津市指定工事店</span>
+              <span className={styles.heroBrandBadge}>上下水道草津市指定工事店</span>
+              <span className={styles.heroBrandBadge}>大津市ガス指定工事店</span>
             </p>
             <h1 className={styles.heroTitle}>
               <span className={styles.heroHeadline}>水と配管で、</span>
