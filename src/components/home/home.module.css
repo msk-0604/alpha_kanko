@@ -2315,6 +2315,11 @@
     min-height: max(100svh, 800px);
   }
 
+  /* 看板（ロゴマーク〜「株式会社アルファ管工」）が左で切れないよう、写真を左寄せで表示 */
+  .heroImage {
+    object-position: 30% 42%;
+  }
+
   .heroContentWrap {
     padding-bottom: 4rem;
   }
