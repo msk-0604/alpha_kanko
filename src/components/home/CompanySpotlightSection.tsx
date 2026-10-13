@@ -35,6 +35,18 @@ export function CompanySpotlightSection() {
               <span>指定排水設備工事事業者</span>
               <strong>大津市 第192号</strong>
             </li>
+            <li>
+              <span>ガス指定工事店</span>
+              <strong>大津市</strong>
+            </li>
+            <li>
+              <span>指定給水装置工事事業者</span>
+              <strong>草津市</strong>
+            </li>
+            <li>
+              <span>指定排水設備工事事業者</span>
+              <strong>草津市</strong>
+            </li>
           </ul>
           <div className={styles.companySpotlightActions}>
             <Link href="/company" className={styles.outlineButtonLight}>
