@@ -2310,6 +2310,25 @@
     gap: 0;
   }
 
+  /* 背景写真の看板（画像の上部約1/3）に文字がかからないよう、低い画面ではヒーローを伸ばす */
+  .hero {
+    min-height: max(100svh, 800px);
+  }
+
+  .heroContentWrap {
+    padding-bottom: 4rem;
+  }
+
+  .heroBrand {
+    gap: 0.35rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .heroBrandBadge {
+    padding: 0.3rem 0.7rem 0.3rem 0.6rem;
+    font-size: 0.74rem;
+  }
+
   .heroActions {
     flex-direction: column;
   }
