@@ -2380,3 +2380,14 @@
     gap: 1rem;
   }
 }
+
+/* PCでは見出しを途中で折り返さない（「る。」だけが次の行に落ちないように） */
+@media (min-width: 768px) {
+  .heroContent {
+    max-width: 44rem;
+  }
+
+  .heroHeadline {
+    white-space: nowrap;
+  }
+}
